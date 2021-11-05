@@ -2,6 +2,7 @@
 import 'semantic-ui-css/semantic.min.css'
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div>
       <Navbar />
       <Component {...pageProps} />
-
+      <Footer />
     </div>
     
   );
