@@ -1,20 +1,32 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-export default function Content() {
+
+interface ItemProps {
+    title: string;
+  }
+
+
+export default function Content({img, title, desc, tag}) {
     return(
-        <div>
+        <Box>
+            <img src = {img} alt={title} title={title}/>
+            
             <Tag>
 
             </Tag>
+
             <Tittle>
 
             </Tittle>
-        </div>
+        </Box>
     );
 }
 
 
+const Box = styled.div`
+
+`;
 const Tag = styled.span `
 `;
 const Tittle = styled.span `
