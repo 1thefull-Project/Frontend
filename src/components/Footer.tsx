@@ -7,7 +7,7 @@ export default function Footer() {
     return(
       <Box>
         <div className = "wrap">
-          <button><AiOutlineArrowUp/>Top</button>
+          <a href = "#"><AiOutlineArrowUp/>Top</a>
           <Infomation>
             <InfoName>
               <li>대표</li>
@@ -39,36 +39,60 @@ export default function Footer() {
 
 const Box = styled.div`
   background: #666666;
+  padding: 10.5px 12px;
+  a {
+    font-family: Assistant;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color : white;
+    background: #666666;
+    width: 100%;
+    height: 42px;
+    left: 0px;
+    top: 877px;
+    
+  }
 `
 
-const Infomation = styled.div `
+const Infomation = styled.div`
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 13px;
+  width: 100%;
   color: #8B8B8A;
   display: flex;
   margin-top:13px;
-  margin-bottom: 28px;
+
+  
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   flex-basis: 100%;
-  
+  justify-content:center;
 `
 
 const InfoName = styled.div `
   flex-wrap: wrap;
   text-align: left;
-  margin-right: 100px;
+  margin-right: 40px;
 `
 
 const InfoContent = styled.div`
   text-align: left;
 `
 const Copyright = styled.div `
-  padding: 25px 0 28px;
+  padding: 12px 12px px;
+  margin-top: 12px;
   text-align: center;
   line-height: 170%;
   word-break: keep-all;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 12px;
   order: 1;
   flex-basis: 100%;
 `
