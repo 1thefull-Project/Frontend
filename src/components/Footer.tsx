@@ -39,9 +39,18 @@ export default function Footer() {
 
 const Box = styled.div`
   background: #666666;
+  button {
+    color : white;
+    background: #666666;
+    width: 100%;
+    height: 42px;
+    left: 0px;
+    top: 877px;
+  }
 `
 
-const Infomation = styled.div `
+const Infomation = styled.div`
+  width: 100%;
   color: #8B8B8A;
   display: flex;
   margin-top:13px;
@@ -50,13 +59,13 @@ const Infomation = styled.div `
   margin-left: auto;
   margin-right: auto;
   flex-basis: 100%;
-  
+  justify-content:center;
 `
 
 const InfoName = styled.div `
   flex-wrap: wrap;
   text-align: left;
-  margin-right: 100px;
+  margin-right: 80px;
 `
 
 const InfoContent = styled.div`
