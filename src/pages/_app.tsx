@@ -16,27 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
       <Footer />
-        <Fixbutton>
-          <a href = "#">
-            <img src = "componentImg/btn_create.png"/>
-          </a>
-        </Fixbutton>
+        
 
     </div>
     
   );
 }
 
-const Fixbutton = styled.div `
-  position: fixed; 
-  left: 80.28%;
-  right: 6.39%;
-  top: 59.22%;
-  bottom: 36.55%;
-  img {
-    width: 50px;
-    height: 52.2px;
 
-  }
-`;
 export default MyApp;

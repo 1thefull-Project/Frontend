@@ -16,6 +16,11 @@ export default function Home() {
                     <img src = "/componentImg/product_img_story.png"/>
                 </MovetoStory>
             </div>  
+            <Fixbutton>
+                <a href = "#">
+                    <img src = "componentImg/btn_create.png"/>
+                </a>
+             </Fixbutton>
         </Main>
     );
 }
@@ -59,3 +64,16 @@ const More = styled.button`
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
 `
+
+const Fixbutton = styled.div `
+  position: fixed; 
+  left: 80.28%;
+  right: 6.39%;
+  top: 59.22%;
+  bottom: 36.55%;
+  img {
+    width: 50px;
+    height: 52.2px;
+
+  }
+`;
