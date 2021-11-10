@@ -1,7 +1,7 @@
 // import App from "next/app";
 import 'semantic-ui-css/semantic.min.css'
 import type { AppProps /*, AppContext */ } from 'next/app'
-import Navbar from '../components/Navbar/Navbar';
+import Header from '../components/header';
 import Footer from '../components/Footer';
 import '../styles/responsive.css';
 import '../styles/text.css';
@@ -11,7 +11,7 @@ import styled from '@emotion/styled';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
-      <Navbar />
+      <Header />
         <div>
           <Component {...pageProps} />
         </div>
