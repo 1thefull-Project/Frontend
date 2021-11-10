@@ -1,13 +1,14 @@
 import { Button } from "semantic-ui-react"
 import {AiOutlineArrowUp } from "react-icons/ai";
 import styled from "@emotion/styled";
+import logo_square from '../../public/logo/logo_square.png';
 
 
 export default function Footer() {
     return(
       <Box>
         <div className = "wrap">
-          <a href = "#"><AiOutlineArrowUp/>Top</a>
+          <a href = "#" className = "Topbutton"><AiOutlineArrowUp/>Top</a>
           <Infomation>
             <InfoName>
               <li>대표</li>
@@ -26,10 +27,19 @@ export default function Footer() {
               <li>contact@gonggoobee.com</li>
               <li>898-21-09208</li>
             </InfoContent>
+
             <Copyright>
               <li>copyright 09B.co.kr. All Rights Reserved.</li>
             </Copyright>
             
+            <MakerButton>
+              <a className = "Gobutton" href = "#">
+              <img src = "/logo/logo_square.png" alt = "공구비 배경화면에 바로가기 만들기"/>
+              <label>공구비</label> 배경화면에 바로가기 만들기
+              </a>
+   
+            </MakerButton>
+
           </Infomation>
         </div>
       </Box>
@@ -39,20 +49,21 @@ export default function Footer() {
 
 const Box = styled.div`
   background: #666666;
-  padding: 10.5px 12px;
+  display:flex;
+  padding-top: 10.5px;
   a {
     font-family: Assistant;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 20px;
-    color : white;
-    background: #666666;
     width: 100%;
     height: 42px;
     left: 0px;
     top: 877px;
-    
+  }
+  .Topbutton{
+    color : white;
   }
 `
 
@@ -87,12 +98,54 @@ const InfoContent = styled.div`
 const Copyright = styled.div `
   padding: 12px 12px px;
   margin-top: 12px;
-  text-align: center;
   line-height: 170%;
+  text-align: center;
   word-break: keep-all;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 12px;
   order: 1;
   flex-basis: 100%;
+`
+
+const MakerButton =styled.div`
+  height: 42px;
+  background: #8E8E8B;
+
+  text-align: center;
+  word-break: keep-all;
+  margin-right: 0;
+  margin-left: 0;
+  order: 1;
+  flex-basis: 100%;
+
+  padding-top:10px;
+  padding-bottom:10px;
+
+
+
+  img{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  
+    margin-right: 5px;
+  }
+
+  .Gobutton{
+    
+    vertical-align: middle;
+
+    font-family: Assistant;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+  }
+
+  label{
+    color: #FFBB0D;
+  }
+
 `

@@ -4,10 +4,12 @@ import React from "react";
 
 interface ItemProps {
     title: string;
+    state: boolean;
+    tag: string;
   }
 
 
-export default function Content({img, title, desc, tag}) {
+export default function Content({img, title, state, tag}) {
     return(
         <Box>
             <img src = {img} alt={title} title={title}/>
@@ -19,6 +21,13 @@ export default function Content({img, title, desc, tag}) {
             <Tittle>
 
             </Tittle>
+
+            <State>
+
+            </State>
+            <Statebar>
+
+            </Statebar>
         </Box>
     );
 }
@@ -39,5 +48,10 @@ const Tittle = styled.span `
     align-items: center;
 
     color: #000000;
+`;
+
+const State = styled.img`
+`;
+const Statebar = styled.img`
 `;
 
