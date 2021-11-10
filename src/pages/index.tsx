@@ -1,12 +1,16 @@
 import styled from "@emotion/styled";
 import MoreButton from "../components/Button/MoreButton";
 import {AiOutlineDown } from "react-icons/ai";
+import {Item} from '../components/Content/Item';
 
 export default function Home() {
     return (
         <Main>
            
-            <div>              
+            <div>
+                <ItemArea>
+                    <Item title = "대충 아기용품" state = "수요조사" tag = {['#아기용품', '친환경']}/>
+                </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="#">
                     <img src = "/componentImg/product_img_story.png"/>
@@ -16,10 +20,16 @@ export default function Home() {
     );
 }
 
+
+
 const Main = styled.div`
     justify-content:center;
     display: flex;
     text-align: center;
+`
+
+const ItemArea = styled.div`
+    height :1000px;
 `
 
 const MovetoStory = styled.a`

@@ -4,18 +4,18 @@ import React from "react";
 
 interface ItemProps {
     title: string;
-    state: boolean;
-    tag: string;
+    state: string;
+    tag: any[];
   }
 
+  export const Item: React.FC<ItemProps> = ({title, state, tag}) => {
 
-export default function Content({img, title, state, tag}) {
-    return(
+    return (
         <Box>
-            <img src = {img} alt={title} title={title}/>
-            
-            <Tag>
+            <img src = "/product_img_baby.png"  alt={title} title={title} className = "ItemImage"/>
 
+            {/* <Tag>
+                <label></label>
             </Tag>
 
             <Tittle>
@@ -23,20 +23,46 @@ export default function Content({img, title, state, tag}) {
             </Tittle>
 
             <State>
+                <Statelevel>
 
-            </State>
-            <Statebar>
+                </Statelevel>
+                <Statebar>
 
-            </Statebar>
+                </Statebar>
+
+            </State> */}
+
         </Box>
+      
     );
-}
+  }
+
 
 
 const Box = styled.div`
-
+  
+    .ItemImage{
+        width: 153px;
+        height: 107px;
+    }
 `;
 const Tag = styled.span `
+    label{
+        font-family: Assistant;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 13px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #7BCFFF;
+
+        border: 0.2px solid #7BCFFF;
+    }
+
 `;
 const Tittle = styled.span `
     font-family: Assistant;
@@ -50,8 +76,10 @@ const Tittle = styled.span `
     color: #000000;
 `;
 
-const State = styled.img`
+const State = styled.div`
 `;
+const Statelevel = styled.div`
+`
 const Statebar = styled.img`
 `;
 
