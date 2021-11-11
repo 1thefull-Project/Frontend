@@ -2,24 +2,29 @@ import styled from "@emotion/styled";
 import MoreButton from "../components/Button/MoreButton";
 import {AiOutlineDown } from "react-icons/ai";
 import {Item} from '../components/Content/Item';
+import Link from 'next/link';
 
 export default function Home() {
     return (
         <Main>
-           
             <div>
                 <ItemArea>
-                    <Item title = "대충 아기용품" state = "수요조사" tag = {['#아기용품', '친환경']}/>
+                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색두줄두루둘두루둚ㄷ루두" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
-                <MovetoStory href ="#">
+                <MovetoStory href ="/#">
                     <img src = "/componentImg/product_img_story.png"/>
                 </MovetoStory>
             </div>  
             <Fixbutton>
-                <a href = "#">
-                    <img src = "componentImg/btn_create.png"/>
-                </a>
+                <Link href="/write">
+                    <a><img src = "componentImg/btn_create.png"/></a>
+                </Link>
              </Fixbutton>
         </Main>
     );
@@ -28,13 +33,24 @@ export default function Home() {
 
 
 const Main = styled.div`
+    margin-right:auto;
+    margin-left:auto;
     justify-content:center;
     display: flex;
     text-align: center;
+    width:360px;
+    .div{
+        
+    }
+
 `
 
 const ItemArea = styled.div`
-    height :1000px;
+    Margin-top:15px;
+    text-align: center;
+    padding-left: 7px;
+    padding-right: 7px;
+    
 `
 
 const MovetoStory = styled.a`
