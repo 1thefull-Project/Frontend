@@ -17,7 +17,7 @@ export default function Header() {
                     <Link href="/search">
                         <a><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
                     </Link>
-                    <Link href="/mypage">
+                    <Link href="/login">
                         <Image src="/profile_default.png" alt="" width={24} height={24} />
                     </Link>
                 </RightElements>
