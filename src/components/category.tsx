@@ -20,12 +20,13 @@ const Box = styled.div`
     height: 61px;
     margin-bottom: 12px;
     p{
-        font-family: Asset;
+        font-family: Asset.ttf;
         font-style: normal;
         font-weight: normal;
         font-size: 9px;
         width: 70px;
         height: 12px;
+        color: #686867;
     }
 `;
 
