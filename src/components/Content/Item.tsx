@@ -37,9 +37,9 @@ interface ItemProps {
   }
 
 const Box = styled.div`
-    display:block;
+    display:flex;
     float:left;
-    height:100%;
+    height:178px;
     width: 153px;
     margin-right:10px;
     margin-left:10px;
@@ -68,7 +68,6 @@ const Tag = styled.div `
         color: #7BCFFF;
 
     }
-
     line-height: 11.72px
    
 
@@ -78,6 +77,7 @@ const Tittle = styled.div `
     text-align:left;
     margin-bottom:4px;
     line-height:100%;
+    width:153px;
     label{
         
         font-family: Roboto;
@@ -96,7 +96,7 @@ const State = styled.div`
     margin-top: 3px;
     width: 130px;
     height: 18px;
-    float:left
+    float:left;
     align-items:center;
     
 `;
@@ -128,7 +128,6 @@ const Statebar = styled.div`
     margin-left: 6px;
     float:left
     img{
-        
         vertical-align:center; 
         height: 8px;
         width: 8px;

@@ -56,12 +56,12 @@ export default function Home() {
             </Section1>
             <div>
                 <ItemArea>
-                    <Item title = "아기 실리콘 턱받이 3색dddddddddddddd" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색두줄두루둘두루둚ㄷ루두" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "초강력 괴물 흡입력 청소기" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "과일 슬라이서" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "손바닥 보호 비닐봉지 실리콘 손잡이" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "김치 파우더" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "오징어게임 운동복 공구 진행해줄 러비 찾아요!" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "구르미 그린 전등" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="/#">
@@ -137,8 +137,8 @@ const Fixbutton = styled.div `
   position: fixed; 
   left: 80.28%;
   right: 6.39%;
-  top: 59.22%;
-  bottom: 36.55%;
+  top: 89.22%;
+  bottom: 10.55%;
   img {
     width: 50px;
     height: 52.2px;
