@@ -5,8 +5,7 @@ interface ItemProps {
     state: string;
     tag: any[];
   }
-
-  export const Item: React.FC<ItemProps> = ({title, state, tag}) => {
+ export const Item: React.FC<ItemProps> = ({title, state, tag}) => {
 
     return (
         <Box>
@@ -26,7 +25,8 @@ interface ItemProps {
                     </Statelevel>
                     <Statebar>
                         <img src = "/Progressbar/OnEllipse.png"/>
-                        <img src = "/Progressbar/OffEllipse.png"/>
+                        {state === "공구모집 중" ?   <img src = "/Progressbar/OnEllipse.png"/> : <img src = "/Progressbar/OffEllipse.png"/>}
+                        
                     </Statebar>
 
                 </State>
@@ -49,6 +49,7 @@ const Box = styled.div`
     }
     img{
         margin-right:3px;
+        margin-bottom:0px;
     }
     margin-bottom:20px;
 `;
@@ -56,18 +57,19 @@ const Box = styled.div`
 const Tag = styled.div `
     text-align:left;
     height:12px;
-
+    margin-bottom:3px;
+    
     label{
-        font-family: Assistant;
+        font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: bold;
         font-size: 10px;
-        line-height: 13px;
+        line-height: 12px;
         color: #7BCFFF;
 
     }
 
-    margin-bottom:3px;
+    line-height: 11.72px
    
 
 
@@ -78,7 +80,7 @@ const Tittle = styled.div `
     line-height:100%;
     label{
         
-        font-family: Assistant;
+        font-family: Roboto;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
