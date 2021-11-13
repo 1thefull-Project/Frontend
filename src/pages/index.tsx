@@ -57,7 +57,7 @@ export default function Home() {
             <div>
                 <ItemArea>
                     <Item title = "아기 실리콘 턱받이 3색dddddddddddddd" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "아기 실리콘 턱받이 3색두줄두루둘두루둚ㄷ루두" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    <Item title = "아기 실리콘 턱받이 3색두줄두루둘두루둚ㄷ루두" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
                     <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
                     <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
                     <Item title = "아기 실리콘 턱받이 3색" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
