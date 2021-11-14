@@ -6,7 +6,6 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <Box>
-            <div className="wrap">
                 <Link href ="/menu">
                     <a className="menu" > <Image src="/button/btn_hambugerMenu.png" alt="" width={24} height={24} /> </a>
                 </Link>
@@ -21,39 +20,38 @@ export default function Header() {
                         <Image src="/profile_default.png" alt="" width={24} height={24} />
                     </Link>
                 </RightElements>
-                
-            </div>
         </Box>
     );
 }
 
 const Box = styled.header`
-    background: #FFFFFF;
-    width: 100%;
+    width: 360px;
     height: 66px;
-    left: 0px;
-    top: 0px;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin-left:auto;
+    margin-right:auto;
+    background: #FFFFFF;
     box-shadow: 0px 3px 6px rgba(0,0,0, 0.1);
 
+    padding-left: 16px;
+    padding-right: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    cursor: pointer;
 
     .menu {
-        margin-right: 78px;
+        margin-right: 76px;
+        margin-top: 2px;
     }
 
     .logo {
-        margin-right: 47px;
+        margin-right: 45px;
+        margin-top: 2px;
     }
 `;
 
 const RightElements = styled.div`
     display: inline-block;
-
+    margin-top: 2px;
     a{
         margin-right: 7px;
     }

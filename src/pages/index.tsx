@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Category } from "../components/category";
+import Image from 'next/image';
 import MoreButton from "../components/Button/MoreButton";
 import {AiOutlineDown } from "react-icons/ai";
 import {Item} from '../components/Content/Item';
@@ -25,34 +26,17 @@ export default function Home() {
             {/* 카테고리 슬라이더 */}
             <Section1 className = "wrap">
                 <Slider {...settings}>
-                    <div>
-                        <Category img="/category/category_1.png" name="직접 제작" /> <Category img="/category/category_10.png" name="도서/음반/티켓" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_2.png" name="아이디어/특허" /> <Category img="/category/category_11.png" name="팬 굿즈" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_3.png" name="여성 패션" /> <Category img="/category/category_12.png" name="가구/인테리어" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_4.png" name="남성패션" /> <Category img="/category/category_13.png" name="뷰티/미용" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_5.png" name="식품" /> <Category img="/category/category_14.png" name="잡화/주얼리" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_6.png" name="주방/생활 용품" /> <Category img="/category/category_15.png" name="유아동" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_7.png" name="스포츠/취미" /> <Category img="/category/category_16.png" name="반려동물 용품" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_8.png" name="디지털기기" /> <Category img="/category/category_17.png" name="기타 물품" />
-                    </div>
-                    <div>
-                        <Category img="/category/category_9.png" name="식물" /> <Category img="/category/category_18.png" name="러비 찾아요" />
-                    </div>
+                    <div><Category img="/category/category_1.png" name="직접 제작" /> <Category img="/category/category_10.png" name="도서/음반/티켓" /></div>
+                    <div><Category img="/category/category_2.png" name="아이디어/특허" /> <Category img="/category/category_11.png" name="팬 굿즈" /></div>
+                    <div><Category img="/category/category_3.png" name="여성 패션" /> <Category img="/category/category_12.png" name="가구/인테리어" /></div>
+                    <div><Category img="/category/category_4.png" name="남성패션" /> <Category img="/category/category_13.png" name="뷰티/미용" /> </div>
+                    <div><Category img="/category/category_5.png" name="식품" /> <Category img="/category/category_14.png" name="잡화/주얼리" /></div>
+                    <div><Category img="/category/category_6.png" name="주방/생활 용품" /> <Category img="/category/category_15.png" name="유아동" /></div>
+                    <div><Category img="/category/category_7.png" name="스포츠/취미" /> <Category img="/category/category_16.png" name="반려동물 용품" /></div>
+                    <div><Category img="/category/category_8.png" name="디지털기기" /> <Category img="/category/category_17.png" name="기타 물품" /></div>
+                    <div><Category img="/category/category_9.png" name="식물" /> <Category img="/category/category_18.png" name="러비 찾아요" /></div>
                 </Slider>
+                <Image src="/category/main_slider.png" alt="" width={88} height={12} />
             </Section1>
             <div>
                 <ItemArea>
@@ -94,7 +78,7 @@ const Main = styled.div`
 const Section1 = styled.section`
     margin-top: 15px;
     width:360px;
-    height: 150px;
+    height: 177px;
     overflow: hidden;
 `;
 

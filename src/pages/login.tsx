@@ -37,7 +37,7 @@ const Section1 = styled.section`
     }
 
     p{
-        font-family: Assistant-Regular.ttf;
+        font-family: Roboto-Regular.ttf;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
@@ -50,7 +50,7 @@ const Section1 = styled.section`
 `;
 
 const Heading = styled.h4`
-    font-family: Assistant-Regular.ttf;
+    font-family: Roboto-Regular.ttf;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;

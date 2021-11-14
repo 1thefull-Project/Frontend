@@ -60,7 +60,7 @@ const Tag = styled.div `
     margin-bottom:3px;
     
     label{
-        font-family: Roboto;
+        font-family: Roboto-Regular.ttf;
         font-style: normal;
         font-weight: bold;
         font-size: 10px;
@@ -80,7 +80,7 @@ const Tittle = styled.div `
     width:153px;
     label{
         
-        font-family: Roboto;
+        font-family: Roboto-Regular.ttf;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
