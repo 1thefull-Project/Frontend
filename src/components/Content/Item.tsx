@@ -62,7 +62,7 @@ const Tag = styled.div `
     label{
         font-family: Roboto;
         font-style: normal;
-        font-weight: bold;
+        font-weight: Bold;
         font-size: 10px;
         line-height: 12px;
         color: #7BCFFF;
@@ -82,7 +82,7 @@ const Tittle = styled.div `
         
         font-family: Roboto;
         font-style: normal;
-        font-weight: bold;
+        font-weight: Bold;
         font-size: 12px;
         
     }
@@ -105,7 +105,7 @@ const Statelevel = styled.div`
     label{ 
         display:block;
         line-height:16px;
-        font-family: Assistant;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 10px;

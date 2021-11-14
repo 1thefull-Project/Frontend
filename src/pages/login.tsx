@@ -7,7 +7,7 @@ export default function Login(){
                 <div className="wrap">
                     <Heading>공구비 로그인</Heading>
                     <p>공구비에 오신 것을 환영합니다!</p>
-                    <p>공구비는 러비&#38;더비 회원님들의 공동구매를 도와드리는 플랫폼입니다.</p>
+                    <p>공구비는 러비&#38;더비 회원님들의 공동구매를 돕는 플랫폼입니다.</p>
                     <br/>
                     <p>공구비의 도움을 받으시려면 구글 계정 로그인이 필요합니다.</p>
 
@@ -37,11 +37,11 @@ const Section1 = styled.section`
     }
 
     p{
-        font-family: Assistant-Regular.ttf;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
-        line-height: 5px;
+        line-height: 13px;
         text-align: left;   
         display: flex;
 
@@ -50,9 +50,9 @@ const Section1 = styled.section`
 `;
 
 const Heading = styled.h4`
-    font-family: Assistant-Regular.ttf;
+    font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: Bold;
     font-size: 22px;
     line-height: 29px;
     display: flex;
@@ -76,10 +76,13 @@ const LoginButton = styled.button`
 
     p{
         margin-left: 5px;
+        margin-top: 4px;
 
-        font-family: Assistant;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
         font-size: 16px;
-        line-height: 30px;
+        line-height: 19px;
         color: rgba(104, 104, 103, 0.82);
     }
 `;

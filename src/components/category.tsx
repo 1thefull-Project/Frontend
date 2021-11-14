@@ -9,8 +9,8 @@ interface CategoryIcon {
 export const Category: React.FC<CategoryIcon> = ({img, name}) => {
     return (
         <Box>
-                <Image src={img} alt="" width={49} height={48} />
-                <p>{name}</p>
+            <Image src={img} alt="" width={49} height={48} />
+            <p>{name}</p>
         </Box>
     )
 }
@@ -20,7 +20,7 @@ const Box = styled.div`
     height: 61px;
     margin-bottom: 12px;
     p{
-        font-family: Asset.ttf;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 9px;
