@@ -1,16 +1,16 @@
 import styled from "@emotion/styled";
 
 interface ItemProps {
+    imge: string;
     title: string;
     state: string;
     tag: any[];
   }
- export const Item: React.FC<ItemProps> = ({title, state, tag}) => {
-
+ export const Item: React.FC<ItemProps> = ({imge, title, state, tag}) => {
     return (
         <Box>
             <a href = "/iteminfo">
-                <img src = "/product_img_vacuum.png"  alt={title} title={title} className = "ItemImage"/>
+                <img src = {imge}  alt={title} title={title} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
                 </Tag>
@@ -62,7 +62,7 @@ const Tag = styled.div `
     label{
         font-family: Roboto;
         font-style: normal;
-        font-weight: Bold;
+        font-weight: bold;
         font-size: 10px;
         line-height: 12px;
         color: #7BCFFF;
@@ -82,7 +82,7 @@ const Tittle = styled.div `
         
         font-family: Roboto;
         font-style: normal;
-        font-weight: Bold;
+        font-weight: bold;
         font-size: 12px;
         
     }
@@ -105,7 +105,7 @@ const Statelevel = styled.div`
     label{ 
         display:block;
         line-height:16px;
-        font-family: Roboto;
+        font-family: Assistant;
         font-style: normal;
         font-weight: normal;
         font-size: 10px;
