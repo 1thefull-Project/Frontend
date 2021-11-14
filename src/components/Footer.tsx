@@ -48,9 +48,12 @@ export default function Footer() {
 
 
 const Box = styled.div`
+
   width: 360px;
   margin-left:auto;
   margin-right:auto;
+
+
   background: #666666;
   display:flex;
   padding-top: 10.5px;
