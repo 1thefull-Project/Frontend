@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
 
 
-export default function iteminfo(){
+export default function Iteminfo({ item }){
+    const {image, title, state, name} = item;
     return(
         <div>
             <ItemContent>
-                <img src = "/product_img_bts.png" alt= {""}/>
+                <img src = {image} alt= {""}/>
                 <TextZone>
-                    <label>공구모집 중</label>
-                    <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
+                    <label>{title}</label>
+                    <span>{name}</span>
                 </TextZone>
                 
             </ItemContent>
