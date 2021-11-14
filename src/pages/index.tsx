@@ -40,12 +40,7 @@ export default function Home() {
             </Section1>
             <div>
                 <ItemArea>
-                    <Item title = "초강력 괴물 흡입력 청소기" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "과일 슬라이서" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "손바닥 보호 비닐봉지 실리콘 손잡이" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "김치 파우더" state = "수요조사 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "오징어게임 운동복 공구 진행해줄 러비 찾아요!" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
-                    <Item title = "구르미 그린 전등" state = "공구모집 중" tag = {['#유아용', '아이디어/특허']}/>
+                    {item.map(items => (<View imge = {items.image} tag = {items.tag} title = {items.name} state = {items.state} />))}
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="/#">
@@ -58,6 +53,12 @@ export default function Home() {
                 </Link>
              </Fixbutton>
         </Main>
+    );
+}
+
+function View({imge,title,state,tag}){
+    return (
+        <Item imge = {imge} title = {title} state = {state} tag = {tag}/>
     );
 }
 
@@ -128,3 +129,56 @@ const Fixbutton = styled.div `
     height: 52.2px;
   }
 `;
+
+
+const item = [
+    {
+        name: '초강력 괴물 흡입력 청소기',
+        image: '/product_img_vacuum.png',
+        state: "공구모집 중",
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '과일 슬라이서',
+        image: '/product_img_slicer.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '손바닥 보호 비닐봉지 실리콘',
+        image: '/product_img_handle.png',
+        state: "수요조사 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '김치 파우더',
+        image: '/product_img_kimchi.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '오징어게임 운동복 공구 진행해줄 러비 찾아요!',
+        image: '/product_img_sportswear.png',
+        state: "수요조사 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '구르미 그린 조명',
+        image: '/product_img_lighting.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '아기 실리콘 턱받이 3색',
+        image: '/product_img_baby.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '반려동물 캐리어',
+        image: '/product_img_carrier.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+
+];
