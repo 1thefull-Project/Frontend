@@ -60,9 +60,9 @@ const Tag = styled.div `
     margin-bottom:3px;
     
     label{
-        font-family: Roboto-Regular.ttf;
+        font-family: Roboto;
         font-style: normal;
-        font-weight: bold;
+        font-weight: Bold;
         font-size: 10px;
         line-height: 12px;
         color: #7BCFFF;
@@ -80,9 +80,9 @@ const Tittle = styled.div `
     width:153px;
     label{
         
-        font-family: Roboto-Regular.ttf;
+        font-family: Roboto;
         font-style: normal;
-        font-weight: bold;
+        font-weight: Bold;
         font-size: 12px;
         
     }
@@ -105,7 +105,7 @@ const Statelevel = styled.div`
     label{ 
         display:block;
         line-height:16px;
-        font-family: Assistant;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 10px;

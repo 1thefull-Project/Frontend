@@ -44,7 +44,7 @@ const TextZone = styled.div`
         display:block;
         text-align:center;
         line-height:16px;
-        font-family: Assistant;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 10px;

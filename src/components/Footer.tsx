@@ -58,7 +58,7 @@ const Box = styled.div`
   display:flex;
   padding-top: 10.5px;
   a {
-    font-family: Roboto-Regular.ttf;
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
@@ -74,7 +74,7 @@ const Box = styled.div`
 `
 
 const Infomation = styled.div`
-  font-family: Roboto-Regular.ttf;
+  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -142,7 +142,7 @@ const MakerButton =styled.div`
     
     vertical-align: middle;
 
-    font-family: Roboto-Regular.ttf;
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
