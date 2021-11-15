@@ -61,7 +61,7 @@ const Post = () => {
 ];
 
   
-  return <Iteminfo item = {item}/>;
+  //return <Iteminfo item = {item}/>;
 }
 
 export default Post
