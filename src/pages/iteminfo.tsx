@@ -7,7 +7,7 @@ interface ItemProps {
     tag: any[];
   }
 
-export default function Iteminfo(){
+export default function Iteminfo(item){
     // const {image, title, state, name} = item;
     return(
         // <div>
