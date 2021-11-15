@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +9,73 @@ import MoreButton from "../components/Button/MoreButton";
 import {AiOutlineDown } from "react-icons/ai";
 import {Item} from '../components/Content/Item';
 import Link from 'next/link';
+import { arrayBuffer } from "stream/consumers";
+import ItemList from "../components/Content/ItemList";
+
+
+
+
+interface ItemProps {
+    name: String;
+    image: String;
+    state:String;
+    tag: any[];
+  }
+
+
+  const item = [
+    {   
+        name: '초강력 괴물 흡입력 청소기',
+        image: '/product_img_vacuum.png',
+        state: "공구모집 중",
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '과일 슬라이서',
+        image: '/product_img_slicer.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '손바닥 보호 비닐봉지 실리콘',
+        image: '/product_img_handle.png',
+        state: "수요조사 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '김치 파우더',
+        image: '/product_img_kimchi.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '오징어게임 운동복 공구 진행해줄 러비 찾아요!',
+        image: '/product_img_sportswear.png',
+        state: "수요조사 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '구르미 그린 조명',
+        image: '/product_img_lighting.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '아기 실리콘 턱받이 3색',
+        image: '/product_img_baby.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+    {
+        name: '반려동물 캐리어',
+        image: '/product_img_carrier.png',
+        state: "공구모집 중",  
+        tag: ['#주방,생활용품'],
+    },
+
+];
+
+
 
 
 export default function Home() {
@@ -47,6 +114,16 @@ export default function Home() {
         setData(filteredData);
     }
 
+      const [list, setList] = useState([]);
+
+      function getData(){
+          setList(item);
+      }
+
+      useEffect(() => {
+          getData();
+          console.log(list)
+      }, []);
 
     return (
         <Main>
@@ -80,7 +157,9 @@ export default function Home() {
                     </Slider>
                 </Filter>
                 <ItemArea>
-                    {item.map(items => (<View imge = {items.image} tag = {items.tag} title = {items.name} state = {items.state} />))}
+                        <a>
+                            <ItemList list = {item.slice(0,6)}/>
+                        </a>
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="/#">
@@ -96,11 +175,9 @@ export default function Home() {
     );
 }
 
-function View({imge,title,state,tag}){
-    return (
-        <Item imge = {imge} title = {title} state = {state} tag = {tag}/>
-    );
-}
+
+
+
 
 
 const Main = styled.div`
@@ -111,9 +188,7 @@ const Main = styled.div`
     flex-direction: column;
     text-align: center;
     width:360px;
-    .div{
-        
-    }
+    
 `;
 
 const Section1 = styled.section`
@@ -179,6 +254,7 @@ const More = styled.button`
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
+
 `;
 
 const Fixbutton = styled.div `
@@ -194,54 +270,4 @@ const Fixbutton = styled.div `
 `;
 
 
-const item = [
-    {
-        name: '초강력 괴물 흡입력 청소기',
-        image: '/product_img_vacuum.png',
-        state: "공구모집 중",
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '과일 슬라이서',
-        image: '/product_img_slicer.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '손바닥 보호 비닐봉지 실리콘',
-        image: '/product_img_handle.png',
-        state: "수요조사 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '김치 파우더',
-        image: '/product_img_kimchi.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '오징어게임 운동복 공구 진행해줄 러비 찾아요!',
-        image: '/product_img_sportswear.png',
-        state: "수요조사 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '구르미 그린 조명',
-        image: '/product_img_lighting.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '아기 실리콘 턱받이 3색',
-        image: '/product_img_baby.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        name: '반려동물 캐리어',
-        image: '/product_img_carrier.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
 
-];
