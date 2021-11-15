@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import Iteminfo from '../iteminfo'
+import Iteminfo from '../Iteminfo'
 
 const Post = () => {
   const router = useRouter()
@@ -61,7 +61,7 @@ const Post = () => {
 ];
 
   
-  return <Iteminfo item = {item}/>;
+//   return <Iteminfo item = {item}/>;
 }
 
 export default Post

@@ -6,11 +6,11 @@ interface ItemProps {
     state: string;
     tag: any[];
   }
- export const Item: React.FC<ItemProps> = ({imge, title, state, tag}) => {
+ export default function Item({img, title, state, tag}){
     return (
         <Box>
-            <a href = "/iteminfo">
-                <img src = {imge}  alt={title} title={title} className = "ItemImage"/>
+            <a href = "/Iteminfo">
+                <img src = {img} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
                 </Tag>
