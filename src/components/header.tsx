@@ -17,7 +17,7 @@ export default function Header() {
                         <a><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
                     </Link>
                     <Link href="/login">
-                        <Image src="/profile_default.png" alt="" width={24} height={24} />
+                        <a><Image src="/profile_default.png" alt="" width={24} height={24} /></a>
                     </Link>
                 </RightElements>
         </Box>
@@ -33,7 +33,7 @@ const Box = styled.header`
     box-shadow: 0px 3px 6px rgba(0,0,0, 0.1);
 
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 12px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,22 +10,49 @@ import {AiOutlineDown } from "react-icons/ai";
 import {Item} from '../components/Content/Item';
 import Link from 'next/link';
 
+
 export default function Home() {
 
-    var settings = {
+    var settings1 = {    //카테고리 슬라이더 세팅
         dots: false,
         infinite: false,
         slidesToShow: 5,
         slidesToScroll: 3,
         speed: 1000,
         cssEase: 'ease',
-      };
+    };
+
+    var settings2 = {    //필터 슬라이더 세팅
+        dots: false,
+        infinite: false,
+        slidesToShow: 4.5,
+        slidesToScroll: 3,
+        speed: 1000,
+        cssEase: 'ease',
+    };
+
+    //필터 구현
+    const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
+    console.log(filters);       //추후 삭제
+
+    const [activeFil, setActiveFil] = useState(filters);
+    const[data, setData] = useState(item);
+
+    const activeFilter = (btn) => {
+        if (btn === "All") {
+            setData(item);
+            return;
+        }
+        const filteredData = item.filter((item) => item.state === btn);
+        setData(filteredData);
+    }
+
 
     return (
         <Main>
             {/* 카테고리 슬라이더 */}
             <Section1 className = "wrap">
-                <Slider {...settings}>
+                <Slider {...settings1}>
                     <div><Category img="/category/category_1.png" name="직접 제작" /> <Category img="/category/category_10.png" name="도서/음반/티켓" /></div>
                     <div><Category img="/category/category_2.png" name="아이디어/특허" /> <Category img="/category/category_11.png" name="팬 굿즈" /></div>
                     <div><Category img="/category/category_3.png" name="여성 패션" /> <Category img="/category/category_12.png" name="가구/인테리어" /></div>
@@ -38,7 +65,20 @@ export default function Home() {
                 </Slider>
                 <Image src="/category/main_slider.png" alt="" width={88} height={12} />
             </Section1>
+            {/* 필터 및 제품 정보*/}
             <div>
+                <Filter>
+                    <Slider {...settings2}>
+                        {activeFil.map((filt) => {
+                            return (
+                                <div className="filt-wrap">
+                                    <div className="filt-img"><Image src="/main_filter_deactive.png" alt="" width={71} height={26}></Image></div>
+                                    <div className="filt-text">{filt}</div>
+                                </div>
+                            );
+                        })}
+                    </Slider>
+                </Filter>
                 <ItemArea>
                     {item.map(items => (<View imge = {items.image} tag = {items.tag} title = {items.name} state = {items.state} />))}
                 </ItemArea>              
@@ -81,6 +121,29 @@ const Section1 = styled.section`
     width:360px;
     height: 177px;
     overflow: hidden;
+`;
+
+const Filter = styled.div`
+    width:360px;
+    height: 33px;
+    overflow: hidden;
+
+.filt-wrap{
+    position: relative;
+}
+.filt-text{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #686867;
+}
 `;
 
 const ItemArea = styled.div`
