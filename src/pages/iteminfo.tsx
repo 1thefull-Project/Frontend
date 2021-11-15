@@ -14,16 +14,17 @@ export default function Iteminfo(){
                 
         //     </ItemContent>
         // </div>
-        <div>
-        <ItemContent>
-            <img src = "/product_img_bts.png" alt= {""}/>
-            <TextZone>
-                <label>공구모집 중</label>
-                <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
-            </TextZone>
+    //     <div>
+    //     <ItemContent>
+    //         <img src = "/product_img_bts.png" alt= {""}/>
+    //         <TextZone>
+    //             <label>공구모집 중</label>
+    //             <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
+    //         </TextZone>
             
-        </ItemContent>
-    </div>
+    //     </ItemContent>
+    // </div>
+    <h1>에러수정</h1>
     );
 
 }
