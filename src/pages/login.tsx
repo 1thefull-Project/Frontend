@@ -11,7 +11,7 @@ export default function Login(){
                     <br/>
                     <p>공구비의 도움을 받으시려면 구글 계정 로그인이 필요합니다.</p>
 
-                    <LoginButton>
+                    <LoginButton onClick= {() => location.href = "https://gonggoo-bee.herokuapp.com/user/auth/google"}>
                         <Image src="/login_google.png" alt="" width={31} height={30} />
                         <p>구글 계정으로 시작하기</p>
                     </LoginButton>
