@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+interface ItemProps {
+    name: String;
+    image: String;
+    state:String;
+    tag: any[];
+  }
 
 export default function Iteminfo(){
     // const {image, title, state, name} = item;
