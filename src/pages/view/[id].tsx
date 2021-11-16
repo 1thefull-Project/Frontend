@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import Iteminfo from '../Iteminfo'
+import Iteminfo from '../iteminfo'
 
 const Post = () => {
   const router = useRouter()
