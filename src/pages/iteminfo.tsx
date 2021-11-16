@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import IteminfoFooter from "../components/IteminfoFooter";
 
 interface ItemProps {
     name: String;
@@ -20,29 +21,28 @@ export default function Iteminfo(item){
                 
         //     </ItemContent>
         // </div>
-    //     <div>
-    //     <ItemContent>
-    //         <img src = "/product_img_bts.png" alt= {""}/>
-    //         <TextZone>
-    //             <label>공구모집 중</label>
-    //             <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
-    //         </TextZone>
-            
-    //     </ItemContent>
-    // </div>
-    <h1>에러수정</h1>
+        <div>
+            <ItemContent>
+                <img src = "/product_img_bts.png" alt= {""}/>
+                <TextZone>
+                    <label>공구모집 중</label>
+                    <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
+                </TextZone>
+            </ItemContent>
+            <IteminfoFooter/>
+         </div>
+   
     );
 
 }
 
 const ItemContent = styled.div`
-    width:328px;
+    width:360px;
     margin-left:auto;
     margin-right:auto;
     img{
+        
         margin-top:19px;
-        margin-left:auto;
-        margin-right:auto;
         display:flex;
         width:328px;
         height: 218px;

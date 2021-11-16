@@ -187,7 +187,6 @@ const MovetoStory = styled.a`
         margin-bottom: 15px;
         margin-right: auto;
         margin-left: auto;
-
         width:360px;
         height: 102px;
         left: 0px;
@@ -207,7 +206,6 @@ const More = styled.button`
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
-
 `;
 
 const Fixbutton = styled.div `
@@ -221,6 +219,3 @@ const Fixbutton = styled.div `
     height: 52.2px;
   }
 `;
-
-
-
