@@ -39,7 +39,6 @@ const ItemContent = styled.div`
     width:328px;
     margin-left:auto;
     margin-right:auto;
-
     img{
         margin-top:19px;
         margin-left:auto;
@@ -49,13 +48,11 @@ const ItemContent = styled.div`
         height: 218px;
         margin-bottom:13px;
     }
-
 `
 
 const TextZone = styled.div`
     width:360px;
     height: 100%;
-
     margin-bottom:32px;
     label{ 
         
@@ -72,7 +69,6 @@ const TextZone = styled.div`
         border-radius: 2px;
         float:left;
         width: 60px;
-
         margin-right:4px;
         
     }
@@ -83,13 +79,10 @@ const TextZone = styled.div`
         line-height: 18px;
         display: flex;
         align-items: center;
-
         font-weight: 400;
         line-height: 18px;
         letter-spacing: 0em;
         text-align: left;
-
     }
     
-
 `
