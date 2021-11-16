@@ -11,13 +11,13 @@ export default function Header() {
                 </Link>
                 <Link href="/">
                     <a className="logo"><Image src="/logo/logo_imgText.png" alt="" width={124} height={35} /></a>
-                    </Link>
+                </Link>
                 <RightElements>
                     <Link href="/search">
-                        <a><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
+                        <a className="search"><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
                     </Link>
                     <Link href="/login">
-                        <Image src="/profile_default.png" alt="" width={24} height={24} />
+                        <a><img src="/profile_default.png" alt="" width={24} height={24} /></a>
                     </Link>
                 </RightElements>
         </Box>
@@ -52,7 +52,7 @@ const Box = styled.header`
 const RightElements = styled.div`
     display: inline-block;
     margin-top: 2px;
-    a{
+    .search{
         margin-right: 7px;
     }
 `;
