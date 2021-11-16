@@ -55,9 +55,10 @@ const Box = styled.div`
 
 
   background: #666666;
-  display:flex;
+  
   padding-top: 10.5px;
   a {
+    display:block;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
