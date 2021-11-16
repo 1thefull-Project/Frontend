@@ -6,11 +6,11 @@ interface ItemProps {
     state: string;
     tag: any[];
   }
- export const Item: React.FC<ItemProps> = ({imge, title, state, tag}) => {
+ export default function Item({img, title, state, tag}){
     return (
         <Box>
-            <a href = "/iteminfo">
-                <img src = {imge}  alt={title} title={title} className = "ItemImage"/>
+            <a href = "/Iteminfo">
+                <img src = {img} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
                 </Tag>
@@ -66,12 +66,9 @@ const Tag = styled.div `
         font-size: 10px;
         line-height: 12px;
         color: #7BCFFF;
-
     }
     line-height: 11.72px
    
-
-
 `;
 const Tittle = styled.div `
     text-align:left;
@@ -86,7 +83,6 @@ const Tittle = styled.div `
         font-size: 12px;
         
     }
-
     color: #000000;
 `;
 
@@ -133,6 +129,4 @@ const Statebar = styled.div`
         width: 8px;
     }
     
-
 `;
-

@@ -1,10 +1,10 @@
 import React from "react";
-import { Item } from "./Item";
+import  Item  from "./Item";
 import Link from 'next/link';
 
-function View({imge,title,state,tag}){
+function View({img,title,state,tag}){
     return (
-        <Item imge = {imge} title = {title} state = {state} tag = {tag}/>
+        <Item img = {img} title = {title} state = {state} tag = {tag}/>
     );
 }
 
@@ -14,7 +14,7 @@ export default function ItemList({list}){
         {list.map((items) => (
             <Link href = {`/view/${items.name}`}>
                 <a>
-                    <View imge = {items.image} 
+                    <View img = {items.image} 
                     tag = {items.tag} 
                     title = {items.name} 
                     state = {items.state}

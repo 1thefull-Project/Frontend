@@ -1,19 +1,36 @@
 import styled from "@emotion/styled";
 
+interface ItemProps {
+    name: String;
+    image: String;
+    state:String;
+    tag: any[];
+  }
 
-export default function Iteminfo({ item }){
-    const {image, title, state, name} = item;
+export default function Iteminfo(item){
+    // const {image, title, state, name} = item;
     return(
-        <div>
-            <ItemContent>
-                <img src = {image} alt= {""}/>
-                <TextZone>
-                    <label>{title}</label>
-                    <span>{name}</span>
-                </TextZone>
+        // <div>
+        //     <ItemContent>
+        //         <img src = {item.image} alt= {""}/>
+        //         <TextZone>
+        //             <label>{item.title}</label>
+        //             <span>{item.name}</span>
+        //         </TextZone>
                 
-            </ItemContent>
-        </div>
+        //     </ItemContent>
+        // </div>
+    //     <div>
+    //     <ItemContent>
+    //         <img src = "/product_img_bts.png" alt= {""}/>
+    //         <TextZone>
+    //             <label>공구모집 중</label>
+    //             <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
+    //         </TextZone>
+            
+    //     </ItemContent>
+    // </div>
+    <h1>에러수정</h1>
     );
 
 }
@@ -22,7 +39,6 @@ const ItemContent = styled.div`
     width:328px;
     margin-left:auto;
     margin-right:auto;
-
     img{
         margin-top:19px;
         margin-left:auto;
@@ -32,13 +48,11 @@ const ItemContent = styled.div`
         height: 218px;
         margin-bottom:13px;
     }
-
 `
 
 const TextZone = styled.div`
     width:360px;
     height: 100%;
-
     margin-bottom:32px;
     label{ 
         
@@ -55,7 +69,6 @@ const TextZone = styled.div`
         border-radius: 2px;
         float:left;
         width: 60px;
-
         margin-right:4px;
         
     }
@@ -66,13 +79,10 @@ const TextZone = styled.div`
         line-height: 18px;
         display: flex;
         align-items: center;
-
         font-weight: 400;
         line-height: 18px;
         letter-spacing: 0em;
         text-align: left;
-
     }
     
-
 `
