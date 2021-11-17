@@ -9,7 +9,7 @@ interface ItemProps {
  export default function Item({img, title, state, tag}){
     return (
         <Box>
-            <a href = "/Iteminfo">
+            <a href = "/iteminfo">
                 <img src = {img} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
