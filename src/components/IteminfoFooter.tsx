@@ -10,16 +10,14 @@ export default function IteminfoFooter(){
             <FooterContent>
                 <Heart>
                     <BsHeart className = 'HeartIcon'/>
-                    <label>87</label>
+                    <label>0</label>
                 </Heart>
                 <Share>
                     <GrShareOption className = 'ShareIcon' />
                     <label>공유</label>
                 </Share>
                 
-                <JoiButton>수요조사 참여</JoiButton>
-                
-                
+                <JoinButton>수요조사 참여</JoinButton>
                 
             </FooterContent>
                 
@@ -30,8 +28,9 @@ export default function IteminfoFooter(){
 }
 
 const ItemFooter = styled.div`
-    font-family: Roboto;
+   
 
+    font-family: Roboto;
     margin-right:auto;
     margin-left:auto;
     display:block;
@@ -46,6 +45,7 @@ const ItemFooter = styled.div`
   
 `
 const FooterContent = styled.div`
+
     padding-left:21px;
     padding-right:21px;
     padding-top:11px;
@@ -90,7 +90,7 @@ const Share = styled.div`
 
 
 
-const JoiButton = styled.button`
+const JoinButton = styled.button`
     border:none;
     width:233px;
     height:38px;

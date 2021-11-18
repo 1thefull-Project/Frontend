@@ -9,7 +9,7 @@ interface ItemProps {
  export default function Item({img, title, state, tag}){
     return (
         <Box>
-            <a href = "/iteminfo">
+            <a href = "/iteminfo2">
                 <img src = {img} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
@@ -124,6 +124,8 @@ const Statebar = styled.div`
     margin-left: 6px;
     float:left
     img{
+
+        
         vertical-align:center; 
         height: 8px;
         width: 8px;

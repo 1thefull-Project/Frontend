@@ -196,13 +196,14 @@ export default function Home() {
 
 
 const Main = styled.div`
+    width: 360px;
     margin-right:auto;
     margin-left:auto;
     justify-content:center;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width:360px;
+    
     
 `;
 

@@ -48,16 +48,18 @@ export default function Footer() {
 
 
 const Box = styled.div`
-
+  
   width: 360px;
   margin-left:auto;
   margin-right:auto;
+  
 
 
   background: #666666;
   
   padding-top: 10.5px;
   a {
+    
     display:block;
     font-family: Roboto;
     font-style: normal;
@@ -75,6 +77,7 @@ const Box = styled.div`
 `
 
 const Infomation = styled.div`
+
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
