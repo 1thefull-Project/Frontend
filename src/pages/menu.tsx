@@ -1,23 +1,39 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import Image from 'next/image';
+import Link from 'next/link';
+import { MenuItem } from "../components/MenuItem";
+
 
 export default function Menu() {
+    const [preLogin, setpreLogin] = useState<boolean>(true);
+    const togglePreLogin = () => setpreLogin(preLogin => !preLogin);
+
+    const clickLogin = () => {
+        preLogin === true ? location.href = '/login': location.href = process.env.NEXT_PUBLIC_LOGIN_GOOGLE as string };
+
     return (
-        <Layout>
+        <Layout> {/*{preLogin === true ? : }*/}
             {/*마이 공구비*/}
             <Section1>
-                <p className="headline">마이 공구비</p>
-                <div className="profile-box">
+                <p className="headline" onClick={togglePreLogin}>마이공구비</p>
+                <div className="profile-box" style={preLogin === true ? {border: '1px solid #E5E5E5'} : {border: '1px solid #FFD15B'}}>   {/*프로필 박스 색*/}
                     <div className="user">
                         <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
                         <div style={{marginLeft: '19px'}}>
-                            <p className="user-name">공구비</p>
+                            <p className="user-name">{preLogin === true ? '공구비' : '사용자 이름(수정)'}</p> {/*사용자 이름*/}
                             <div className="user-info">
-                                <p>총 거래 수 0</p> <p>팔로워 0</p> <p style={{marginRight: '-2px'}}>팔로우 0</p>
+                                <p>총 거래 수 {preLogin === true ? '0': '1'}</p>
+                                <p>팔로워 {preLogin === true ? '0': '1'}</p>
+                                <p style={{marginRight: '-2px'}}>팔로우 {preLogin === true ? '0': '1'}</p> {/*사용자 정보 텍스트*/}
                             </div>
                         </div>
                     </div>
-                    <div className="login-button" ><p>로그인</p></div>
+                    <Link href={preLogin === true ? '/login': '/mypage'}>
+                        <div className="login-button" style={preLogin === true ? {background: '#C4C4C4'}: {background: '#FFD15B'}}>
+                            <p>{preLogin === true ? '로그인': '마이페이지'}</p>
+                        </div> 
+                    </Link> {/*버튼 색, 텍스트, 이동 경로*/}
                 </div>
             </Section1>
 
@@ -26,11 +42,15 @@ export default function Menu() {
                 <Horizontal>
                     <p className="headline">최근 참여한 상품</p> <p className="more">더보기</p>
                 </Horizontal>
-                <Box1>
+                {preLogin === true ? 
+                <><Box1>
                     <p>최근 참여한 상품 내역을 알 수 없어요.</p>
                     <p>로그인 해주세요.</p>
                 </Box1>
-                <Box2 />
+                <Box2 /></>
+                : 
+                <MenuItem img='/menu_product_img_1.png' tag='팬굿즈' name='귀멸의 칼날 탄지로 피규어'/>
+                } {/*박스 전부 지우고 상품 정보로 교환(상품 정보는 컴포넌트로 추가 제작)*/}
             </Section2>
 
             {/*나의 진행 상품*/}
@@ -38,11 +58,18 @@ export default function Menu() {
                 <Horizontal>
                         <p className="headline">나의 진행 상품</p> <p className="more">더보기</p>
                 </Horizontal>
-                <Box1>
+                {preLogin === true ? 
+                <><Box1>
                     <p>나의 진행 상품 내역을 알 수 없어요.</p>
                     <p>로그인 해주세요.</p>
                 </Box1>
-                <Box2 />
+                <Box2 /> </>
+                :
+                <Item>
+                    <MenuItem img='/menu_product_img_3.png' tag='뷰티/미용' name='[비건]스타터 키트-수분크림'/>
+                    <MenuItem img='/menu_product_img_2.png' tag='식품' name='[비건]나뚜루비건아이스크림'/>
+                </Item>
+                } {/*박스를 상품 정보로 교환*/}
             </Section2>
 
             {/*카테고리*/}
@@ -62,7 +89,7 @@ export default function Menu() {
                 <p>Q&#38;A</p>
                 <p>공구비 스토리</p>
                 <p>공구비 건의하기</p>
-                <p>로그아웃</p>
+                <p onClick={clickLogin}>{preLogin === true ? '로그인': '로그아웃'}</p> {/*로그아웃으로 텍스트 수정*/}
             </Section4>
         </Layout>
     );
@@ -116,7 +143,6 @@ const Section1 = styled.div`
         width: 328px;
         height: 133px;
 
-        border: 1px solid #E5E5E5;
         box-sizing: border-box;
         border-radius: 12px;
 
@@ -165,7 +191,6 @@ const Section1 = styled.div`
     .login-button{
         width: 283px;
         height: 35px;
-        background: #C4C4C4;
         border-radius: 7px;
 
         display: flex;
@@ -240,6 +265,11 @@ const Box2 = styled.div`
     align-items: center;
 
     margin-top: 4px;
+`;
+
+const Item = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 const Section3 = styled.div`
