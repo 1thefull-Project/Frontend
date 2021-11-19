@@ -9,10 +9,10 @@ import { MenuItem } from "../components/MenuItem";
 export default function Menu() {
     const [preLogin, setpreLogin] = useState<boolean>(true);
 
-    {/* useEffect(() => {
+    useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_GETUSER as string).then((res: AxiosResponse) => {console.log(res.data)})
         .catch((Error)=>{console.log(Error)})
-    }, []) */}
+    }, [])
 
     const togglePreLogin = () => setpreLogin(preLogin => !preLogin);
 
