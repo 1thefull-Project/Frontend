@@ -10,7 +10,7 @@ export default function Menu() {
     const togglePreLogin = () => setpreLogin(preLogin => !preLogin);
 
     const clickLogin = () => {
-        preLogin === true ? location.href = '/login': location.href = process.env.NEXT_PUBLIC_LOGIN_GOOGLE as string };
+        preLogin === true ? location.href = '/login': location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string };
 
     return (
         <Layout> {/*{preLogin === true ? : }*/}
