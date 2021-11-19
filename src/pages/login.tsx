@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
+
 export default function Login(){
     return(
             <Section1>
