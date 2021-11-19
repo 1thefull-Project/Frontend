@@ -11,6 +11,8 @@ import Item from '../components/Content/Item';
 import Link from 'next/link';
 import { arrayBuffer } from "stream/consumers";
 import ItemList from "../components/Content/ItemList";
+import Axios from "axios";
+
 
 
 
@@ -86,6 +88,8 @@ interface ItemProps {
 
 
 export default function Home() {
+    
+    
 
     var settings1 = {
         dots: false,
@@ -127,16 +131,17 @@ export default function Home() {
     //     ? setData(item) : setData(item.filter((vga) => vga.state === activeFil));
     // }, [activeFil]);
 
-      const [list, setList] = useState([]);
+    // const API_URL = "https://gonggoo-bee.herokuapp.com/item/"; 
+    
+    // function getData(){
+    //     Axios.get(API_URL).then(res => {
+    //         console.log(res);
+    //     });
+    // }
 
-      function getData(){
-          setList(item);
-      }
-
-      useEffect(() => {
-          getData();
-          console.log(list)
-      }, []);
+    // useEffect(() =>{
+    //     getData();
+    // }, []);
 
     return (
         <Main>
@@ -169,8 +174,7 @@ export default function Home() {
                     </Slider>
             </Filter>
                 <ItemArea>
-                        
-                            {item.map((items, index) => (<Item 
+                    {item.map((items, index) => (<Item 
                                                     img = {items.image} 
                                                     tag = {items.tag} 
                                                     title = {items.name} 
