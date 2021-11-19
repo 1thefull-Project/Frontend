@@ -14,83 +14,8 @@ import ItemList from "../components/Content/ItemList";
 import Axios from "axios";
 
 
-
-
-
-interface ItemProps {
-    name: String;
-    image: String;
-    state:String;
-    tag: any[];
-  }
-
-
-  const item = [
-    {   
-        id: 1,
-        name: '초강력 괴물 흡입력 청소기',
-        image: '/product_img_vacuum.png',
-        state: "공구모집 중",
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 2,
-        name: '과일 슬라이서',
-        image: '/product_img_slicer.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 3,
-        name: '손바닥 보호 비닐봉지 실리콘',
-        image: '/product_img_handle.png',
-        state: "수요조사 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 4,
-        name: '김치 파우더',
-        image: '/product_img_kimchi.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 5,
-        name: '오징어게임 운동복 공구 진행해줄 러비 찾아요!',
-        image: '/product_img_sportswear.png',
-        state: "수요조사 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 6,
-        name: '구르미 그린 조명',
-        image: '/product_img_lighting.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 7,
-        name: '아기 실리콘 턱받이 3색',
-        image: '/product_img_baby.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-    {
-        id: 8,
-        name: '반려동물 캐리어',
-        image: '/product_img_carrier.png',
-        state: "공구모집 중",  
-        tag: ['#주방,생활용품'],
-    },
-
-];
-
-
-
 export default function Home() {
     
-    
-
     var settings1 = {
         dots: false,
         infinite: false,
@@ -111,6 +36,7 @@ export default function Home() {
     };
 
     //필터 구현
+    {/*
     const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
     console.log(filters);       //추후 삭제
 
@@ -125,6 +51,7 @@ export default function Home() {
         const filteredData = item.filter((item) => item.state === btn);
         setData(filteredData);
     }
+     */}
 
     // useEffect(() => {
     //     activeFil === '전체보기'
@@ -163,25 +90,25 @@ export default function Home() {
             <div>
             <Filter>
                     <Slider {...settings2}>
-                        {activeFil.map((filt) => {
+                        {/* {activeFil.map((filt) => {
                             return (
                                 <div className="filt-wrap" key="{filt}">
                                     <div className="filt-img" onClick={() => activeFilter(filt)}><Image src="/main_filter_deactive.png" alt="" width={71} height={26}></Image></div>
                                     <div className="filt-text">{filt}</div>
                                 </div>
                             );
-                        })} 
+                        })}  */}
                     </Slider>
             </Filter>
                 <ItemArea>
-                    {item.map((items, index) => (<Item 
+                    {/* {item.map((items, index) => (<Item 
                                                     img = {items.image} 
                                                     tag = {items.tag} 
                                                     title = {items.name} 
                                                     state = {items.state}
                                                     key = {index}
                                                 />))}
-                            {/* <ItemList list = {item.slice(0,6)}/> */}
+                            <ItemList list = {item.slice(0,6)}/> */}
                         
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>

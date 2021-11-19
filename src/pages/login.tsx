@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 
-//require('dotenv').config();
-
 export default function Login(){
     return(
             <Section1>

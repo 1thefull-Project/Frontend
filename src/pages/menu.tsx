@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios, { AxiosResponse } from 'axios';
 import styled from "@emotion/styled";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,12 @@ import { MenuItem } from "../components/MenuItem";
 
 export default function Menu() {
     const [preLogin, setpreLogin] = useState<boolean>(true);
+
+    {/* useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_GETUSER as string).then((res: AxiosResponse) => {console.log(res.data)})
+        .catch((Error)=>{console.log(Error)})
+    }, []) */}
+
     const togglePreLogin = () => setpreLogin(preLogin => !preLogin);
 
     const clickLogin = () => {
