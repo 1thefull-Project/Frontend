@@ -4,12 +4,11 @@ import IteminfoFooter from "../components/IteminfoFooter";
 import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
 import { ProgressBar } from "../components/ProgressBar";
 import {BiDotsVerticalRounded} from "react-icons/bi";
-import {IoIosInformationCircleOutline} from "react-icons/Io"
 import BuyingEnd from "../components/Modal/BuyingEnd";
 import ReseachEnd from "../components/Modal/ReseachEnd";
 import BuyingStart from "../components/Modal/BuyingStart";
 import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
-
+import {IoIosInformationCircleOutline} from "react-icons/io"
 
 interface ItemProps {
 

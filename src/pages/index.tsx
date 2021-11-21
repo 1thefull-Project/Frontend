@@ -122,10 +122,8 @@ export default function Home() {
     {/*
     const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
     console.log(filters);       //추후 삭제
-
     const [activeFil, setActiveFil] = useState(filters);
     const[data, setData] = useState(item);
-
     const activeFilter = (btn: string) => {
         if (btn === '전체보기') {
             setData(item);
@@ -192,7 +190,7 @@ export default function Home() {
                                                 key = {items.itemId}
                                                 />))}
 
-                  
+                    <ItemList list = {Data}/>
  
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
