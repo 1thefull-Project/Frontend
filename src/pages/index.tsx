@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,9 +13,8 @@ import { arrayBuffer } from "stream/consumers";
 import ItemList from "../components/Content/ItemList";
 import Axios from "axios";
 
-
 export default function Home() {
-    
+
     var settings1 = {
         dots: false,
         infinite: false,
