@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -110,22 +110,22 @@ export default function Home() {
     };
 
     //필터 구현
-    {/*
-    const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
-    console.log(filters);       //추후 삭제
 
-    const [activeFil, setActiveFil] = useState(filters);
-    const[data, setData] = useState(item);
+    // const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
+    // console.log(filters);       //추후 삭제
 
-    const activeFilter = (btn: string) => {
-        if (btn === '전체보기') {
-            setData(item);
-            return;
-        }
-        const filteredData = item.filter((item) => item.state === btn);
-        setData(filteredData);
-    }
-     */}
+    // const [activeFil, setActiveFil] = useState(filters);
+    // const[data, setData] = useState(item);
+
+    // const activeFilter = (btn: string) => {
+    //     if (btn === '전체보기') {
+    //         setData(item);
+    //         return;
+    //     }
+    //     const filteredData = item.filter((item) => item.state === btn);
+    //     setData(filteredData);
+    // }
+
 
     // useEffect(() => {
     //     activeFil === '전체보기'
@@ -183,11 +183,7 @@ export default function Home() {
                                                 key = {Data.itemid}
                                                 />))}
                             <ItemList list = {Data}/>
-                  
-                   
-                    
-                          
- 
+
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="/#">

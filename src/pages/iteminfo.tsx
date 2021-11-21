@@ -4,7 +4,7 @@ import IteminfoFooter from "../components/IteminfoFooter";
 import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
 import { ProgressBar } from "../components/ProgressBar";
 import {BiDotsVerticalRounded} from "react-icons/bi";
-import {IoIosInformationCircleOutline} from "react-icons/IO"
+import {IoIosInformationCircleOutline} from "react-icons/io"
 
 
 interface ItemProps {

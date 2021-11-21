@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+import { myContext } from '../context';
 import axios, { AxiosResponse } from 'axios';
 import styled from "@emotion/styled";
 import Image from 'next/image';
@@ -7,77 +8,62 @@ import { MenuItem } from "../components/MenuItem";
 
 
 export default function Menu() {
-    const [preLogin, setpreLogin] = useState<boolean>(true);
+    const userObject = useContext(myContext);
+    const [itemObject13, setItemObject13] = useState<any>();
+    const [itemObject14, setItemObject14] = useState<any>();
+    const [itemObject15, setItemObject15] = useState<any>();
+    const [RunOnce, setRunOnce] = useState<boolean>(true);
 
-     useEffect(() => {
-         axios.get(process.env.NEXT_PUBLIC_GET_USER as string).then((res: AxiosResponse) => {console.log(res.data)})
-         .catch((Error)=>{console.log(Error)});
-         console.log('1');
-     }, [])
-
-    const togglePreLogin = () => setpreLogin(preLogin => !preLogin);
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_ITEM as string + `13`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) { setItemObject13(res.data); 
+             }});
+    }, [])
 
     const clickLogin = () => {
-        preLogin === true ? location.href = '/login': location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string };
+        userObject ? location.href = '/login' : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
+    }
 
     return (
-        <Layout> {/*{preLogin === true ? : }*/}
+        <>
+        {userObject ?   //로그인 했을 때
+        <Layout>
             {/*마이 공구비*/}
             <Section1>
-                <p className="headline" onClick={togglePreLogin}>마이공구비</p>
-                <div className="profile-box" style={preLogin === true ? {border: '1px solid #E5E5E5'} : {border: '1px solid #FFD15B'}}>   {/*프로필 박스 색*/}
+                <p className="headline">마이공구비</p>
+                <div className="profile-box" style={{border: '1px solid #FFD15B'}}>
                     <div className="user">
-                        <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
+                        <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} /> {/*사용자 프로필 이미지*/}
                         <div style={{marginLeft: '19px'}}>
-                            <p className="user-name">{preLogin === true ? '공구비' : '사용자 이름(수정)'}</p> {/*사용자 이름*/}
+                            <p className="user-name">사용자 이름(수정)</p> {/*사용자 이름*/}
                             <div className="user-info">
-                                <p>총 거래 수 {preLogin === true ? '0': '1'}</p>
-                                <p>팔로워 {preLogin === true ? '0': '1'}</p>
-                                <p style={{marginRight: '-2px'}}>팔로우 {preLogin === true ? '0': '1'}</p> {/*사용자 정보 텍스트*/}
+                                <p>총 거래 수 {1}</p> {/*사용자 정보*/}
+                                <p>팔로워 {1}</p> {/*사용자 정보*/}
+                                <p style={{marginRight: '-2px'}}>팔로우 {1}</p> {/*사용자 정보*/}
                             </div>
                         </div>
                     </div>
-                    <Link href={preLogin === true ? '/login': '/mypage'}>
-                        <div className="login-button" style={preLogin === true ? {background: '#C4C4C4'}: {background: '#FFD15B'}}>
-                            <p>{preLogin === true ? '로그인': '마이페이지'}</p>
+                    <Link href='/mypage'>
+                        <div className="login-button" style={{background: '#FFD15B'}}>
+                            <p>마이 프로필</p>
                         </div> 
-                    </Link> {/*버튼 색, 텍스트, 이동 경로*/}
+                    </Link>
                 </div>
             </Section1>
-
             {/*최근 참여한 상품*/}
             <Section2>
-                <Horizontal>
-                    <p className="headline">최근 참여한 상품</p> <p className="more">더보기</p>
-                </Horizontal>
-                {preLogin === true ? 
-                <><Box1>
-                    <p>최근 참여한 상품 내역을 알 수 없어요.</p>
-                    <p>로그인 해주세요.</p>
-                </Box1>
-                <Box2 /></>
-                : 
-                <MenuItem img='/menu_product_img_1.png' tag='팬굿즈' name='귀멸의 칼날 탄지로 피규어'/>
-                } {/*박스 전부 지우고 상품 정보로 교환(상품 정보는 컴포넌트로 추가 제작)*/}
+                <Horizontal><p className="headline">최근 참여한 상품</p> <p className="number">5건</p> <p className="more">더보기</p></Horizontal>
+                {/*참여건수*/}
+                <MenuItem img='/menu_product_img_1.png' tag='팬굿즈' name='귀멸의 칼날 탄지로 피규어'/> {/*상품 정보*/}
             </Section2>
-
             {/*나의 진행 상품*/}
             <Section2>
-                <Horizontal>
-                        <p className="headline">나의 진행 상품</p> <p className="more">더보기</p>
-                </Horizontal>
-                {preLogin === true ? 
-                <><Box1>
-                    <p>나의 진행 상품 내역을 알 수 없어요.</p>
-                    <p>로그인 해주세요.</p>
-                </Box1>
-                <Box2 /> </>
-                :
+                <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">9건</p><p className="more">더보기</p></Horizontal>
+                {/*참여건수*/}
                 <Item>
                     <MenuItem img='/menu_product_img_3.png' tag='뷰티/미용' name='[비건]스타터 키트-수분크림'/>
                     <MenuItem img='/menu_product_img_2.png' tag='식품' name='[비건]나뚜루비건아이스크림'/>
-                </Item>
-                } {/*박스를 상품 정보로 교환*/}
+                </Item> {/*상품 정보*/}
             </Section2>
 
             {/*카테고리*/}
@@ -97,9 +83,79 @@ export default function Menu() {
                 <p>Q&#38;A</p>
                 <p>공구비 스토리</p>
                 <p>공구비 건의하기</p>
-                <p onClick={clickLogin}>{preLogin === true ? '로그인': '로그아웃'}</p> {/*로그아웃으로 텍스트 수정*/}
+                <p onClick={clickLogin}>로그아웃</p> {/*로그아웃으로 텍스트 수정*/}
             </Section4>
         </Layout>
+
+        :   //로그인 하지 않았을 때
+
+        <Layout>
+        {/*마이 공구비*/}
+        <Section1>
+            <p className="headline">마이공구비</p>
+            <div className="profile-box" style={{border: '1px solid #E5E5E5'}}>
+                <div className="user">
+                    <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
+                    <div style={{marginLeft: '19px'}}>
+                        <p className="user-name">공구비</p>
+                        <div className="user-info">
+                            <p>총 거래 수 0</p>
+                            <p>팔로워 0</p>
+                            <p style={{marginRight: '-2px'}}>팔로우 0</p>
+                        </div>
+                    </div>
+                </div>
+                <Link href='/login'>
+                    <div className="login-button" style={{background: '#C4C4C4'}}>
+                        <p>로그인</p>
+                    </div> 
+                </Link>
+            </div>
+        </Section1>
+        {/*최근 참여한 상품*/}
+        <Section2>
+            <Horizontal>
+                <p className="headline">최근 참여한 상품</p> <p className="more">더보기</p>
+            </Horizontal>
+            <Box1>
+                <p>최근 참여한 상품 내역을 알 수 없어요.</p>
+                <p>로그인 해주세요.</p>
+            </Box1>
+            <Box2 />
+        </Section2>
+        {/*나의 진행 상품*/}
+        <Section2>
+            <Horizontal>
+                    <p className="headline">나의 진행 상품</p> <p className="more">더보기</p>
+            </Horizontal>
+            <Box1>
+                <p>나의 진행 상품 내역을 알 수 없어요.</p>
+                <p>로그인 해주세요.</p>
+            </Box1>
+            <Box2 />
+        </Section2>
+        {/*카테고리*/}
+        <Section3>
+            <p className="headline">카테고리</p>
+            <Line /> <Image src="/category/category_list1.png" alt="" width={324} height={29}></Image>
+            <Line /> <Image src="/category/category_list2.png" alt="" width={324} height={29}></Image>
+            <Line /> <Image src="/category/category_list3.png" alt="" width={324} height={29}></Image>
+            <Line /> <Image src="/category/category_list4.png" alt="" width={324} height={29}></Image>
+            <Line /> <Image src="/category/category_list5.png" alt="" width={324} height={29}></Image>
+            <Line /> <Image src="/category/category_list6.png" alt="" width={324} height={29}></Image>
+        </Section3>
+
+        {/*하단 메뉴*/}
+        <Section4>
+            <p>공지사항</p>
+            <p>Q&#38;A</p>
+            <p>공구비 스토리</p>
+            <p>공구비 건의하기</p>
+            <p onClick={clickLogin}>로그인</p>
+        </Section4>
+    </Layout>
+        }
+        </>    
     );
 }
 
@@ -126,6 +182,18 @@ const Layout = styled.div`
 
         padding-left: 3px;
         padding-right: 3px;
+    }
+
+    .number{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
     }
 
     .more{
