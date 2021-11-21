@@ -1,16 +1,17 @@
 import styled from "@emotion/styled";
 
 interface ItemProps {
-    imge: string;
+    itemid: number;
     title: string;
     state: string;
     tag: any[];
   }
- export default function Item({img, title, state, tag}){
+ export default function Item({itemid, title, progress, tag}){
     return (
         <Box>
-            <a href = "/iteminfo2">
-                <img src = {img} className = "ItemImage"/>
+            <a href = {`/view/${itemid}`}>
+            {/* `/product_img_${itemid}.png` */}
+                <img src = {`/product_img_${itemid}.png`} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
                 </Tag>
@@ -21,11 +22,11 @@ interface ItemProps {
 
                 <State>
                     <Statelevel>
-                        <label>{state}</label>
+                        <label>{progress === 0 ? "수요조사 중" : "공구모집중" }</label>
                     </Statelevel>
                     <Statebar>
                         <img src = "/Progressbar/OnEllipse.png"/>
-                        {state === "공구모집 중" ?   <img src = "/Progressbar/OnEllipse.png"/> : <img src = "/Progressbar/OffEllipse.png"/>}
+                        {progress === 0 ?   <img src = "/Progressbar/OffEllipse.png"/> : <img src = "/Progressbar/OnEllipse.png"/>}
                         
                     </Statebar>
 
