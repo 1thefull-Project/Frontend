@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
+import React from "react";
 import IteminfoFooter from "../components/IteminfoFooter";
+import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
+import { ProgressBar } from "../components/ProgressBar";
+import {BiDotsVerticalRounded} from "react-icons/bi";
+import {IoIosInformationCircleOutline} from "react-icons/io"
+
 
 interface ItemProps {
     name: String;
@@ -18,25 +24,53 @@ interface ItemProps {
                     <img src = "/product_img_bts.png" alt= {""}/>
                     <TextZone>
                         <label>공구모집 중</label>
-                        <span>손바닥 보호 실리콘 비닐봉지 손잡이 </span>
+                        <div className = "TitleTag">
+                            <span>비건 에코퍼 겨울 목도리/워머 <BiDotsVerticalRounded className = "dot"/> </span>
+                            <Tag>#잡화/주얼리</Tag>
+                        </div>
+                        
                     </TextZone>
+                        
                     <Progressbar>
-                        <p>진행바 들어갈 위치</p>
+                        <div className= "ProgressLabel">인원 달성도</div>
+                        <ProgressBar  width={246} percent={0.5} />
                     </Progressbar>
                     <Price>
-                        <p>예상 가격 들어갈 위치</p>
+                        <div className = "PriceIndex">예상 가격</div>
+                        <div className = "EstimatePrice">
+                            <div className = "EachPrice">
+                                최소 인원 달성 시
+                                <label className = "MinPrice">10,900</label>
+                            </div>
+                            <div className = "EachPrice">
+                                최대 인원 달성 시
+                                <label className = "MaxPrice">8,800</label>
+                            </div>
+                        </div>
                     </Price>
+    
                 </ItemContent>
                 <Profile>
-                    <p>프로필 들어갈 위치</p>
+                    <img src = "/detailpage/ProfilePhoto.png"/>
+                    <div className = "Lovbee">
+                        <div className = "LovbeeName">1theFull <div className = "MyPageLink">마이 페이지</div></div>
+                    </div>
+                    <div className = "TrustIndex">
+                        <div className = "TextZone">
+                            신뢰 당도
+                            <label>80% <IoIosInformationCircleOutline className = "Icon"/></label>
+                        </div>
+                       
+                    </div>
+                    <img src = "LoveySearch/신뢰 당도 벌집.png" className = "TrustImg"/>
                 </Profile>
 
                 <Menu>
-                    <div>
-                        <a>공지사항</a>
-                        <a>제품 정보</a>
-                        <a>댓글</a>
-                        <a>정보 조회</a>
+                    <div className = "DircetMove">
+                        <div className = "DirectButton">공지사항</div>
+                        <div className = "DirectButton">제품 정보</div>
+                        <div className = "DirectButton">댓글</div>
+                        <div className = "DirectButton">정보 조회</div>
                     </div>
                 </Menu>
 
@@ -86,7 +120,6 @@ interface ItemProps {
                             <img src = "/componentImg/HoneyIcon.png"/>
                             <label>정보 조회</label>
                             <div className = "InfomationBox">
-
                                     <h6>디테일</h6>
                             </div>
 
@@ -107,11 +140,13 @@ interface ItemProps {
                     </NoticeImg>
 
                     <div className = "Footer">
-                        <IteminfoFooter/>
+                        <IteminfoFooterwriter/>
                     </div>
                     
                 </ContentZone>
             </Write>
+
+
          </div>
    
     );
@@ -119,13 +154,15 @@ interface ItemProps {
 }
 
 const Write = styled.div`
+  
+    font-family: Roboto;
     margin-right:auto;
     margin-left:auto;
     justify-content:center;
     display: flex;
     flex-direction: column;
     width:360px;
-    text-align: center;
+    
     .SeperateLine{
         margin-bottom: 25px;
     }
@@ -137,18 +174,32 @@ const Write = styled.div`
         background: rgba(255,255,255,0.95);
         
     }
+    img{
+        
+    }
 
 `
 const ItemContent = styled.div`
     img{
         width:360px;
+        margin-bottom: 14px;
     }
     
  
 `
+const Tag = styled.div`
+    margin-top:6px;
+    margin-bottom:19px;
+`
 
 const TextZone = styled.div`
+    display:flex;
+    margin-bottom: 6px;
        label{ 
+        height:16px;
+        margin-left:16px;
+        margin-right: 12px;
+        text-align: center;
         line-height:16px;
         font-family: Roboto;
         font-style: normal;
@@ -165,15 +216,29 @@ const TextZone = styled.div`
     }
     span{
         font-family: Roboto;
-        font-style: normal;
         font-size: 15px;
-        line-height: 18px;c
-        display: flex;
-        align-items: center;
+        font-style: normal;
         font-weight: 400;
         line-height: 18px;
         letter-spacing: 0em;
         text-align: left;
+      
+    }
+    .TitleTag{
+        margin-left:12px;
+        font-family: Roboto;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        letter-spacing: 0em;
+        text-align: left;
+    
+    .dot{
+        margin-left:35px;
+
+    }
+        
     }
     
 `
@@ -182,13 +247,224 @@ const ContentZone = styled.div`
    
 `
 const Progressbar = styled.div`
+    
+    display:flex;
+    line-height:20px;
+    vertical-align:middle;
+    max-width:360px;
+    width:360px;
+    margin-bottom: 33px;
+    .ProgressLabel{
+        vertical-align:middle;
+        width: 100px;
+        margin-right: 7px;
+        margin-left:16px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0em;
+    }
 `
 const Price = styled.div`
+
+    margin-left : 16px;
+    display:flex;
+    text-align:left;
+    
+    .EstimatePrice{
+        display:block;
+        margin-left:107px;
+    }
+    .PriceIndex{
+        
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0em;
+      
+
+    }
+    .EachPrice{
+        
+        color: #686867;
+        font-family: Roboto;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13px;
+        letter-spacing: 0em;
+        vertical-align: middle;
+      
+
+    }
+    .MinPrice{
+        margin-left: 12px;
+        
+        vertical-align:middle;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0em;
+        
+
+    }
+    .MaxPrice{
+        margin-left: 22px;
+        vertical-align:middle;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #FFB000;
+
+    }
+    margin-bottom: 14px;
+   
 `
 const Profile = styled.div`
+    
+    display:flex;
+    height:60px;
+    line-height:60px;
+    border-top: 1px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
+    vertical-align:middle;
+    img{
+        margin:0px;
+        height:37px;
+        width:37px;
+        border-radius: 70px;
+        margin-top:12px;
+        margin-left:16px;
+        margin-right:15px;
+    }
+    .Lovbee{
+        padding-top:12px;
+        width:152px;
+        line-height:60px;
+        margin-right:35px;
+    }
+    .LovbeeName{
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        
+    }
+    .MyPageLink{
+        padding-top:6px;
+        font-family: Roboto;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #7BCFFF;
+
+      
+    }
+    .TextZone{
+        margin-top:16px;
+        text-align:left;
+        width:70px;
+        
+        
+        
+    }
+    .TrustIndex{
+        display:block;
+        img{
+            margin:0;
+        }
+        width:48px;
+        font-family: Assistant;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 11px;
+        letter-spacing: 0em;
+        text-align: center;
+
+    }
+    label{
+        margin-top:3px;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #FFBB0D;
+
+
+    }
+    .Icon{
+        color:#E5E5E5;
+        width:10px;
+        height:10px;
+    }
+
+    .TrustImg{
+        margin:0;
+        margin-top:10px;
+        margin-left:7px;
+        
+    }
+    
 `
 const Menu = styled.div`
+
+    display:flex;
     margin-bottom:26px;
+    padding-left:0px;
+    padding-right:0px;
+    border-bottom: 2px solid #C4C4C4;
+    
+    div{
+        text-align:center;
+        height:40px;
+        display:flex;
+        font-family: Roboto;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: center;
+
+        color: #666666;
+
+    }
+    .DirectButton{
+       
+        display:block;
+        text-align:center;
+        padding-top:12px;
+        width:90px;
+   
+    }
+    
+    .DirectButton:hover {
+        color: #FFD15B;
+        border-bottom: 3px solid #FFD15B;
+        font-weight:400;
+    }
+    
 
 `
 const Notice = styled.div`

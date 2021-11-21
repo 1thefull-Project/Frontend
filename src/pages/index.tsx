@@ -11,10 +11,85 @@ import Item from '../components/Content/Item';
 import Link from 'next/link';
 import { arrayBuffer } from "stream/consumers";
 import ItemList from "../components/Content/ItemList";
-import Axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import ItemList2 from "../components/Content/ItemList2";
+
+
+const list = [
+    {   
+        id:1,
+        itemid:1,
+        title:'초강력 괴물 흡입력 청소기',
+        tag: '주방/생활용품',
+        progress: 0,
+
+    },
+    {
+        id:2,
+        itemid:2,
+        title:'2',
+        tag: '주방/생활용품',
+        progress: 1,
+    },
+    {   
+        id:3,
+        itemid:3,
+        title:'3',
+        tag: '주방/생활용품',
+        progress: 0,
+    },
+    {
+        id:4,
+        itemid:4,
+        title:'4',
+        tag: '주방/생활용품',
+        progress: 1,
+    },
+    {
+        id:5,
+        itemid:5,
+        title:'5',
+        tag: '주방/생활용품',
+        progress: 0,
+    },
+    {
+        id:6,
+        itemid:6,
+        title:'6',
+        tag: '주방/생활용품',
+        progress: 0,
+    },
+    {
+        id:7,
+        itemid:7,
+        title:'7',
+        tag: '주방/생활용품',
+        progress: 0,
+    },
+    {
+        id:8,
+        itemid:8,
+        title:'8',
+        tag: '주방/생활용품',
+        progress: 0,
+    },
+
+];
 
 export default function Home() {
 
+    const API_URL = process.env.NEXT_PUBLIC_ITEM_LIST as string
+    const [Data, setData] = useState<object>();
+    useEffect(() => {  
+        axios.get("https://gonggoo-bee.herokuapp.com/item/1"  , { withCredentials: true }).then((res: AxiosResponse) => {
+          if (res.data) {
+            setData(res.data);
+            console.log(res.data);
+          }
+        }) 
+      }, [])
+
+    
     var settings1 = {
         dots: false,
         infinite: false,
@@ -35,22 +110,22 @@ export default function Home() {
     };
 
     //필터 구현
-    {/*
-    const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
-    console.log(filters);       //추후 삭제
 
-    const [activeFil, setActiveFil] = useState(filters);
-    const[data, setData] = useState(item);
+    // const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
+    // console.log(filters);       //추후 삭제
 
-    const activeFilter = (btn: string) => {
-        if (btn === '전체보기') {
-            setData(item);
-            return;
-        }
-        const filteredData = item.filter((item) => item.state === btn);
-        setData(filteredData);
-    }
-     */}
+    // const [activeFil, setActiveFil] = useState(filters);
+    // const[data, setData] = useState(item);
+
+    // const activeFilter = (btn: string) => {
+    //     if (btn === '전체보기') {
+    //         setData(item);
+    //         return;
+    //     }
+    //     const filteredData = item.filter((item) => item.state === btn);
+    //     setData(filteredData);
+    // }
+
 
     // useEffect(() => {
     //     activeFil === '전체보기'
@@ -100,15 +175,15 @@ export default function Home() {
                     </Slider>
             </Filter>
                 <ItemArea>
-                    {/* {item.map((items, index) => (<Item 
-                                                    img = {items.image} 
-                                                    tag = {items.tag} 
-                                                    title = {items.name} 
-                                                    state = {items.state}
-                                                    key = {index}
+                    {list.map((Data) => (<Item 
+                                                itemid = {Data.itemid} 
+                                                title = {Data.title} 
+                                                progress = {Data.progress} 
+                                                tag = {Data.tag}
+                                                key = {Data.itemid}
                                                 />))}
-                            <ItemList list = {item.slice(0,6)}/> */}
-                        
+                            <ItemList list = {Data}/>
+
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
                 <MovetoStory href ="/#">
