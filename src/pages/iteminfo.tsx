@@ -10,6 +10,7 @@ import BuyingStart from "../components/Modal/BuyingStart";
 import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io"
 
+
 interface ItemProps {
 
     itemId: number;
