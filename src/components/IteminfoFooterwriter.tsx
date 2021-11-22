@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 import { GrShareOption } from "react-icons/gr";
 import {BsHeart} from "react-icons/bs";
 import Iteminfo from "../pages/iteminfo";
-import BuyingEndModal from "../components/Modal/BuyingEnd";
+import BuyingEndModal from "./Modal/BuyingEnd";
 import React, { useEffect } from "react";
+import { useProps } from "@chakra-ui/system";
+import { css } from "@emotion/react";
 
 
-export default function IteminfoFooter(){
-    
+var IteminfoFooterwriter = ({openModal ,ButtonColor}) => {
     return(
         <ItemFooter>
    
@@ -21,16 +22,20 @@ export default function IteminfoFooter(){
                     <label>공유</label>
                 </Share>
                 
-                <ResultButton>수요조사 결과</ResultButton>
-                <EndButton>수요조사 마감</EndButton>
+                <ResultButton>참여 더비 리스트</ResultButton>
+                <EndButton onClick = {openModal} >공동구매 마감</EndButton>
                 
             </FooterContent>
                 
         </ItemFooter>
 
     );
+} 
+
+export default IteminfoFooterwriter
     
-}
+    
+    
 
 const ItemFooter = styled.div`
    
@@ -95,17 +100,18 @@ const Share = styled.div`
 
 
 
+
 const ResultButton = styled.button`
     border:none;
     width:116px;
     height:38px;
     background: #FFFFFF;
-    color: #FFD15B;
+    color: #C4C4C4 ;
     border-radius: 5px;
     margin-right: 8px;
-    border: 1px solid #FFD15B;
+    border: 1px solid #C4C4C4;
     font-family: Roboto;
-    font-size: 14px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 900;
     line-height: 16px;
@@ -132,7 +138,3 @@ const EndButton = styled.button`
     text-align: center;
 
 `
-function useState(arg0: boolean): [any, any] {
-    throw new Error("Function not implemented.");
-}
-
