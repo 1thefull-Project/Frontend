@@ -33,13 +33,13 @@ export default function Menu({data}: InferGetServerSidePropsType<typeof getServe
                 <p className="headline">마이공구비</p>
                 <div className="profile-box" style={{border: '1px solid #FFD15B'}}>
                     <div className="user">
-                        <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} /> {/*사용자 프로필 이미지*/}
+                        <img src="/profile_wonderful.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} /> {/*사용자 프로필 이미지*/}
                         <div style={{marginLeft: '19px'}}>
                             <p className="user-name">{userObject.name}</p> {/*사용자 이름*/}
                             <div className="user-info">
-                                <p>총 거래 수 {1}</p> {/*사용자 정보*/}
-                                <p>팔로워 {1}</p> {/*사용자 정보*/}
-                                <p style={{marginRight: '-2px'}}>팔로우 {1}</p> {/*사용자 정보*/}
+                                <p>총 거래 수 {userObject.deal}</p> {/*사용자 정보*/}
+                                <p>팔로워 {userObject.follower}</p> {/*사용자 정보*/}
+                                <p style={{marginRight: '-2px'}}>팔로우 {userObject.following}</p> {/*사용자 정보*/}
                             </div>
                         </div>
                     </div>
