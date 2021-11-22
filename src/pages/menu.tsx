@@ -9,16 +9,26 @@ import { MenuItem } from "../components/MenuItem";
 
 export default function Menu() {
     const userObject = useContext(myContext);
-    const [itemObject13, setItemObject13] = useState<any>();
-    const [itemObject14, setItemObject14] = useState<any>();
-    const [itemObject15, setItemObject15] = useState<any>();
+    const [itemObject13, setItemObject13] = useState<any>({ id: '', tag: '', title: ''});
+    const [itemObject14, setItemObject14] = useState<any>({ id: '', tag: '', title: ''});
+    const [itemObject15, setItemObject15] = useState<any>({ id: '', tag: '', title: ''});
     const [RunOnce, setRunOnce] = useState<boolean>(true);
 
-    useEffect(() => {
+    if(userObject !== undefined && RunOnce){ // api로딩 후 처음 한 번만 실행
         axios.get(process.env.NEXT_PUBLIC_ITEM as string + `13`, { withCredentials: true }).then((res: AxiosResponse) => {
-            if (res.data) { setItemObject13(res.data); 
-             }});
-    }, [])
+            if (res.data) { 
+                setItemObject13({...itemObject13, id: res.data.itemId, tag: res.data.tag[0], title: res.data.title });
+            }});
+        axios.get(process.env.NEXT_PUBLIC_ITEM as string + `14`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) { 
+                setItemObject14({...itemObject14, id: res.data.itemId, tag: res.data.tag[0], title: res.data.title });
+            }});
+        axios.get(process.env.NEXT_PUBLIC_ITEM as string + `15`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) { 
+                setItemObject15({...itemObject15, id: res.data.itemId, tag: res.data.tag[0], title: res.data.title });
+            }});
+        setRunOnce(false);
+    }
 
     const clickLogin = () => {
         userObject ? location.href = '/login' : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
@@ -54,15 +64,15 @@ export default function Menu() {
             <Section2>
                 <Horizontal><p className="headline">최근 참여한 상품</p> <p className="number">5건</p> <p className="more">더보기</p></Horizontal>
                 {/*참여건수*/}
-                <MenuItem img='/menu_product_img_1.png' tag='팬굿즈' name='귀멸의 칼날 탄지로 피규어'/> {/*상품 정보*/}
+                <MenuItem img={`/menu_product_img_${itemObject13.id}.png`} tag={itemObject13.tag} name={itemObject13.title}/> {/*상품 정보*/}
             </Section2>
             {/*나의 진행 상품*/}
             <Section2>
                 <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">9건</p><p className="more">더보기</p></Horizontal>
                 {/*참여건수*/}
                 <Item>
-                    <MenuItem img='/menu_product_img_3.png' tag='뷰티/미용' name='[비건]스타터 키트-수분크림'/>
-                    <MenuItem img='/menu_product_img_2.png' tag='식품' name='[비건]나뚜루비건아이스크림'/>
+                    <MenuItem img={`/menu_product_img_${itemObject14.id}.png`} tag={itemObject14.tag} name={itemObject14.title}/>
+                    <MenuItem img={`/menu_product_img_${itemObject15.id}.png`} tag={itemObject15.tag} name={itemObject15.title}/>
                 </Item> {/*상품 정보*/}
             </Section2>
 
@@ -305,7 +315,13 @@ const Section2 = styled.div`
 const Horizontal = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: baseline;
+
+    .number{
+        margin-left: 144px;
+        margin-right: 8px;
+    }
 `;
 
 const Box1 = styled.div`
