@@ -15,6 +15,9 @@ import axios, { AxiosResponse } from "axios";
 import ItemList2 from "../components/Content/ItemList2";
 
 
+import { myContext } from '../context';
+
+
 const list = [
     {   
         id:1,

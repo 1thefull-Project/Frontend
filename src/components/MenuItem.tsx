@@ -44,7 +44,7 @@ const Layout = styled.div`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 12px;
+        font-size: 11px;
         line-height: 8px;
 
         display: flex;
