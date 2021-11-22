@@ -7,10 +7,13 @@ import '../styles/responsive.css';
 import '../styles/text.css';
 import styled from '@emotion/styled';
 
+import { useState } from 'react';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
+
       <Header />
         <div>
           <Component {...pageProps} />

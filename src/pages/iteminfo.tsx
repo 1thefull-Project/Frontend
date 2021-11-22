@@ -1,32 +1,78 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 import IteminfoFooter from "../components/IteminfoFooter";
 import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
 import { ProgressBar } from "../components/ProgressBar";
 import {BiDotsVerticalRounded} from "react-icons/bi";
+import BuyingEnd from "../components/Modal/BuyingEnd";
+import ReseachEnd from "../components/Modal/ReseachEnd";
+import BuyingStart from "../components/Modal/BuyingStart";
+import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io"
 
 
 interface ItemProps {
-    name: String;
-    image: String;
-    state:String;
-    tag: any[];
+
+    itemId: number;
+    title:String;
+    tag:any[];
+    progress: number;
+  }
+  function label(num){
+      if(num === 0) {
+          return "수요조사 진행"
+      }
+      else if(num === 1){
+          return "수요조사 마감"
+      }
+      else if(num === 2){
+        return "공구모집 진행"
+    }
+    else if(num === 3){
+        return "공구모집 마감"
+    }
+    else if(num === 4){
+        return "주문 진행"
+    }
+    else if(num === 5){
+        return "배송 시작"
+    }
+    else{
+        return "배송 마감"
+    }
   }
 
+  export default function Iteminfo({item}){
 
-  export default function Iteminfo(item: any){
-    // const {image, title, state, name} = item;
+       /* 팝업 */
+       const [isShowing, setIsShowing] = useState(false);
+       const openModal = () => {
+         setIsShowing(true);
+       };
+       useEffect(() => {
+         if (isShowing) {
+           const notiTimer = setTimeout(() => {
+             setIsShowing(false);
+           }, 3000);
+           return () => clearTimeout(notiTimer);
+         }
+       }, [isShowing]);
+   
+
+    const {itemId, title, tag, progress} = item;
+   
+    console.log(item)
     return(
         <div>
+
             <Write>
                 <ItemContent>
-                    <img src = "/product_img_bts.png" alt= {""}/>
+                    <img src = {`/product_img_${itemId}.png`} alt= {""}/>
                     <TextZone>
-                        <label>공구모집 중</label>
+                        <label>{label(progress)}</label>
                         <div className = "TitleTag">
-                            <span>비건 에코퍼 겨울 목도리/워머 <BiDotsVerticalRounded className = "dot"/> </span>
-                            <Tag>#잡화/주얼리</Tag>
+                            <span>{title}<BiDotsVerticalRounded className = "dot"/> </span>
+                            <Tag>{tag}</Tag>
                         </div>
                         
                     </TextZone>
@@ -62,7 +108,7 @@ interface ItemProps {
                         </div>
                        
                     </div>
-                    <img src = "LoveySearch/신뢰 당도 벌집.png" className = "TrustImg"/>
+                    <img src = "/LoveySearch/TrustImg.png" className = "TrustImg"/>
                 </Profile>
 
                 <Menu>
@@ -136,7 +182,7 @@ interface ItemProps {
                     </SellerInfomation>
 
                     <NoticeImg>
-                        <img src = "componentImg/SellNotice.png"/>
+                        <img src = "/componentImg/SellNotice.png"/>
                     </NoticeImg>
 
                     <div className = "Footer">
@@ -204,13 +250,13 @@ const TextZone = styled.div`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
+        font-size: 5px;
         border: 0.4px solid #C4C4C4;
         color: #686867;
         box-sizing: border-box;
         border-radius: 2px;
         float:left;
-        width: 60px;
+        width: 66px;
         margin-right:4px;
         
     }
@@ -233,9 +279,20 @@ const TextZone = styled.div`
         line-height: 12px;
         letter-spacing: 0em;
         text-align: left;
-    
+    .TitleTag2{
+        margin-left:12px;
+        font-family: Roboto;
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
     .dot{
-        margin-left:35px;
+        position: absolute;
+        left: 338px;
+        top:268+66px;
 
     }
         

@@ -9,8 +9,13 @@ export default function BuyingStart () {
                     <Modal>
                          <div className = "Box">
                              <div className = "Title">공동구매 시작</div>
-                             <div className = "Text">
-                                 공동구매를 시작하시겠습니까?
+                             <div className = "TextArea">
+                                 <div className = "Text">
+                                 해당 게시글을 수정하시겠습니까?
+                             </div>
+                             <div className = "SubText">
+                                ※ 공동구매 진행 후에는 글을 수정할 수 없으며 공지 추가 기능만 사용 가능합니다.
+                             </div>
                              </div>
                              <div>
                                 <button className = "Yes">네</button> 
@@ -63,10 +68,11 @@ const Modal = styled.div`
      }
  
      .Title{
-         margin-top:22px;
-         margin-bottom:26.48px;
+         margin-top:19.59px;
+         margin-bottom:24px;
 
-         font-family: Roboto;
+        
+        font-family: Roboto;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -76,27 +82,42 @@ const Modal = styled.div`
         color:#666666;
 
      }
-     
-     .Text{
+     .TextArea{
          margin-left:auto;
          margin-right:auto;
-         margin-bottom:30.69px;
-        width: 250px;
-        text-align:centere;
-
+         margin-bottom:24.83px;
+         text-align:center;
+         width:220px;
+     }
+     
+     .Text{
+         
+        text-align:center;
 
         font-family: Roboto;
-        font-size: 15px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
-        line-height: 18px;
+        line-height: 16px;
         letter-spacing: 0em;
         text-align: center;
-
+        
+        margin-bottom:4px;
 
 
         color:#666666;
 
+     }
+     .SubText{
+        
+        font-family: Roboto;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        letter-spacing: 0em;
+        text-align: center;
+        cololr: #666666;
      }
  
      button{

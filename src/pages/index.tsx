@@ -12,13 +12,13 @@ import Link from 'next/link';
 import { arrayBuffer } from "stream/consumers";
 import ItemList from "../components/Content/ItemList";
 import axios, { AxiosResponse } from "axios";
-import ItemList2 from "../components/Content/ItemList2";
+
 
 
 const list = [
     {   
         id:1,
-        itemid:1,
+        itemId:1,
         title:'초강력 괴물 흡입력 청소기',
         tag: '주방/생활용품',
         progress: 0,
@@ -26,49 +26,49 @@ const list = [
     },
     {
         id:2,
-        itemid:2,
+        itemId:2,
         title:'2',
         tag: '주방/생활용품',
         progress: 1,
     },
     {   
         id:3,
-        itemid:3,
+        itemId:3,
         title:'3',
         tag: '주방/생활용품',
         progress: 0,
     },
     {
         id:4,
-        itemid:4,
+        itemId:4,
         title:'4',
         tag: '주방/생활용품',
         progress: 1,
     },
     {
         id:5,
-        itemid:5,
+        itemId:5,
         title:'5',
         tag: '주방/생활용품',
         progress: 0,
     },
     {
         id:6,
-        itemid:6,
+        itemId:6,
         title:'6',
         tag: '주방/생활용품',
         progress: 0,
     },
     {
         id:7,
-        itemid:7,
+        itemId:7,
         title:'7',
         tag: '주방/생활용품',
         progress: 0,
     },
     {
         id:8,
-        itemid:8,
+        itemId:8,
         title:'8',
         tag: '주방/생활용품',
         progress: 0,
@@ -76,18 +76,27 @@ const list = [
 
 ];
 
-export default function Home() {
+interface ItemProps {
 
+    Data: any[],
+  }
+
+export default function Home() {
+ 
+
+
+    /* API 가져오기 */
     const API_URL = process.env.NEXT_PUBLIC_ITEM_LIST as string
-    const [Data, setData] = useState<object>();
+    const [Data, setData] = useState([]);
     useEffect(() => {  
-        axios.get("https://gonggoo-bee.herokuapp.com/item/1"  , { withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get("https://gonggoo-bee.herokuapp.com/item/lobby/allitem"  , { withCredentials: true }).then((res: AxiosResponse) => {
           if (res.data) {
-            setData(res.data);
+            setData(res.data.itemInfo);
             console.log(res.data);
           }
         }) 
       }, [])
+    
 
     
     var settings1 = {
@@ -110,7 +119,6 @@ export default function Home() {
     };
 
     //필터 구현
-
     // const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
     // console.log(filters);       //추후 삭제
 
@@ -175,14 +183,14 @@ export default function Home() {
                     </Slider>
             </Filter>
                 <ItemArea>
-                    {list.map((Data) => (<Item 
-                                                itemid = {Data.itemid} 
-                                                title = {Data.title} 
-                                                progress = {Data.progress} 
-                                                tag = {Data.tag}
-                                                key = {Data.itemid}
-                                                />))}
-                            <ItemList list = {Data}/>
+                    {Data.map((items) => (<Item 
+                                                itemId = {items.itemId} 
+                                                title = {items.title} 
+                                                progress = {items.progress} 
+                                                tag = {items.tag}
+                                                key = {items.itemId}
+                                                />)).slice(0,6)}
+
 
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
