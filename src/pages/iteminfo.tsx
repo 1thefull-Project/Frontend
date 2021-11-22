@@ -66,7 +66,7 @@ interface ItemProps {
 
             <Write>
                 <ItemContent>
-                    <img src = "/product_img_1.png" alt= {""}/>
+                    <img src = {`/product_img_${itemId}.png`} alt= {""}/>
                     <TextZone>
                         <label>{label(progress)}</label>
                         <div className = "TitleTag">

@@ -89,9 +89,9 @@ export default function Home() {
     const API_URL = process.env.NEXT_PUBLIC_ITEM_LIST as string
     const [Data, setData] = useState([]);
     useEffect(() => {  
-        axios.get("https://gonggoo-bee.herokuapp.com/item/1"  , { withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get("https://gonggoo-bee.herokuapp.com/item/lobby/allitem"  , { withCredentials: true }).then((res: AxiosResponse) => {
           if (res.data) {
-            setData(res.data.item);
+            setData(res.data.itemInfo);
             console.log(res.data);
           }
         }) 
@@ -182,15 +182,15 @@ export default function Home() {
                     </Slider>
             </Filter>
                 <ItemArea>
-                    {list.map((items) => (<Item 
+                    {Data.map((items) => (<Item 
                                                 itemId = {items.itemId} 
                                                 title = {items.title} 
                                                 progress = {items.progress} 
                                                 tag = {items.tag}
                                                 key = {items.itemId}
-                                                />))}
+                                                />)).slice(0,6)}
 
-                    <ItemList list = {Data}/>
+                   
  
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>

@@ -10,12 +10,18 @@ const Post = () => {
 
   const [item, setItem] = useState({});
 
-  const API_URL = "https://gonggoo-bee.herokuapp.com/item/1"; 
+  const API_URL = `https://gonggoo-bee.herokuapp.com/item/${itemId}`; 
 
   function getData() {
-    axios.get(API_URL).then((res) => {
-      setItem(res.data);
+    if(itemId){
+      axios.get(API_URL).then((res) => {
+      
+        setItem(res.data);
+      
     });
+
+    }
+    
   }
 
   useEffect(() => {
