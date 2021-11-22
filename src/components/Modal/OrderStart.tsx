@@ -1,17 +1,20 @@
 import styled from "@emotion/styled";
 
-var BuyingEnd = ({closeModalEnd}) => {
+var OrderStart = ({closeModalOrder}) => {
     return(
         <div>
             <Modal>
                  <div className = "Box">
-                     <div className = "Title">공동구매 종료</div>
+                     <div className = "Title">주문 진행하기</div>
                      <div className = "Text">
-                         공동구매를 진행하지 않고 종료하시겠습니까?
+                         <div>공구모집을 종료하고</div>
+                         <div>주문을 진행하시겠습니까?</div>
+                         
                      </div>
+                   
                      <div>
-                        <button className = "Yes" onClick = {closeModalEnd}>네</button> 
-                        <button className = "No" onClick = {closeModalEnd}>아니오</button>  
+                        <button className = "Yes" onClick = {closeModalOrder}>예</button> 
+                        <button className = "No" onClick = {closeModalOrder}>아니오</button>  
                      </div>
                  </div>
                  <img src = "/detailpage/popup_char_hide.png" className = "bee"/>
@@ -21,7 +24,7 @@ var BuyingEnd = ({closeModalEnd}) => {
 
 }
 
-export default BuyingEnd
+export default OrderStart
    
  
  
@@ -93,6 +96,7 @@ export default BuyingEnd
         line-height: 16px;
         letter-spacing: 0em;
         text-align: center;
+        
 
         color:#666666;
 
