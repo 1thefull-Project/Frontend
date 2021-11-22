@@ -1,12 +1,16 @@
 import styled from "@emotion/styled";
 import { GrShareOption } from "react-icons/gr";
 import {BsHeart} from "react-icons/bs";
-
+import Iteminfo from "../pages/iteminfo";
+import BuyingEndModal from "../components/Modal/BuyingEnd";
+import React, { useEffect } from "react";
 
 
 export default function IteminfoFooter(){
+    
     return(
         <ItemFooter>
+   
             <FooterContent>
                 <Heart>
                     <BsHeart className = 'HeartIcon'/>
@@ -128,3 +132,7 @@ const EndButton = styled.button`
     text-align: center;
 
 `
+function useState(arg0: boolean): [any, any] {
+    throw new Error("Function not implemented.");
+}
+
