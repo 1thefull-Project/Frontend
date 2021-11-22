@@ -8,7 +8,8 @@ import BuyingEnd from "../components/Modal/BuyingEnd";
 import ReseachEnd from "../components/Modal/ReseachEnd";
 import BuyingStart from "../components/Modal/BuyingStart";
 import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
-import {IoIosInformationCircleOutline} from "react-icons/io"
+import {IoIosInformationCircleOutline} from "react-icons/io";
+import OrderStart from "../components/Modal/OrderStart";
 
 
 interface ItemProps {
@@ -44,10 +45,18 @@ interface ItemProps {
 
   export default function Iteminfo({item}){
 
+    const[ButtonColor, setButtonColor] = useState(false);
+        const ChangeColor = () =>{
+            setButtonColor(true);
+        }
+
        /* 팝업 */
        const [isShowing, setIsShowing] = useState(false);
        const openModal = () => {
          setIsShowing(true);
+       };
+       const closeModal = () =>{
+           setIsShowing(false);
        };
        useEffect(() => {
          if (isShowing) {
@@ -57,6 +66,51 @@ interface ItemProps {
            return () => clearTimeout(notiTimer);
          }
        }, [isShowing]);
+
+
+       /* 주문진행하기 모달 하드코딩 시러 */
+       const [isShowingOrder, setIsShowingOrder] = useState(false);
+       const openModalOrder = () => {
+         setIsShowing(false);  
+         setIsShowingOrder(true);
+
+       };
+       const closeModalOrder = () =>{
+           setIsShowingOrder(false);
+           setButtonColor(true);
+       };
+       useEffect(() => {
+         if (isShowing) {
+           const notiTimer = setTimeout(() => {
+             setIsShowingOrder(false);
+           }, 3000);
+           return () => clearTimeout(notiTimer);
+         }
+       }, [isShowingOrder]);
+
+        /* 주문진행하기 모달 하드코딩 시러 */
+        const [isShowingEnd, setIsShowingEnd] = useState(false);
+        const openModalEnd = () => {
+            setIsShowing(false); 
+          setIsShowingEnd(true);
+        };
+        const closeModalEnd = () =>{
+            setIsShowingEnd(false);
+        };
+        useEffect(() => {
+          if (isShowing) {
+            const notiTimer = setTimeout(() => {
+              setIsShowingEnd(false);
+            }, 3000);
+            return () => clearTimeout(notiTimer);
+          }
+        }, [isShowingEnd]);
+
+        
+        
+ 
+
+       
    
 
     const {itemId, title, tag, progress} = item;
@@ -64,10 +118,22 @@ interface ItemProps {
     console.log(item)
     return(
         <div>
+            <div>   
+                {isShowing && <ReseachEnd closeModal = {closeModal} openModalEnd = {openModalEnd} openModalOrder = {openModalOrder} />}
+            </div>
+
+            <div>   
+                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} ButtonColor = {ButtonColor}/>}
+            </div>
+
+            <div>   
+                {isShowingEnd && <BuyingEnd closeModalEnd = {closeModalEnd}/>}
+            </div>
+            
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${itemId}.png`} alt= {""}/>
+                    <img src = {`/product_img_${itemId}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
                         <label>{label(progress)}</label>
                         <div className = "TitleTag">
@@ -92,6 +158,7 @@ interface ItemProps {
                                 최대 인원 달성 시
                                 <label className = "MaxPrice">8,800</label>
                             </div>
+                           
                         </div>
                     </Price>
     
@@ -186,7 +253,7 @@ interface ItemProps {
                     </NoticeImg>
 
                     <div className = "Footer">
-                        <IteminfoFooterwriter/>
+                        <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  />
                     </div>
                     
                 </ContentZone>
@@ -261,7 +328,7 @@ const TextZone = styled.div`
         
     }
     span{
-        font-family: Roboto;
+        font-family: Spoqa Han Sans Neo;
         font-size: 15px;
         font-style: normal;
         font-weight: 400;
@@ -382,6 +449,19 @@ const Price = styled.div`
         letter-spacing: 0em;
         text-align: left;
         color: #FFB000;
+
+    }
+
+    .DeliPrice{
+        margin-left:20px;
+        font-family: Roboto;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13px;
+        letter-spacing: 0em;
+        text-align: center;
+
 
     }
     margin-bottom: 14px;

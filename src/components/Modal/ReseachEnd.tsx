@@ -2,26 +2,32 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import { Button } from "semantic-ui-react";
 
-export default function BuyingEnd () {
-   
+
+var BuyingEnd = ({closeModal, openModalEnd, openModalOrder}) => {
     return(
-       <div>
-           <Modal>
-                <div className = "Box">
-                    <div className = "Title">수요조사 마감하기</div>
-                    <div>
-                        <button className = "EndButton">공동구매 종료하기</button>   
-                    </div>
-                        <button className = "StartButton">공동구매 시작하기</button>  
-                    <div>
-                    <button className = "Cancel">취소</button>  
-                    </div>
-                </div>
-                <img src = "/detailpage/popup_char_hide.png" className = "bee"/>
-            </Modal>
-       </div>
-    );
+        <div>
+            <Modal>
+                 <div className = "Box">
+                     <div className = "Title">공구모집 마감하기</div>
+                     <div>
+                         <button className = "EndButton" onClick = {openModalEnd}>공구 종료하기</button>   
+                     </div>
+                         <button className = "StartButton" onClick = {openModalOrder}>주문 진행하기</button>  
+                     <div>
+                     <button className = "Cancel" onClick = {closeModal }>취소</button>  
+                     </div>
+                 </div>
+                 <img src = "/detailpage/popup_char_hide.png" className = "bee"/>
+             </Modal>
+        </div>
+     );
+
 }
+
+export default BuyingEnd
+   
+   
+
 
 
 const Modal = styled.div`
