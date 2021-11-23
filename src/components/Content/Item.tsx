@@ -7,10 +7,10 @@ interface ItemProps {
     tag: any[];
   }
  export default function Item({itemId, title, progress, tag}){
+     
     return (
         <Box>
             <a href = {`/view/${itemId}`}>
-            {/* `/product_img_${itemid}.png` */}
                 <img src = {`/product_img_${itemId}.png`} className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
