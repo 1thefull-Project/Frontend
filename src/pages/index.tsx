@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Category } from "../components/category";
 import Image from 'next/image';
+import { Filter} from "../components/Filter";
 import MoreButton from "../components/Button/MoreButton";
 import {AiOutlineDown } from "react-icons/ai";
 import Item from '../components/Content/Item';
@@ -13,95 +14,17 @@ import { arrayBuffer } from "stream/consumers";
 import ItemList from "../components/Content/ItemList";
 import axios, { AxiosResponse } from "axios";
 
-
-
-import { myContext } from '../context';
-
-
-const list = [
-    {   
-        id:1,
-        itemId:1,
-        title:'초강력 괴물 흡입력 청소기',
-        tag: '주방/생활용품',
-        progress: 0,
-
-    },
-    {
-        id:2,
-        itemId:2,
-        title:'2',
-        tag: '주방/생활용품',
-        progress: 1,
-    },
-    {   
-        id:3,
-        itemId:3,
-        title:'3',
-        tag: '주방/생활용품',
-        progress: 0,
-    },
-    {
-        id:4,
-        itemId:4,
-        title:'4',
-        tag: '주방/생활용품',
-        progress: 1,
-    },
-    {
-        id:5,
-        itemId:5,
-        title:'5',
-        tag: '주방/생활용품',
-        progress: 0,
-    },
-    {
-        id:6,
-        itemId:6,
-        title:'6',
-        tag: '주방/생활용품',
-        progress: 0,
-    },
-    {
-        id:7,
-        itemId:7,
-        title:'7',
-        tag: '주방/생활용품',
-        progress: 0,
-    },
-    {
-        id:8,
-        itemId:8,
-        title:'8',
-        tag: '주방/생활용품',
-        progress: 0,
-    },
-
-];
-
-interface ItemProps {
-
-    Data: any[],
-  }
-
 export default function Home() {
  
-
-
-    /* API 가져오기 */
-    const API_URL = process.env.NEXT_PUBLIC_ITEM_LIST as string
-    const [Data, setData] = useState([]);
+    const [items, setItems] = useState([]);
     useEffect(() => {  
-        axios.get("https://gonggoo-bee.herokuapp.com/item/lobby/allitem"  , { withCredentials: true }).then((res: AxiosResponse) => {
+        axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string, { withCredentials: true }).then((res: AxiosResponse) => {
           if (res.data) {
-            setData(res.data.itemInfo);
-            console.log(res.data);
+            setItems(res.data.itemInfo);
           }
         }) 
       }, [])
-    
 
-    
     var settings1 = {
         dots: false,
         infinite: false,
@@ -109,7 +32,6 @@ export default function Home() {
         slidesToScroll: 3,
         speed: 1000,
         cssEase: 'ease',
-
       };
 
       var settings2 = {    //필터 슬라이더 세팅
@@ -120,40 +42,6 @@ export default function Home() {
         speed: 1000,
         cssEase: 'ease',
     };
-
-    //필터 구현
-    // const filters: Array<string> = ['전체보기', ...new Set(item.map((item) => item.state)), '팔로워', '인기순', '최신순'];
-    // console.log(filters);       //추후 삭제
-
-    // const [activeFil, setActiveFil] = useState(filters);
-    // const[data, setData] = useState(item);
-
-    // const activeFilter = (btn: string) => {
-    //     if (btn === '전체보기') {
-    //         setData(item);
-    //         return;
-    //     }
-    //     const filteredData = item.filter((item) => item.state === btn);
-    //     setData(filteredData);
-    // }
-
-
-    // useEffect(() => {
-    //     activeFil === '전체보기'
-    //     ? setData(item) : setData(item.filter((vga) => vga.state === activeFil));
-    // }, [activeFil]);
-
-    // const API_URL = "https://gonggoo-bee.herokuapp.com/item/"; 
-    
-    // function getData(){
-    //     Axios.get(API_URL).then(res => {
-    //         console.log(res);
-    //     });
-    // }
-
-    // useEffect(() =>{
-    //     getData();
-    // }, []);
 
     return (
         <Main>
@@ -173,27 +61,23 @@ export default function Home() {
                 <Image src="/category/main_slider.png" alt="" width={88} height={12} />
             </Section1>
             <div>
-            <Filter>
+            <FilterArea>
                     <Slider {...settings2}>
-                        {/* {activeFil.map((filt) => {
-                            return (
-                                <div className="filt-wrap" key="{filt}">
-                                    <div className="filt-img" onClick={() => activeFilter(filt)}><Image src="/main_filter_deactive.png" alt="" width={71} height={26}></Image></div>
-                                    <div className="filt-text">{filt}</div>
-                                </div>
-                            );
-                        })}  */}
+                        <Filter state={1} name="수요조사"/>
+                        <Filter state={1} name="공구모집"/>
+                        <Filter state={0} name="팔로워"/>
+                        <Filter state={0} name="인기순"/>
+                        <Filter state={0} name="최신순"/>
                     </Slider>
-            </Filter>
+            </FilterArea>
                 <ItemArea>
-                    {Data.map((items) => (<Item 
+                    {items.map((items) => (<Item 
                                                 itemId = {items.itemId} 
                                                 title = {items.title} 
                                                 progress = {items.progress} 
                                                 tag = {items.tag}
                                                 key = {items.itemId}
                                                 />)).slice(0,6)}
-
 
                 </ItemArea>              
                 <More>더보기<AiOutlineDown/></More>
@@ -209,7 +93,6 @@ export default function Home() {
         </Main>
     );
 }
-
 
 const Main = styled.div`
     width: 360px;
@@ -230,25 +113,10 @@ const Section1 = styled.section`
     overflow: hidden;
 `;
 
-const Filter = styled.div`
+const FilterArea = styled.div`
     width:360px;
     height: 33px;
     overflow: hidden;
-    .filt-wrap{
-        position: relative;
-    }
-    .filt-text{
-        position: absolute;
-        top: 43%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 11px;
-        line-height: 13px;
-        color: #686867;
-    }
 `;
 
 const ItemArea = styled.div`
