@@ -17,7 +17,7 @@ export default function IteminfoFooter(){
                     <label>공유</label>
                 </Share>
                 
-                <JoinButton>수요조사 참여</JoinButton>
+                <JoinButton>공동구매 참여</JoinButton>
                 
             </FooterContent>
                 

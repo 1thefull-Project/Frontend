@@ -10,6 +10,8 @@ import BuyingStart from "../components/Modal/BuyingStart";
 import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import OrderStart from "../components/Modal/OrderStart";
+import NoticeModal from "../components/Modal/NoticeModal";
+
 import { GetServerSideProps } from "next";
 import axios from "axios";
 
@@ -50,7 +52,9 @@ interface ItemProps {
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
+            setIsShowingOrder(false);
             setButtonColor(true);
+            
         }
 
        /* 팝업 */
@@ -82,6 +86,7 @@ interface ItemProps {
            setIsShowingOrder(false);
            setButtonColor(true);
        };
+     
        useEffect(() => {
          if (isShowing) {
            const notiTimer = setTimeout(() => {
@@ -109,6 +114,30 @@ interface ItemProps {
           }
         }, [isShowingEnd]);
 
+        /* 공지사항 팝업 */
+
+        const [isShowingNotice, setIsShowingNotice] = useState(false);
+        const openModalNotice = () => {
+            setIsShowing(false); 
+          setIsShowingNotice(true);
+        };
+        const closeModalNotice = () =>{
+            setIsShowingNotice(false);
+        };
+        const writeNotice = () =>{
+
+        };
+        useEffect(() => {
+          if (isShowing) {
+            const notiTimer = setTimeout(() => {
+              setIsShowingNotice(false);
+            }, 10000);
+            return () => clearTimeout(notiTimer);
+          }
+        }, [isShowingNotice]);
+
+
+        
         
         
     const {itemId, title, tag, progress} = item;
@@ -119,12 +148,15 @@ interface ItemProps {
 
     return(
         <div>
+            <div>
+                {isShowingNotice && <NoticeModal openModalNotice = {openModalNotice} closeModalNotice = {closeModalNotice} writeNotice = {writeNotice}/>}
+            </div>
             <div>   
                 {isShowing && <ReseachEnd closeModal = {closeModal} openModalEnd = {openModalEnd} openModalOrder = {openModalOrder} />}
             </div>
 
             <div>   
-                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} ButtonColor = {ButtonColor}/>}
+                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} openModalOrder = {openModalOrder} ChangeColor = {ChangeColor} />}
             </div>
 
             <div>   
@@ -194,10 +226,17 @@ interface ItemProps {
                             <div className ='NoticeTitle'>
                             <img src = "/componentImg/HoneyIcon.png"/>
                             <label>공지사항</label>
-                            <img className = "MoreButton" src = "/button/NoticeMoreButton.png" />
+                            <img className = "MoreButton" src = "/button/NoticeMoreButton.png" onClick = {openModalNotice}/>
                             </div>
                             <div className = "Noticearea">
-                                <h6>공지 내용 들어갈 공간</h6>
+                                <div className = "MainText">* 수요조사 일정</div>
+                                <div className = "SubText">~ 2021.11.27 </div>
+                                <></>
+                                <div className = "MainText">* 공구모집 일정</div>
+                                <div className = "SubText"> 2021.11.27 ~ </div>
+                                <></>
+                                <div className = "MainText">* 최소/최대 인원</div>
+                                <div className = "SubText"> 최소 1(명) / 최대 8(명)</div>
                             </div>
                             <div className = "SecondNoticearea">
                             </div>
@@ -211,7 +250,7 @@ interface ItemProps {
                             <img src = "/componentImg/HoneyIcon.png"/>
                             <label>제품 정보</label>
                             <div className = "InfomationArea"> 
-                                <h6>제품 정보 들어갈 공간</h6>
+                                <div></div>
                             </div>
                         </MenuTitle>
 
@@ -254,7 +293,8 @@ interface ItemProps {
                     </NoticeImg>
 
                     <div className = "Footer">
-                        <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  />
+                        <IteminfoFooter/>
+                        {/* <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> */}
                     </div>
                     
                 </ContentZone>
@@ -607,6 +647,7 @@ const Menu = styled.div`
 `
 const Notice = styled.div`
     .NoticeTitle{
+        
         margin-bottom: 14.87px;
     }
 
@@ -628,10 +669,43 @@ const MenuTitle = styled.div`
     }
 
     .Noticearea{
-        text-align:center;
+        padding-top:17px;
+        padding-bottom:17px;
+        padding-left:30px;
+        text-align:left;
         width:328px;
         border-radius: 12px;
         border: 1px solid #FFD15B;
+        .MainText{
+            
+            margin-bottom:7px;
+
+            font-family: Roboto;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 15px;
+            letter-spacing: 0em;
+            text-align: left;
+
+            
+        }
+        .SubText{
+            margin-left:30px;
+            margin-bottom:7.87px;
+
+            font-family: Roboto;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 15px;
+            letter-spacing: 0em;
+            text-align: left;
+
+            color:#666666;
+
+
+        }
     }
     .MoreButton{
         margin-left:226.23px;

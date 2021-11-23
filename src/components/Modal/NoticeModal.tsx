@@ -1,34 +1,34 @@
 import styled from "@emotion/styled";
 
-var OrderStart = ({closeModalOrder, openModalOrder,ChangeColor}) => {
+var NoticeModal = ({openModalNotice, closeModalNotice, writeNotice}) => {
     return(
         <div>
             <Modal>
                  <div className = "Box">
-                     <div className = "Title">주문 진행하기</div>
-                     <div className = "Text">
-                         <div>공구모집을 종료하고</div>
-                         <div>주문을 진행하시겠습니까?</div>
-                         
-                     </div>
+                     <div className = "Title">공지사항 추가</div>
+                   
+                     <textarea
+                        placeholder = "공지사항을 입력하세요."
+                     >
+                       
+                    </textarea>
                    
                      <div>
-                        <button className = "Yes" onClick = {ChangeColor}>예</button> 
-                        <button className = "No" onClick = {closeModalOrder}>아니오</button>  
+                        <input type = 'submit' value = "등록" onClick={closeModalNotice}/>
                      </div>
                  </div>
-                 <img src = "/detailpage/popup_char_hide.png" className = "bee"/>
              </Modal>
         </div>
      );
 
 }
 
-export default OrderStart
+export default NoticeModal
    
  
  
  const Modal = styled.div`
+    
 
      justifyContent: center;
      alignItems: center;
@@ -48,9 +48,10 @@ export default OrderStart
  
      
      .Box{
+       
          position: fixed;
          background: rgba(255,255,255,0.95);
-         height: 171px;
+         height: 213px;
          width: 320px;
          left: 20px;
          top: 247px;
@@ -67,8 +68,9 @@ export default OrderStart
      }
  
      .Title{
-         margin-top:22px;
-         margin-bottom:26.48px;
+        margin-left:21px;
+         margin-top:19.75px;
+         margin-bottom:11.17px;
 
          font-family: Roboto;
         font-size: 16px;
@@ -76,7 +78,7 @@ export default OrderStart
         font-weight: 700;
         line-height: 19px;
         letter-spacing: 0em;
-        text-align: center;
+        text-align: left;
         color:#666666;
 
      }
@@ -101,7 +103,31 @@ export default OrderStart
         color:#666666;
 
      }
- 
+     input{
+        margin-top:15.86px;
+        width:110px;
+        height:37.72px;
+
+        background-color: #FED15E;
+        border: 0px solid #FED15E;
+        color: #ffffff;
+
+        height: 30.28125px;
+        width: 110px;
+        left: 53px;
+        top: 433.6873779296875px;
+        border-radius: 17px;
+        
+
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: center;
+
+     }
      button{
         height: 30.28125px;
         width: 110px;
@@ -120,8 +146,20 @@ export default OrderStart
 
         
      }
+
+     textarea{
+
+
+        
+        background-color: #F5F5F5F5;
+        width: 285px;
+        height:90px;
+        border: 0px solid #FED15E;
+    }
      .Yes{
-        margin-right:33px;
+        margin-top:15.86px;
+        width:110px;
+        height:37.72px;
 
         background-color: #FED15E;
         border: 0px solid #FED15E;
