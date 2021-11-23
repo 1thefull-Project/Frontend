@@ -10,6 +10,8 @@ import BuyingStart from "../components/Modal/BuyingStart";
 import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import OrderStart from "../components/Modal/OrderStart";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
 
 interface ItemProps {
@@ -42,9 +44,10 @@ interface ItemProps {
         return "배송 마감"
     }
   }
+  
 
   export default function Iteminfo({item}){
-
+    console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
             setButtonColor(true);
@@ -101,21 +104,19 @@ interface ItemProps {
           if (isShowing) {
             const notiTimer = setTimeout(() => {
               setIsShowingEnd(false);
-            }, 3000);
+            }, 10000);
             return () => clearTimeout(notiTimer);
           }
         }, [isShowingEnd]);
 
         
         
- 
-
-       
-   
-
     const {itemId, title, tag, progress} = item;
-   
-    console.log(item)
+    const percent = item.targetNum.currentNum/item.targetNum.maxNum
+  
+    
+
+
     return(
         <div>
             <div>   
@@ -145,18 +146,18 @@ interface ItemProps {
                         
                     <Progressbar>
                         <div className= "ProgressLabel">인원 달성도</div>
-                        <ProgressBar  width={246} percent={0.5} />
+                        <ProgressBar  width={246} percent={percent} />
                     </Progressbar>
                     <Price>
                         <div className = "PriceIndex">예상 가격</div>
                         <div className = "EstimatePrice">
                             <div className = "EachPrice">
                                 최소 인원 달성 시
-                                <label className = "MinPrice">10,900</label>
+                                <label className = "MinPrice">{item.price.minPrice}</label>
                             </div>
                             <div className = "EachPrice">
                                 최대 인원 달성 시
-                                <label className = "MaxPrice">8,800</label>
+                                <label className = "MaxPrice">{item.price.maxPrice}</label>
                             </div>
                            
                         </div>
