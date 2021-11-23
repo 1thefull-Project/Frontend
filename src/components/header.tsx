@@ -13,10 +13,10 @@ export default function Header() {
                     <a className="logo"><Image src="/logo/logo_imgText.png" alt="" width={124} height={35} /></a>
                 </Link>
                 <RightElements>
-                    <Link href="/search">
+                    <Link href="/order"> {/*추후 삭제*/}
                         <a className="search"><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
                     </Link>
-                    <Link href="/">
+                    <Link href="/alarm">
                         <a><Image src="/button/btn_bell.png" alt="" width={24} height={24} /></a>
                     </Link>
                 </RightElements>
