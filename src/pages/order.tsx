@@ -1,7 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import OrderModal from "../components/Modal/OrderModal";
+import OrderModal2 from "../components/Modal/OrderModal2";
 
 export default function Order() {
+    const [isShowing, setIsShowing] = useState(false);
+    const [isShowing2, setIsShowing2] = useState(false);
+    const openModal = () => {
+        setIsShowing(true);
+      };
+    
+    //결제하기 버튼을 누르면 결제 중 모달 생성. 3초 후 결제 완료 모달 호출 후 사라짐
+    useEffect(() => {
+        if (isShowing) {
+          const notiTimer = setTimeout(() => {
+            setIsShowing(false);
+            setIsShowing2(true);
+          }, 3000);
+          return () => clearTimeout(notiTimer);
+        }
+      }, [isShowing]);
+
+      //1.5초 후 결제 완료 모듈 사라짐
+      useEffect(() => {
+        if (isShowing2) {
+          const notiTimer = setTimeout(() => {
+            setIsShowing2(false);
+          }, 1500);
+          return () => clearTimeout(notiTimer);
+        }
+      }, [isShowing2]);
+
+
+
     const [addressInfo, setAddressInfo] = useState<boolean>(false);
     const toggleAddressInfo = () => setAddressInfo(addressInfo => !addressInfo);
 
@@ -97,8 +128,10 @@ export default function Order() {
 
             {/*결제하기 버튼*/}
             <MenuBar>
-                <div className='btn_payment'>결제하기</div>
+                <div className='btn_payment' onClick={openModal}>결제하기</div>
             </MenuBar>
+            <div>{isShowing && <OrderModal/>}</div>
+            <div>{isShowing2 && <OrderModal2/>}</div>
         </Layout>
     );
 }
