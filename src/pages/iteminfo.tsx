@@ -320,7 +320,6 @@ const Write = styled.div`
     .SeperateLine{
         margin-bottom: 25px;
     }
-
     .Footer{
         width:360px;
         position:fixed; 
@@ -331,7 +330,6 @@ const Write = styled.div`
     img{
         
     }
-
 `
 const ItemContent = styled.div`
     img{
@@ -401,7 +399,6 @@ const TextZone = styled.div`
         position: absolute;
         left: 338px;
         top:268+66px;
-
     }
         
     }
@@ -424,7 +421,6 @@ const Progressbar = styled.div`
         width: 100px;
         margin-right: 7px;
         margin-left:16px;
-
         font-family: Roboto;
         font-size: 12px;
         font-style: normal;
@@ -433,7 +429,6 @@ const Progressbar = styled.div`
     }
 `
 const Price = styled.div`
-
     margin-left : 16px;
     display:flex;
     text-align:left;
@@ -451,7 +446,6 @@ const Price = styled.div`
         line-height: 14px;
         letter-spacing: 0em;
       
-
     }
     .EachPrice{
         
@@ -464,7 +458,6 @@ const Price = styled.div`
         letter-spacing: 0em;
         vertical-align: middle;
       
-
     }
     .MinPrice{
         margin-left: 12px;
@@ -477,7 +470,6 @@ const Price = styled.div`
         line-height: 21px;
         letter-spacing: 0em;
         
-
     }
     .MaxPrice{
         margin-left: 22px;
@@ -490,9 +482,7 @@ const Price = styled.div`
         letter-spacing: 0em;
         text-align: left;
         color: #FFB000;
-
     }
-
     .DeliPrice{
         margin-left:20px;
         font-family: Roboto;
@@ -502,8 +492,6 @@ const Price = styled.div`
         line-height: 13px;
         letter-spacing: 0em;
         text-align: center;
-
-
     }
     margin-bottom: 14px;
    
@@ -539,7 +527,6 @@ const Profile = styled.div`
         line-height: 16px;
         letter-spacing: 0em;
         text-align: left;
-
         
     }
     .MyPageLink{
@@ -552,7 +539,6 @@ const Profile = styled.div`
         letter-spacing: 0em;
         text-align: left;
         color: #7BCFFF;
-
       
     }
     .TextZone{
@@ -576,7 +562,6 @@ const Profile = styled.div`
         line-height: 11px;
         letter-spacing: 0em;
         text-align: center;
-
     }
     label{
         margin-top:3px;
@@ -588,15 +573,12 @@ const Profile = styled.div`
         letter-spacing: 0em;
         text-align: center;
         color: #FFBB0D;
-
-
     }
     .Icon{
         color:#E5E5E5;
         width:10px;
         height:10px;
     }
-
     .TrustImg{
         margin:0;
         margin-top:10px;
@@ -606,7 +588,6 @@ const Profile = styled.div`
     
 `
 const Menu = styled.div`
-
     display:flex;
     margin-bottom:26px;
     padding-left:0px;
@@ -624,9 +605,7 @@ const Menu = styled.div`
         line-height: 15px;
         letter-spacing: 0em;
         text-align: center;
-
         color: #666666;
-
     }
     .DirectButton{
        
@@ -643,14 +622,12 @@ const Menu = styled.div`
         font-weight:400;
     }
     
-
 `
 const Notice = styled.div`
     .NoticeTitle{
         
         margin-bottom: 14.87px;
     }
-
     margin-bottom: 37px;
     
     
@@ -667,7 +644,6 @@ const MenuTitle = styled.div`
         vertical-align: middle;     
         
     }
-
     .Noticearea{
         padding-top:17px;
         padding-bottom:17px;
@@ -679,7 +655,6 @@ const MenuTitle = styled.div`
         .MainText{
             
             margin-bottom:7px;
-
             font-family: Roboto;
             font-size: 13px;
             font-style: normal;
@@ -687,13 +662,11 @@ const MenuTitle = styled.div`
             line-height: 15px;
             letter-spacing: 0em;
             text-align: left;
-
             
         }
         .SubText{
             margin-left:30px;
             margin-bottom:7.87px;
-
             font-family: Roboto;
             font-size: 13px;
             font-style: normal;
@@ -701,10 +674,7 @@ const MenuTitle = styled.div`
             line-height: 15px;
             letter-spacing: 0em;
             text-align: left;
-
             color:#666666;
-
-
         }
     }
     .MoreButton{
@@ -722,7 +692,6 @@ const Comment = styled.div`
 `
 const SellerInfomation = styled.div`
     text-align:left;
-
     .InfomationBox{
         margin-top:15px;
         text-align:center;
@@ -731,7 +700,6 @@ const SellerInfomation = styled.div`
         border: 1px solid #FFD15B;
         margin-bottom:15px; 
     }
-
     button{
         width:316px;
         height:38px;
@@ -766,7 +734,6 @@ const SellerInfomation = styled.div`
 const NoticeImg = styled.div`
     margin-bottom:43px;
     padding-left:16px;
-
     
   
 `
