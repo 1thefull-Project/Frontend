@@ -78,10 +78,10 @@ interface ItemProps {
          setIsShowingOrder(true);
 
        };
-       const closeModalOrder = () =>{
-           setIsShowingOrder(false);
-           setButtonColor(true);
-       };
+    //    const closeModalOrder = () =>{
+    //        setIsShowingOrder(false);
+    //        setButtonColor(true);
+    //    };
        useEffect(() => {
          if (isShowing) {
            const notiTimer = setTimeout(() => {
@@ -123,9 +123,9 @@ interface ItemProps {
                 {isShowing && <ReseachEnd closeModal = {closeModal} openModalEnd = {openModalEnd} openModalOrder = {openModalOrder} />}
             </div>
 
-            <div>   
-                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} ButtonColor = {ButtonColor}/>}
-            </div>
+            {/* <div>   
+                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} ButtonColor = {ButtonColor} />}
+            </div> */}
 
             <div>   
                 {isShowingEnd && <BuyingEnd closeModalEnd = {closeModalEnd}/>}
