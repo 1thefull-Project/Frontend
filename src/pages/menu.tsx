@@ -1,37 +1,34 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { useContext, useState, useEffect } from "react";
-import { myContext } from '../context';
-import { User } from '../types/usertypes';
+import { useState, useEffect } from "react";
 import axios, {AxiosResponse} from 'axios';
 import styled from "@emotion/styled";
 import Image from 'next/image';
 import Link from 'next/link';
 import { MenuItem } from "../components/MenuItem";
 
+//상품 정보 불러오기
 export const getServerSideProps: GetServerSideProps = async () => {
     const item = await axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string);
     return {
-      props: { data1: item.data }, 
+      props: { item: item.data }, 
     }
   }
 
-export default function Menu({data1}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Menu({item}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
+    //로그인한 사용자 정보 불러오기
     const [userObject, setUserObject] = useState<any>();
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
             if (res.data) {
-                console.log(res.data);
+                //console.log(res.data);
                 setUserObject(res.data);
             }
         })
     }, [])
-
-    console.log(userObject);    //추후 삭제
     
     const clickLogin = () => {
-        userObject ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
-    }
+        userObject ? location.href = '/login' : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string }
 
     return (
         <>
@@ -42,38 +39,33 @@ export default function Menu({data1}: InferGetServerSidePropsType<typeof getServ
                 <p className="headline">마이공구비</p>
                 <div className="profile-box" style={{border: '1px solid #FFD15B'}}>
                     <div className="user">
-                        <img src="/profile_wonderful.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} /> {/*사용자 프로필 이미지*/}
+                        <img src="/profile_wonderful.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
                         <div style={{marginLeft: '19px'}}>
-                            <p className="user-name">{userObject.name}</p> {/*사용자 이름*/}
+                            <p className="user-name">{userObject.name}</p>
                             <div className="user-info">
-                                <p>총 거래 수 {userObject.deal}</p> {/*사용자 정보*/}
-                                <p>팔로워 {userObject.follower}</p> {/*사용자 정보*/}
-                                <p style={{marginRight: '-2px'}}>팔로우 {userObject.following}</p> {/*사용자 정보*/}
+                                <p>총 거래 수 {userObject.deal}</p>
+                                <p>팔로워 {userObject.follower}</p>
+                                <p style={{marginRight: '-2px'}}>팔로우 {userObject.following}</p>
                             </div>
                         </div>
                     </div>
-                    <Link href='/mypage'>
-                        <div className="login-button" style={{background: '#FFD15B'}}>
-                            <p>마이 프로필</p>
-                        </div> 
-                    </Link>
+                    <div className="login-button" style={{background: '#FFD15B'}}>
+                        <p>마이 프로필</p>
+                    </div> 
                 </div>
             </Section1>
-            {/*최근 참여한 상품*/}
             
+            {/*최근 참여한 상품*/}
             <Section2>
                 <Horizontal><p className="headline">최근 참여한 상품</p> <p className="number">1건</p> <p className="more">더보기</p></Horizontal>
-                {/*참여건수*/}
-                <MenuItem img={`/menu_product_img_${data1.itemInfo[12].itemId}.png`} tag={data1.itemInfo[12].tag[0]} name={data1.itemInfo[12].title}/> {/*상품정보*/}
+                <MenuItem img={`/menu_product_img_${item.itemInfo[12].itemId}.png`} tag={item.itemInfo[12].tag[0]} name={item.itemInfo[12].title}/>
             </Section2>
-            {/*나의 진행 상품*/}
             <Section2>
                 <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">9건</p><p className="more">더보기</p></Horizontal>
-                {/*참여건수*/}
                 <Item>
-                    <MenuItem img={`/menu_product_img_${data1.itemInfo[13].itemId}.png`} tag={data1.itemInfo[13].tag[0]} name={data1.itemInfo[13].title}/>
-                    <MenuItem img={`/menu_product_img_${data1.itemInfo[14].itemId}.png`} tag={data1.itemInfo[14].tag[0]} name={data1.itemInfo[14].title}/>
-                </Item> {/*상품 정보*/}
+                    <MenuItem img={`/menu_product_img_${item.itemInfo[13].itemId}.png`} tag={item.itemInfo[13].tag[0]} name={item.itemInfo[13].title}/>
+                    <MenuItem img={`/menu_product_img_${item.itemInfo[14].itemId}.png`} tag={item.itemInfo[14].tag[0]} name={item.itemInfo[14].title}/>
+                </Item>
             </Section2>
             
             {/*카테고리*/}
@@ -93,12 +85,12 @@ export default function Menu({data1}: InferGetServerSidePropsType<typeof getServ
                 <p>Q&#38;A</p>
                 <p>공구비 스토리</p>
                 <p>공구비 건의하기</p>
-                <p onClick={clickLogin}>로그아웃</p> {/*로그아웃으로 텍스트 수정*/}
+                <p onClick={clickLogin}>로그아웃</p>
             </Section4>
         </Layout>
 
-        :   //로그인 하지 않았을 때
-
+        :   
+        //로그인 하지 않았을 때
         <Layout>
         {/*마이 공구비*/}
         <Section1>
@@ -122,28 +114,27 @@ export default function Menu({data1}: InferGetServerSidePropsType<typeof getServ
                 </Link>
             </div>
         </Section1>
+
         {/*최근 참여한 상품*/}
         <Section2>
-            <Horizontal>
-                <p className="headline">최근 참여한 상품</p> <p className="more">더보기</p>
-            </Horizontal>
+            <Horizontal> <p className="headline2">최근 참여한 상품</p> <p className="more">더보기</p> </Horizontal>
             <Box1>
                 <p>최근 참여한 상품 내역을 알 수 없어요.</p>
                 <p>로그인 해주세요.</p>
             </Box1>
             <Box2 />
         </Section2>
+
         {/*나의 진행 상품*/}
         <Section2>
-            <Horizontal>
-                    <p className="headline">나의 진행 상품</p> <p className="more">더보기</p>
-            </Horizontal>
+            <Horizontal> <p className="headline2">나의 진행 상품</p> <p className="more">더보기</p> </Horizontal>
             <Box1>
                 <p>나의 진행 상품 내역을 알 수 없어요.</p>
                 <p>로그인 해주세요.</p>
             </Box1>
             <Box2 />
         </Section2>
+
         {/*카테고리*/}
         <Section3>
             <p className="headline">카테고리</p>
@@ -192,6 +183,21 @@ const Layout = styled.div`
 
         padding-left: 3px;
         padding-right: 3px;
+        margin-right: 144px;
+    }
+
+    .headline2{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        color: #666666;
+
+        padding-left: 3px;
+        padding-right: 3px;
         margin-right: 181px;
     }
 
@@ -203,8 +209,9 @@ const Layout = styled.div`
         line-height: 16px;
         display: flex;
         align-items: center;
-
         color: #000000;
+
+        margin-right: 8px;
     }
 
     .more{
@@ -318,11 +325,6 @@ const Horizontal = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-
-    .number{
-        margin-left: 144px;
-        margin-right: 8px;
-    }
 `;
 
 const Box1 = styled.div`
