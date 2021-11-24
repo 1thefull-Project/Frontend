@@ -1,20 +1,20 @@
 import styled from "@emotion/styled";
 import React, { cloneElement, useEffect, useState } from "react";
-import IteminfoFooter from "../components/IteminfoFooter";
-import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
-import { ProgressBar } from "../components/ProgressBar";
+import IteminfoFooter from "./IteminfoFooter";
+import IteminfoFooterwriter from "./IteminfoFooterwriter";
+import { ProgressBar } from "./ProgressBar";
 import {BiDotsVerticalRounded} from "react-icons/bi";
-import BuyingEnd from "../components/Modal/BuyingEnd";
-import ReseachEnd from "../components/Modal/ReseachEnd";
-import BuyingStart from "../components/Modal/BuyingStart";
-import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
+import BuyingEnd from "./Modal/BuyingEnd";
+import ReseachEnd from "./Modal/ReseachEnd";
+import BuyingStart from "./Modal/BuyingStart";
+import BuyingStartEdit from "./Modal/BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io";
-import OrderStart from "../components/Modal/OrderStart";
-import NoticeModal from "../components/Modal/NoticeModal";
+import OrderStart from "./Modal/OrderStart";
+import NoticeModal from "./Modal/NoticeModal";
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import JoinModal from "../components/Modal/JoinModal";
-import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
+import JoinModal from "./Modal/JoinModal";
+import AfterFormSubmit from "./Modal/AfterFormSubmit";
 import { ItemProps } from "semantic-ui-react";
 
   function label(num){
@@ -43,6 +43,8 @@ import { ItemProps } from "semantic-ui-react";
   
 
   var Iteminfo = ({item}) =>{
+
+    
  
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
