@@ -1,9 +1,19 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import styled from "@emotion/styled";
 import OrderModal from "../components/Modal/OrderModal";
 import OrderModal2 from "../components/Modal/OrderModal2";
 
-export default function Order() {
+export const getServerSideProps: GetServerSideProps = async () => {
+    const userInfo = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
+    return {
+      props: { userInfo: userInfo.data }, 
+    }
+  }
+
+export default function Order({userInfo}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
     const [isShowing, setIsShowing] = useState(false);
     const [isShowing2, setIsShowing2] = useState(false);
     const openModal = () => {
@@ -26,6 +36,7 @@ export default function Order() {
         if (isShowing2) {
           const notiTimer = setTimeout(() => {
             setIsShowing2(false);
+            location.href = '/view/1';
           }, 1500);
           return () => clearTimeout(notiTimer);
         }
@@ -33,10 +44,10 @@ export default function Order() {
 
 
 
-    const [addressInfo, setAddressInfo] = useState<boolean>(false);
+    const [addressInfo, setAddressInfo] = useState<boolean>(true);
     const toggleAddressInfo = () => setAddressInfo(addressInfo => !addressInfo);
 
-    const [orderInfo, setOrderInfo] = useState<boolean>(false);
+    const [orderInfo, setOrderInfo] = useState<boolean>(true);
     const toggleOrderInfo = () => setOrderInfo(orderInfo => !orderInfo);
 
     return(
@@ -46,7 +57,7 @@ export default function Order() {
             <Section>
                 <Box style={{height: '50px'}}>
                     <Horizontal>
-                        <p className='headline'>주문자</p> <p className='blue-text'>큐시즘</p> {/* 사용자 이름 */}
+                        <p className='headline'>주문자</p> <p className='blue-text'>{userInfo.name}</p>
                     </Horizontal>
                 </Box>
             </Section>
@@ -66,8 +77,8 @@ export default function Order() {
                 :               //기본 결제수단 불러오기
                     <Box style={{height: '119px'}}>
                         <p className='headline'>배송지</p>
-                        <p className='basic-text'>(12345) 서울시 서초구 강남대로 53길 8(원더동, 풀아파트), 210동 1127호</p>
-                        <p className='basic-text'>010-9876-5432</p>
+                        <p className='basic-text'>{userInfo.address}</p>
+                        <p className='basic-text'>{userInfo.phone}</p>
                     </Box>
                 }
                 
