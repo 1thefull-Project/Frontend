@@ -1,29 +1,21 @@
 import styled from "@emotion/styled";
 import React, { cloneElement, useEffect, useState } from "react";
-import IteminfoFooter from "../components/IteminfoFooter";
-import IteminfoFooterwriter from "../components/IteminfoFooterwriter";
-import { ProgressBar } from "../components/ProgressBar";
+import IteminfoFooter from "./IteminfoFooter";
+import IteminfoFooterwriter from "./IteminfoFooterwriter";
+import { ProgressBar } from "./ProgressBar";
 import {BiDotsVerticalRounded} from "react-icons/bi";
-import BuyingEnd from "../components/Modal/BuyingEnd";
-import ReseachEnd from "../components/Modal/ReseachEnd";
-import BuyingStart from "../components/Modal/BuyingStart";
-import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
+import BuyingEnd from "./Modal/BuyingEnd";
+import ReseachEnd from "./Modal/ReseachEnd";
+import BuyingStart from "./Modal/BuyingStart";
+import BuyingStartEdit from "./Modal/BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io";
-import OrderStart from "../components/Modal/OrderStart";
-import NoticeModal from "../components/Modal/NoticeModal";
+import OrderStart from "./Modal/OrderStart";
+import NoticeModal from "./Modal/NoticeModal";
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import JoinModal from "../components/Modal/JoinModal";
-import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
-
-
-interface ItemProps {
-
-    itemId: number;
-    title:String;
-    tag:any[];
-    progress: number;
-  }
+import JoinModal from "./Modal/JoinModal";
+import AfterFormSubmit from "./Modal/AfterFormSubmit";
+import { ItemProps } from "semantic-ui-react";
 
   function label(num){
       if(num === 0) {
@@ -50,7 +42,10 @@ interface ItemProps {
   }
   
 
-  export default function Iteminfo({item}){
+  var Iteminfo = ({item}) =>{
+
+    
+ 
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
@@ -178,15 +173,6 @@ interface ItemProps {
         }, [isShowingAfter]);
 
 
-        
-
-
-        
-        
-  
-   
-  
-    
 
 
     return(
@@ -217,19 +203,19 @@ interface ItemProps {
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/>
+                    {item.itemId? <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/> : <img src = {`/product_img_3.png`}/>}
                     <TextZone>
-                        <label>{label(item.progress)}</label>
+                        <label>{label(item.progress!)}</label>
                         <div className = "TitleTag">
-                            <span>{item.title}<BiDotsVerticalRounded className = "dot"/> </span>
-                            <Tag>{item.tag}</Tag>
+                            <span>{item.title!}<BiDotsVerticalRounded className = "dot"/> </span>
+                            <Tag>{item.tag!}</Tag>
                         </div>
                         
                     </TextZone>
                         
                     <Progressbar>
                         <div className= "ProgressLabel">인원 달성도</div>
-                        <ProgressBar  width={246} percent={item.targetNum.currentNum/item.targetNum.maxNum} />
+                        <ProgressBar  width={246} percent={item.targetNum.currentNum!/item.targetNum.maxNum!} />
                     </Progressbar>
                     <Price>
                         <div className = "PriceIndex">예상 가격</div>
@@ -416,6 +402,7 @@ interface ItemProps {
 
 }
 
+export default Iteminfo
 const Write = styled.div`
   
     font-family: Roboto;

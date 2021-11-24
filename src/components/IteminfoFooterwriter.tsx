@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { GrShareOption } from "react-icons/gr";
 import {BsHeart} from "react-icons/bs";
-import Iteminfo from "../pages/iteminfo";
 import BuyingEndModal from "./Modal/BuyingEnd";
 import React, { useEffect } from "react";
 import { useProps } from "@chakra-ui/system";
