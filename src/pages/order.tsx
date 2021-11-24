@@ -14,6 +14,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export default function Order({userInfo}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
+    console.log(userInfo);
+    console.log(userInfo.name);
+    console.log(userInfo.address);
+
     const [isShowing, setIsShowing] = useState(false);
     const [isShowing2, setIsShowing2] = useState(false);
     const openModal = () => {
