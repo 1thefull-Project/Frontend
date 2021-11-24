@@ -1,26 +1,22 @@
-
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import React, { useState, useEffect } from "react";
 import axios, {AxiosResponse} from 'axios';
 import styled from "@emotion/styled";
 import OrderModal from "../components/Modal/OrderModal";
 import OrderModal2 from "../components/Modal/OrderModal2";
 
-export default function Order() {
+export const getServerSideProps: GetServerSideProps = async () => {
+    const userInfo = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
+    return {
+      props: { userInfo: userInfo.data }, 
+    }
+  }
 
-    //로그인한 사용자 정보 불러오기
-    const [userObject, setUserObject] = useState<any>();
-    useEffect(() => {
-        axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
-            if (res.data) {
-                //console.log(res.data);
-                setUserObject(res.data);
-            }
-        })
-    }, [])
-
-    console.log(userObject);
-    console.log(userObject.name);
-    console.log(userObject.address);
+export default function Order({userInfo}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    
+    console.log(userInfo);
+    console.log(userInfo.name);
+    console.log(userInfo.address);
 
     const [isShowing, setIsShowing] = useState(false);
     const [isShowing2, setIsShowing2] = useState(false);
@@ -65,7 +61,7 @@ export default function Order() {
             <Section>
                 <Box style={{height: '50px'}}>
                     <Horizontal>
-                        <p className='headline'>주문자</p> <p className='blue-text'>{userObject.name}</p>
+                        <p className='headline'>주문자</p> <p className='blue-text'>{userInfo.name}</p>
                     </Horizontal>
                 </Box>
             </Section>
@@ -85,8 +81,8 @@ export default function Order() {
                 :               //기본 결제수단 불러오기
                     <Box style={{height: '119px'}}>
                         <p className='headline'>배송지</p>
-                        <p className='basic-text'>{userObject.address}</p>
-                        <p className='basic-text'>{userObject.phone}</p>
+                        <p className='basic-text'>{userInfo.address}</p>
+                        <p className='basic-text'>{userInfo.phone}</p>
                     </Box>
                 }
                 
