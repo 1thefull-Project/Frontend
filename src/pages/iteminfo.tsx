@@ -184,7 +184,7 @@ interface ItemProps {
         
         
   
-    const percent = item.targetNum.currentNum/item.targetNum.maxNum
+   
   
     
 
@@ -229,7 +229,7 @@ interface ItemProps {
                         
                     <Progressbar>
                         <div className= "ProgressLabel">인원 달성도</div>
-                        <ProgressBar  width={246} percent={percent} />
+                        <ProgressBar  width={246} percent={item.targetNum.currentNum/item.targetNum.maxNum} />
                     </Progressbar>
                     <Price>
                         <div className = "PriceIndex">예상 가격</div>
