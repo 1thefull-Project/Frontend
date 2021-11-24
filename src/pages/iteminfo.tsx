@@ -15,6 +15,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import JoinModal from "../components/Modal/JoinModal";
 import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
+import { ItemProps } from "semantic-ui-react";
 
   function label(num){
       if(num === 0) {
@@ -42,6 +43,7 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
   
 
   var Iteminfo = ({item}) =>{
+    const itemId = item.itemId | 0;
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
@@ -199,7 +201,7 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${item.itemId!}.png`} alt= {""} onClick = {openModal}/>
+                    <img src = {`/product_img_${itemId}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
                         <label>{label(item.progress!)}</label>
                         <div className = "TitleTag">
