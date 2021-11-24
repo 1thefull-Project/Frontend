@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useContext, useState, useEffect } from "react";
 import { myContext } from '../context';
-import { User } from './types/usertypes';
+import { User } from '../types/usertypes';
 import axios from 'axios';
 import styled from "@emotion/styled";
 import Image from 'next/image';

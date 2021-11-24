@@ -11,7 +11,7 @@ interface ItemProps {
     return (
         <Box>
             <a href = {`/view/${itemId}`}>
-                <img src = {`/product_img_${itemId}.png`} className = "ItemImage"/>
+                <img src = {`/product_img_${itemId}.png`} alt = "" className = "ItemImage"/>
                 <Tag>
                     <label>{tag}</label>
                 </Tag>

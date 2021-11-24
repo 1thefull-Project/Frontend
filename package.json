@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -27,12 +26,24 @@
     "react-slick": "^0.28.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.36",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint-plugin-react": "^7.27.1",
     "typescript": "^4.5.2"
   },
-  "repository": "https://github.com/xilucks/Frontend.git"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xilucks/Frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xilucks/Frontend/issues"
+  },
+  "homepage": "https://github.com/xilucks/Frontend#readme",
+  "description": ""
 }

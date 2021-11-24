@@ -4,12 +4,12 @@ import {BsHeart} from "react-icons/bs";
 
 
 
-export default function IteminfoFooter(){
+var IteminfoFooter = ({SubmitOn,openModalItem,openModalAfter}) => {
     return(
         <ItemFooter>
             <FooterContent>
                 <Heart>
-                    <BsHeart className = 'HeartIcon'/>
+                    <BsHeart className = 'HeartIcon' />
                     <label>0</label>
                 </Heart>
                 <Share>
@@ -17,7 +17,7 @@ export default function IteminfoFooter(){
                     <label>공유</label>
                 </Share>
                 
-                <JoinButton>수요조사 참여</JoinButton>
+                {SubmitOn?<SubmitButton onClick = {openModalAfter}>공동구매 폼 제출하기</SubmitButton>:<JoinButton onClick = {openModalItem}>공동구매 참여</JoinButton>}
                 
             </FooterContent>
                 
@@ -26,6 +26,8 @@ export default function IteminfoFooter(){
     );
     
 }
+
+export default IteminfoFooter
 
 const ItemFooter = styled.div`
    
@@ -98,4 +100,12 @@ const JoinButton = styled.button`
     color: #FFFFFF;
     border-radius: 3px;
     
+`
+const SubmitButton = styled.button`
+    border:none;
+    width:233px;
+    height:38px;
+    background: #FFD15B;
+    color: #FFFFFF;
+    border-radius: 3px;
 `
