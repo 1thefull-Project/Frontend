@@ -43,7 +43,12 @@ import { ItemProps } from "semantic-ui-react";
   
 
   var Iteminfo = ({item}) =>{
-    const itemId = item.itemId | 0;
+     item =  {
+        itemId: 1,
+        progress: 1,
+        
+    };
+    
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
@@ -201,7 +206,7 @@ import { ItemProps } from "semantic-ui-react";
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${itemId}.png`} alt= {""} onClick = {openModal}/>
+                    <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
                         <label>{label(item.progress!)}</label>
                         <div className = "TitleTag">
