@@ -249,7 +249,7 @@ interface ItemProps {
     
                 </ItemContent>
                 <Profile>
-                    <img src = "/detailpage/ProfilePhoto.png"/>
+                    <img src = "/detailpage/ProfilePhoto.png" alt =""/>
                     <div className = "Lovbee">
                         <div className = "LovbeeName">1theFull <div className = "MyPageLink">마이 페이지</div></div>
                     </div>
@@ -260,7 +260,7 @@ interface ItemProps {
                         </div>
                        
                     </div>
-                    <img src = "/LoveySearch/TrustImg.png" className = "TrustImg"/>
+                    <img src = "/LoveySearch/TrustImg.png" alt ="" className = "TrustImg"/>
                 </Profile>
 
                 <Menu>
@@ -276,7 +276,7 @@ interface ItemProps {
                     <Notice>
                         <MenuTitle>
                             <div className ='NoticeTitle'>
-                            <img src = "/componentImg/HoneyIcon.png"/>
+                            <img src = "/componentImg/HoneyIcon.png" alt =""/>
                             <label>공지사항</label>
                             <img className = "MoreButton" src = "/button/NoticeMoreButton.png" onClick = {openModalNotice}/>
                             </div>
@@ -296,7 +296,7 @@ interface ItemProps {
                         </MenuTitle>
                     </Notice>
 
-                    <img className = "SeperateLine"src = "/detailpage/SeperateLine.png"/>
+                    <img className = "SeperateLine"src = "/detailpage/SeperateLine.png" alt =""/>
 
                     <ItemInfomation>
                         <MenuTitle>
