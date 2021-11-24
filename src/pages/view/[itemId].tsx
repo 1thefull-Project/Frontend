@@ -2,22 +2,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from "axios";
-import Iteminfo from '../iteminfo';
+import Iteminfo from '../../components/iteminfo';
 import { GetServerSideProps } from 'next';
 
-
-
-const Post = ({item}) => {
-
-  return (
-    <div>
-      <Iteminfo item={item} />;
-    </div>
-  
-  );
-};
-
-export default Post;
 
 export async function getServerSideProps(context) {
   const itemId = context.params.itemId;
@@ -31,3 +18,15 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+const Post = ({item}) => {
+
+  return (
+    <div>
+      <Iteminfo item={item} />
+    </div>
+  
+  );
+};
+
+export default Post;

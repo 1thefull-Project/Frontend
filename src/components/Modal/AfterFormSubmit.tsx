@@ -1,20 +1,29 @@
 import styled from "@emotion/styled";
+import  Router  from "next/router";
+import { useState } from "react";
+import { Button } from "semantic-ui-react";
 
-var OrderStart = ({closeModalOrder, openModalOrder,ChangeColor}) => {
+const AfterFormSubmit = ({closeModalAfter}) =>{
+    const targetPage = "/order";
+    var MovePage = () => {
+        return Router.push(targetPage);
+    }
     return(
         <div>
             <Modal>
                  <div className = "Box">
-                     <div className = "Title">주문 진행하기</div>
-                     <div className = "Text">
-                         <div>공구모집을 종료하고</div>
-                         <div>주문을 진행하시겠습니까?</div>
-                         
+                     <div className = "Title">공동구매 참여하기</div>
+                     <div className = "TextArea">
+                         <div className = "Text">
+                         공동구매에 참여하시겠습니까?
                      </div>
-                   
+                     <div className = "SubText">
+                        ※ 참여 인원은 공동구매 과정에 큰 영향을 미치므로 신중하게 선택하시길 바랍니다.
+                     </div>
+                     </div>
                      <div>
-                        <button className = "Yes" onClick = {ChangeColor}>예</button> 
-                        <button className = "No" onClick = {closeModalOrder}>아니오</button>  
+                        <button className = "Yes" onClick = {MovePage}>예</button> 
+                        <button className = "No" onClick = {closeModalAfter}>아니오</button>  
                      </div>
                  </div>
                  <img src = "/detailpage/popup_char_hide.png" className = "bee"/>
@@ -24,11 +33,10 @@ var OrderStart = ({closeModalOrder, openModalOrder,ChangeColor}) => {
 
 }
 
-export default OrderStart
-   
- 
- 
- const Modal = styled.div`
+export default AfterFormSubmit
+
+
+const Modal = styled.div`
 
      justifyContent: center;
      alignItems: center;
@@ -53,7 +61,7 @@ export default OrderStart
          height: 171px;
          width: 320px;
          left: 20px;
-         top: 247px;
+         top: 225px;
          border-radius: 15px;
          z-index:1;
  
@@ -61,16 +69,17 @@ export default OrderStart
      .bee{
          position: fixed;
          left:123px;
-         top:188px;
+         top:166px;
          z-index:2;
          
      }
  
      .Title{
-         margin-top:22px;
-         margin-bottom:26.48px;
+         margin-top:19.59px;
+         margin-bottom:24px;
 
-         font-family: Roboto;
+        
+        font-family: Roboto;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -80,14 +89,17 @@ export default OrderStart
         color:#666666;
 
      }
-     
-     .Text{
+     .TextArea{
          margin-left:auto;
          margin-right:auto;
-         margin-bottom:30.69px;
-        width: 170px;
-        text-align:centere;
-
+         margin-bottom:24.83px;
+         text-align:center;
+         width:220px;
+     }
+     
+     .Text{
+         
+        text-align:center;
 
         font-family: Roboto;
         font-size: 14px;
@@ -97,9 +109,22 @@ export default OrderStart
         letter-spacing: 0em;
         text-align: center;
         
+        margin-bottom:4px;
+
 
         color:#666666;
 
+     }
+     .SubText{
+        
+        font-family: Roboto;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        letter-spacing: 0em;
+        text-align: center;
+        cololr: #666666;
      }
  
      button{
@@ -136,5 +161,7 @@ export default OrderStart
 
     }
  
+   
+    
  
  `

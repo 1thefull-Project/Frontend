@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { GrShareOption } from "react-icons/gr";
 import {BsHeart} from "react-icons/bs";
-import Iteminfo from "../pages/iteminfo";
 import BuyingEndModal from "./Modal/BuyingEnd";
 import React, { useEffect } from "react";
 import { useProps } from "@chakra-ui/system";
@@ -22,7 +21,7 @@ var IteminfoFooterwriter = ({openModal ,ButtonColor}) => {
                     <label>공유</label>
                 </Share>
                 
-                <ResultButton>참여 더비 리스트</ResultButton>
+                {ButtonColor == true ? <ResultButtonOn>참여 더비 리스트</ResultButtonOn>:<ResultButton >참여 더비 리스트</ResultButton>}
                 <EndButton onClick = {openModal} >공동구매 마감</EndButton>
                 
             </FooterContent>
@@ -110,6 +109,27 @@ const ResultButton = styled.button`
     border-radius: 5px;
     margin-right: 8px;
     border: 1px solid #C4C4C4;
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+    
+`
+
+const ResultButtonOn = styled.button`
+    border:none;
+    width:116px;
+    height:38px;
+    background: #FFFFFF;
+    color: #FFD15B ;
+    border-radius: 5px;
+    margin-right: 8px;
+    border: 1px solid #FFD15B;
     font-family: Roboto;
     font-size: 13px;
     font-style: normal;
