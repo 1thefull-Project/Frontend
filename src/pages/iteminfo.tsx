@@ -199,12 +199,12 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_1.png`} alt= {""} onClick = {openModal}/>
+                    <img src = {`/product_img_${item.itemId!}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
-                        <label>{label(item.progress)}</label>
+                        <label>{label(item.progress!)}</label>
                         <div className = "TitleTag">
-                            <span>{item.title}<BiDotsVerticalRounded className = "dot"/> </span>
-                            <Tag>{item.tag}</Tag>
+                            <span>{item.title!}<BiDotsVerticalRounded className = "dot"/> </span>
+                            <Tag>{item.tag!}</Tag>
                         </div>
                         
                     </TextZone>
