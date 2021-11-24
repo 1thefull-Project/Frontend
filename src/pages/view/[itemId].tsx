@@ -11,7 +11,7 @@ const Post = ({item}) => {
 
   return (
     <div>
-      <Iteminfo item={item} />;
+      {item && <Iteminfo item={item} />};
     </div>
   
   );
