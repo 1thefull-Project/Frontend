@@ -16,15 +16,6 @@ import axios from "axios";
 import JoinModal from "../components/Modal/JoinModal";
 import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
 
-
-interface ItemProps {
-
-    itemId: number;
-    title:String;
-    tag:any[];
-    progress: number;
-  }
-
   function label(num){
       if(num === 0) {
           return "수요조사 진행"
@@ -178,15 +169,6 @@ interface ItemProps {
         }, [isShowingAfter]);
 
 
-        
-
-
-        
-        
-  
-   
-  
-    
 
 
     return(
@@ -217,7 +199,7 @@ interface ItemProps {
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/>
+                    <img src = {`/product_img_1.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
                         <label>{label(item.progress)}</label>
                         <div className = "TitleTag">
