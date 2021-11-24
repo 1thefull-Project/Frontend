@@ -13,7 +13,8 @@ interface ItemProps {
             <a href = {`/view/${itemId}`}>
                 <img src = {`/product_img_${itemId}.png`} alt = "" className = "ItemImage"/>
                 <Tag>
-                    <label>{tag}</label>
+                    <label>{"#"+tag[0]}
+                                {tag[1]? "  #"+tag[1] : null}</label>
                 </Tag>
 
                 <Tittle>

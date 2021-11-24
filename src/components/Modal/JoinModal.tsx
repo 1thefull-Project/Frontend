@@ -1,8 +1,26 @@
 import styled from "@emotion/styled";
 import axios from "axios";
+import { useState } from "react";
 import {BsChevronCompactDown} from "react-icons/bs";
 
+var count = 0;
+
 var JoinModal = ({openModalItem, closeModalItem}) => {
+   
+   const [Items, countItem] = useState(count);
+   const Add = () =>{
+      count += 1;
+      countItem(count);
+
+   };
+
+   const DisCount = () =>{
+      count -= 1;
+      countItem(count);
+
+   };
+
+   
 
  
     return(
@@ -23,7 +41,11 @@ var JoinModal = ({openModalItem, closeModalItem}) => {
                        <option value = "Short">숏(Short) - 87cm</option>
                     </select>
                     <div className = "subTitle">개수</div>
-
+                    <div style = {{display: "flex"}}>
+                    <img src = "/detailpage/ItemDelete.png" onClick = {DisCount} style = {{marginLeft: "30.08px", marginRight: "14.38px", width: "24.64px", height:"24px", marginTop:"6.17px"}}/>
+                     <div className = "CountBox">{Items}</div>
+                     <img src = "/detailpage/ItemPlus.png" onClick = {Add} style = {{marginLeft: "14.38px", width: "24.64px", height:"24px", marginTop:"6.17px"}}/>
+                    </div>
                  </div>
              </Modal>
         </div>
@@ -56,6 +78,18 @@ text-align: center;
 
 
 .Box{
+   .CountBox {
+      height: 35px;
+      width: 223.85235595703125px;
+      left: 69.1015625px;
+      top: 681.171875px;
+      border-radius: 5px;
+      vertical-align: middle;
+      padding-top:8px;
+      font-size:16px;
+      border: 1px solid #C4C4C4;
+
+   }
   
     position: fixed;
     background: rgba(255,255,255,0.95);
@@ -72,20 +106,23 @@ text-align: center;
       left: 27px;
       top: 522.556640625px;
       border-radius: 5px;
-            
+      background: rgba(255,255,255,0.95);    
       margin-bottom:19px;
-    }
 
-    option{
-      font-family: Roboto;
-      font-size: 10px;
+      font-size: 14px;
       font-style: normal;
       font-weight: 500;
       line-height: 16px;
       letter-spacing: 0em;
       text-align: left;
-      
+
+      option{
+         background-color:#FFFFFF;
+         font-family: Roboto;
+
+      }
     }
+
     .Title{
       font-family: Roboto;
       font-size: 16px;
