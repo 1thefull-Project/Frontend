@@ -183,8 +183,7 @@ interface ItemProps {
 
         
         
-        
-    const {itemId, title, tag, progress} = item;
+  
     const percent = item.targetNum.currentNum/item.targetNum.maxNum
   
     
@@ -220,10 +219,10 @@ interface ItemProps {
                 <ItemContent>
                     <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
-                        <label>{label(progress)}</label>
+                        <label>{label(item.progress)}</label>
                         <div className = "TitleTag">
-                            <span>{title}<BiDotsVerticalRounded className = "dot"/> </span>
-                            <Tag>{tag}</Tag>
+                            <span>{item.title}<BiDotsVerticalRounded className = "dot"/> </span>
+                            <Tag>{item.tag}</Tag>
                         </div>
                         
                     </TextZone>
