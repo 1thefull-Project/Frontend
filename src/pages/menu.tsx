@@ -15,25 +15,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   }
 
-export default async function Menu({data1}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    
-    const [preLogin, setpreLogin] = useState<any>();
+export default function Menu({data1}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
-    await axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true })
-         .then((res: AxiosResponse) => {console.log(res.data); setpreLogin(res.data)})
-         .catch((Error)=>{console.log(Error)});
+    const [userObject, setUserObject] = useState<any>();
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setUserObject(res.data);
+            }
+        })
+    }, [])
 
-    const userObject = useContext(myContext) as User;
     console.log(userObject);    //추후 삭제
-    console.log(preLogin);
     
     const clickLogin = () => {
-        preLogin ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
+        userObject ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
     }
 
     return (
         <>
-        {preLogin ?   //로그인 했을 때
+        {userObject ?   //로그인 했을 때
         <Layout>
             {/*마이 공구비*/}
             <Section1>
