@@ -41,7 +41,7 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
   }
   
 
-  export default function Iteminfo({item}){
+  var Iteminfo = ({item}) =>{
     console.log(item)
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
@@ -211,7 +211,7 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
                         
                     <Progressbar>
                         <div className= "ProgressLabel">인원 달성도</div>
-                        <ProgressBar  width={246} percent={item.targetNum.currentNum/item.targetNum.maxNum} />
+                        <ProgressBar  width={246} percent={item.targetNum.currentNum!/item.targetNum.maxNum!} />
                     </Progressbar>
                     <Price>
                         <div className = "PriceIndex">예상 가격</div>
@@ -398,6 +398,7 @@ import AfterFormSubmit from "../components/Modal/AfterFormSubmit";
 
 }
 
+export default Iteminfo
 const Write = styled.div`
   
     font-family: Roboto;
