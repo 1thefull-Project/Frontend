@@ -10,23 +10,25 @@ import { MenuItem } from "../components/MenuItem";
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const item = await axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string);
+    const item2 = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
     return {
-      props: { data: item.data }, 
+      props: { data1: item.data, data2: item2.data }, 
     }
   }
 
-export default function Menu({data}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Menu({data1, data2}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
     const userObject = useContext(myContext) as User;
     console.log(userObject);    //추후 삭제
+    console.log(data2);
     
     const clickLogin = () => {
-        userObject ? location.href = '/login' : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
+        data2 ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
     }
 
     return (
         <>
-        {userObject.userId ?   //로그인 했을 때
+        {data2 ?   //로그인 했을 때
         <Layout>
             {/*마이 공구비*/}
             <Section1>
@@ -55,15 +57,15 @@ export default function Menu({data}: InferGetServerSidePropsType<typeof getServe
             <Section2>
                 <Horizontal><p className="headline">최근 참여한 상품</p> <p className="number">1건</p> <p className="more">더보기</p></Horizontal>
                 {/*참여건수*/}
-                <MenuItem img={`/menu_product_img_${data.itemInfo[12].itemId}.png`} tag={data.itemInfo[12].tag[0]} name={data.itemInfo[12].title}/> {/*상품정보*/}
+                <MenuItem img={`/menu_product_img_${data1.itemInfo[12].itemId}.png`} tag={data1.itemInfo[12].tag[0]} name={data1.itemInfo[12].title}/> {/*상품정보*/}
             </Section2>
             {/*나의 진행 상품*/}
             <Section2>
                 <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">9건</p><p className="more">더보기</p></Horizontal>
                 {/*참여건수*/}
                 <Item>
-                    <MenuItem img={`/menu_product_img_${data.itemInfo[13].itemId}.png`} tag={data.itemInfo[13].tag[0]} name={data.itemInfo[13].title}/>
-                    <MenuItem img={`/menu_product_img_${data.itemInfo[14].itemId}.png`} tag={data.itemInfo[14].tag[0]} name={data.itemInfo[14].title}/>
+                    <MenuItem img={`/menu_product_img_${data1.itemInfo[13].itemId}.png`} tag={data1.itemInfo[13].tag[0]} name={data1.itemInfo[13].title}/>
+                    <MenuItem img={`/menu_product_img_${data1.itemInfo[14].itemId}.png`} tag={data1.itemInfo[14].tag[0]} name={data1.itemInfo[14].title}/>
                 </Item> {/*상품 정보*/}
             </Section2>
             
