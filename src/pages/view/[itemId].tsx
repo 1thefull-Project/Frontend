@@ -6,19 +6,6 @@ import Iteminfo from '../iteminfo';
 import { GetServerSideProps } from 'next';
 
 
-
-const Post = ({item}) => {
-
-  return (
-    <div>
-      {item && <Iteminfo item={item} />};
-    </div>
-  
-  );
-};
-
-export default Post;
-
 export async function getServerSideProps(context) {
   const itemId = context.params.itemId;
   const apiUrl = `https://gonggoo-bee.herokuapp.com/item/${itemId}`;
@@ -31,3 +18,15 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+const Post = ({item}) => {
+
+  return (
+    <div>
+      <Iteminfo item={item} />
+    </div>
+  
+  );
+};
+
+export default Post;
