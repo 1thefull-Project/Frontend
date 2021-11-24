@@ -11,7 +11,6 @@ import BuyingStartEdit from "../components/Modal//BuyingStartEdit";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import OrderStart from "../components/Modal/OrderStart";
 import NoticeModal from "../components/Modal/NoticeModal";
-
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import JoinModal from "../components/Modal/JoinModal";
@@ -25,6 +24,7 @@ interface ItemProps {
     tag:any[];
     progress: number;
   }
+
   function label(num){
       if(num === 0) {
           return "수요조사 진행"
@@ -218,7 +218,7 @@ interface ItemProps {
 
             <Write>
                 <ItemContent>
-                    <img src = {`/product_img_${itemId}.png`} alt= {""} onClick = {openModal}/>
+                    <img src = {`/product_img_${item.itemId}.png`} alt= {""} onClick = {openModal}/>
                     <TextZone>
                         <label>{label(progress)}</label>
                         <div className = "TitleTag">
