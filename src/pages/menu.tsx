@@ -2,7 +2,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useContext, useState, useEffect } from "react";
 import { myContext } from '../context';
 import { User } from '../types/usertypes';
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import styled from "@emotion/styled";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,25 +10,30 @@ import { MenuItem } from "../components/MenuItem";
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const item = await axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string);
-    const item2 = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
     return {
-      props: { data1: item.data, data2: item2.data }, 
+      props: { data1: item.data }, 
     }
   }
 
-export default function Menu({data1, data2}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default async function Menu({data1}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    
+    const [preLogin, setpreLogin] = useState<any>();
+
+    await axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true })
+         .then((res: AxiosResponse) => {console.log(res.data); setpreLogin(res.data)})
+         .catch((Error)=>{console.log(Error)});
 
     const userObject = useContext(myContext) as User;
     console.log(userObject);    //추후 삭제
-    console.log(data2);
+    console.log(preLogin);
     
     const clickLogin = () => {
-        data2 ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
+        preLogin ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string
     }
 
     return (
         <>
-        {data2 ?   //로그인 했을 때
+        {preLogin ?   //로그인 했을 때
         <Layout>
             {/*마이 공구비*/}
             <Section1>
