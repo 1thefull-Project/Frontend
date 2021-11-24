@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { myContext } from "../context";
-import { User } from '../pages/types/usertypes';
+import { User } from '../types/usertypes';
 import { AlarmList } from '../components/Content/AlarmCard-list';
 
 export default function Alarm(){
