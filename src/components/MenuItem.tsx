@@ -43,7 +43,7 @@ const Layout = styled.div`
     .name{
         font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: bold;
         font-size: 11px;
         line-height: 8px;
 
