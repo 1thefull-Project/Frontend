@@ -4,7 +4,7 @@ import {BsHeart} from "react-icons/bs";
 
 
 
-var IteminfoFooter = ({SubmitOn,openModalItem,openModalAfter}) => {
+var IteminfoFooter = ({SubmitOn,openModalItem,openModalAfter,Progress}) => {
     return(
         <ItemFooter>
             <FooterContent>
@@ -17,7 +17,7 @@ var IteminfoFooter = ({SubmitOn,openModalItem,openModalAfter}) => {
                     <label>공유</label>
                 </Share>
                 
-                {SubmitOn?<SubmitButton onClick = {openModalAfter}>공동구매 폼 제출하기</SubmitButton>:<JoinButton onClick = {openModalItem}>공동구매 참여</JoinButton>}
+                {Progress === 3 ? <SubmitButton style = {{background: "#c4c4c4"}}>공구모집 마감</SubmitButton> : SubmitOn?<SubmitButton onClick = {openModalAfter}>공동구매 폼 제출하기</SubmitButton>:<JoinButton onClick = {openModalItem}>공동구매 참여</JoinButton>}
                 
             </FooterContent>
                 

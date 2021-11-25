@@ -459,7 +459,7 @@ var Iteminfo = ({ item, userObject }) => {
                     <div className="Footer">
                         {
                             userObject?
-                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} Progress = {item.progress} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter}  />
+                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} Progress = {item.progress} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} Progress = {item.progress}  />
                             : null
                         }
                         
