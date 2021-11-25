@@ -26,7 +26,7 @@ const Fil = styled.div`
         transform: translate(-50%, -50%);
         font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: 400;
         font-size: 10px;
         line-height: 13px;
         color: #FFFFFF;
@@ -38,7 +38,7 @@ const Fil = styled.div`
         transform: translate(-50%, -50%);
         font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: 400;
         font-size: 10px;
         line-height: 13px;
         color: #686867;

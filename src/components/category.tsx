@@ -22,7 +22,7 @@ const Box = styled.div`
     p{
         font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: 400;
         font-size: 9px;
         width: 70px;
         height: 12px;

@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import '../styles/responsive.css';
 import '../styles/text.css';
 import '../styles/globals.css';
+import '../styles/font.css';
 import styled from '@emotion/styled';
 
 import { useState } from 'react';

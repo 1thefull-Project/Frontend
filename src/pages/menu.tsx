@@ -28,7 +28,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
     }, [])
     
     const clickLogin = () => {
-        userObject ? location.href = '/login' : location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string }
+        userObject ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = '/login' }
 
     return (
         <>
@@ -275,10 +275,8 @@ const Section1 = styled.div`
         justify-content:space-around;
         color: #666666;
 
-
-
         p{
-            margin-right: 22px;
+            margin-right: 10px;
         }
     }
 
