@@ -7,7 +7,8 @@ import { GetServerSideProps } from 'next';
 
 export async function getServerSideProps(context) {
   const itemId = context.params.itemId;
-  const apiUrl = `https://gonggoo-bee.herokuapp.com/item/${itemId}`;
+  const apiUrl = process.env.NEXT_PUBLIC_ITEM_LIST as String + `/${itemId}`;
+  
   const res = await axios.get(apiUrl);
   const data = res.data;
 
