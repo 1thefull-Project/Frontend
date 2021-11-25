@@ -1,23 +1,49 @@
 import styled from "@emotion/styled";
-import axios from "axios";
+import React, { useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import router from "next/router";
 
-var NoticeModal = ({openModalNotice, closeModalNotice, writeNotice}) => {
-    
- 
+var NoticeModal = ({itemId, openModalNotice, closeModalNotice, writeNotice}) => {
+
+    const [NoticeContent, setNoticeContent] = useState("");
+
+    function onClickListener() {        
+        closeModalNotice;
+        axios.post( process.env.NEXT_PUBLIC_ITEM_LIST as string + '/notice', {
+            itemId : itemId,
+            notice : NoticeContent
+        })
+            .then(function () {
+                // response
+                // console.log(res.data.result);
+            }).catch(function (err: any) {
+                // 오류발생시 실행
+                console.log(err);
+            }).then(function () {
+                // 항상 실행
+                router.reload();
+            });             
+    }
+
+    const onNoticeHandler = (event : any) => {
+        setNoticeContent(event.currentTarget.value);
+    }
+
+
     return(
         <div>
             <Modal>
                  <div className = "Box">
                      <div className = "Title">공지사항 추가</div>
                    
-                     <textarea
+                     <textarea onChange = {onNoticeHandler}
                         placeholder = "공지사항을 입력하세요."
                      >
                        
                     </textarea>
                    
                      <div>
-                        <input type = 'submit' value = "등록" onClick={closeModalNotice}/>
+                        <input type = 'submit' value = "등록" onClick={onClickListener}/>
                      </div>
                  </div>
              </Modal>
@@ -32,7 +58,7 @@ export default NoticeModal
  
  const Modal = styled.div`
     
-
+    z-index : 9;
      justifyContent: center;
      alignItems: center;
      position: fixed;
