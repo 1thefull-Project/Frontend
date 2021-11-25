@@ -45,8 +45,7 @@ import { Center } from "@chakra-ui/layout";
 
   var Iteminfo = ({item, userObject}) =>{
     console.log(item)
-    console.log(userObject)
-   
+
  
 
 
@@ -751,7 +750,6 @@ const MenuTitle = styled.div`
         width:328px;
         border-radius: 12px;
         border: 1px solid #FFD15B;
-
         font-family: Roboto;
         font-size: 13px;
         font-style: normal;
@@ -759,7 +757,6 @@ const MenuTitle = styled.div`
         line-height: 15px;
         letter-spacing: 0em;
         text-align: left;
-
         .MainText{
             
             margin-bottom:7px;
@@ -794,7 +791,6 @@ const MenuTitle = styled.div`
 `
 const ItemInfomation = styled.div`
     text-align:center;
-
     font-family: Roboto;
    
     font-style: normal;
@@ -803,8 +799,6 @@ const ItemInfomation = styled.div`
     letter-spacing: 0em;
     text-align: center;
     
-
-
     .InfomationArea{
         img{
             width:360px;
@@ -817,14 +811,12 @@ const ItemInfomation = styled.div`
         letter-spacing: 0em;
         text-align: center;
         color:#686867;
-
         .ItemImgMain{
             margin-top:31px;
             
         }
         .ref{
             margin-bottom:30px;
-
         }
         .ItemImgSub{
             margin-top:30px;
@@ -834,8 +826,6 @@ const ItemInfomation = styled.div`
             margin-left:auto;
             margin-right:auto;
         }
-
-
     }
     
 `
