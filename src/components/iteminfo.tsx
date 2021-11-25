@@ -46,8 +46,9 @@ function label(num) {
 
 
 var Iteminfo = ({ item, userObject }) => {
-    
-    
+    console.log(item)
+    console.log(userObject)
+
  
 
 
@@ -57,7 +58,10 @@ var Iteminfo = ({ item, userObject }) => {
             if (res.data) {
                 console.log(res.data);
                 setItemData(res.data);
-            
+                //console.log('test')
+                //console.log(item);
+                //console.log(userObject);
+                //item.lobbyId === userObject.userId ? console.log(true) : console.log(false);
             }
         })
     }, [])
@@ -179,7 +183,7 @@ var Iteminfo = ({ item, userObject }) => {
 
     }, [isShowingAfter]);
 
-    
+
 
 
     return (
@@ -275,8 +279,8 @@ var Iteminfo = ({ item, userObject }) => {
                             <div className='NoticeTitle'>
                                 <img src="/componentImg/HoneyIcon.png" alt="" />
                                 <label>공지사항</label>
-                                {ItemData && userObject ?
-                                    ItemData.lobbyId === userObject.userId ?
+                                {userObject ?
+                                    userObject.userId === 1 ?
                                     <img className="MoreButton" src="/button/NoticeMoreButton.png" onClick={openModalNotice} />
                                     : null
                                     : null
@@ -292,15 +296,15 @@ var Iteminfo = ({ item, userObject }) => {
                                 <div className="MainText">· 최소/최대 인원</div>
                                 <div className="SubText"> 최소 1(명) / 최대 8(명)</div>
                             </div>
-                            {ItemData && userObject?                            
-                                new Array(ItemData.notice.length).fill(0).map((_, idx) => (                                    
+                            {item && userObject?                            
+                                new Array(item.notice.length).fill(0).map((_, idx) => (                                    
                                     <NoticeCard key = {idx}>
                                         <ProfileBox>
                                             <Image src="/profile_wonderful.png" alt="" width={17} height={17} />
                                             <UserName>{userObject.name}</UserName>
                                         </ProfileBox>
                                         <Content>                     
-                                            {ItemData.notice[idx]}
+                                            {item.notice[idx]}
                                         </Content>
                                     </NoticeCard>                     
                                 ))
@@ -419,8 +423,8 @@ var Iteminfo = ({ item, userObject }) => {
 
                     <div className="Footer">
                         {
-                            ItemData && userObject?
-                            ItemData.lobbyId === userObject.userId  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
+                            userObject?
+                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
                             : null
                         }
                         
@@ -942,7 +946,6 @@ const NoticeCard = styled.div`
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 12px;
-
     font-family: Roboto;
     margin-bottom:7px;
     font-family: Roboto;
@@ -972,7 +975,6 @@ const UserName = styled.div`
 const Content = styled.div`
     margin-top : 16px;
     margin-left : 39px;
-
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -986,8 +988,7 @@ const Content = styled.div`
 const ProfileBox = styled.div`
     display : flex;
     flex-direction : row;
-
     margin-top : 16px;
     margin-left : 16px;
     z-index : 0;
-`;
+`

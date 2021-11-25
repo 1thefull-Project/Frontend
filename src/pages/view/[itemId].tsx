@@ -5,7 +5,6 @@ import axios, { AxiosResponse } from "axios";
 import Iteminfo from '../../components/iteminfo';
 import { GetServerSideProps } from 'next';
 
-
 export async function getServerSideProps(context) {
   const itemId = context.params.itemId;
   const apiUrl = `https://gonggoo-bee.herokuapp.com/item/${itemId}`;
@@ -25,7 +24,7 @@ const Post = ({item}) => {
   useEffect(() => {
       axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
           if (res.data) {
-              console.log(res.data);
+              //console.log(res.data);
               setUserObject(res.data);
           }
       })
