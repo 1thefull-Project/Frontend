@@ -15,6 +15,7 @@ export var ProgressBar = ({ width, percent }) => {
         <div className="progress-div" style={{ width: width }}>
           <div style={{ width: `${value}px` }} className="progress" />
         </div>
+        
       </Bar>
     );
   };
@@ -29,6 +30,7 @@ align-item:center;
 width:100%;
 vertical-align:middle;
 margin-top:4px;
+margin-bottom:0px;
 .progress-div {
     
     background-color: rgb(233, 233, 233);

@@ -45,6 +45,7 @@ export default BuyingEnd
  
      
      .Box{
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
          position: fixed;
          background: rgba(255,255,255,0.95);
          height: 171px;
