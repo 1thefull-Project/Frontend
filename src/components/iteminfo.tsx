@@ -46,8 +46,8 @@ function label(num) {
 
 
 var Iteminfo = ({ item, userObject }) => {
-    console.log(item)
-
+    
+    
  
 
 
@@ -57,6 +57,7 @@ var Iteminfo = ({ item, userObject }) => {
             if (res.data) {
                 console.log(res.data);
                 setItemData(res.data);
+            
             }
         })
     }, [])
@@ -178,7 +179,7 @@ var Iteminfo = ({ item, userObject }) => {
 
     }, [isShowingAfter]);
 
-
+    
 
 
     return (

@@ -168,9 +168,7 @@ const Layout = styled.div`
     flex-direction: column;
     text-align: center;
     width:360px;
-
     padding-top: 21px;
-
     .headline{
         font-family: Roboto;
         font-style: normal;
@@ -180,12 +178,10 @@ const Layout = styled.div`
         display: flex;
         align-items: center;
         color: #666666;
-
         padding-left: 3px;
         padding-right: 3px;
         margin-right: 144px;
     }
-
     .headline2{
         font-family: Roboto;
         font-style: normal;
@@ -195,12 +191,10 @@ const Layout = styled.div`
         display: flex;
         align-items: center;
         color: #666666;
-
         padding-left: 3px;
         padding-right: 3px;
         margin-right: 181px;
     }
-
     .number{
         font-family: Roboto;
         font-style: normal;
@@ -210,10 +204,8 @@ const Layout = styled.div`
         display: flex;
         align-items: center;
         color: #000000;
-
         margin-right: 8px;
     }
-
     .more{
         font-family: Roboto;
         font-style: normal;
@@ -224,7 +216,6 @@ const Layout = styled.div`
         align-items: center;
         text-align: center;
         text-decoration-line: underline;
-
         color: #666666;
     }
 `;
@@ -232,39 +223,32 @@ const Layout = styled.div`
 const Section1 = styled.div`
     padding-left: 16px;
     padding-right: 16px;
-
     .profile-box {
         width: 328px;
         height: 133px;
-
         box-sizing: border-box;
         border-radius: 12px;
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content:center;
     }
-
     .user{
         display: flex;
         align-items: center;
         justify-content:space-around;
     }
-
     .user-name{
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
         font-size: 15px;
         line-height: 18px;
-
         display: flex;
         align-items: center;
         color: #666666;
         margin-bottom: 4px;
     }
-
     .user-info{
         font-family: Roboto;
         font-style: normal;
@@ -274,22 +258,18 @@ const Section1 = styled.div`
         display: flex;
         justify-content:space-around;
         color: #666666;
-
         p{
             margin-right: 10px;
         }
     }
-
     .login-button{
         width: 283px;
         height: 35px;
         border-radius: 7px;
-
         display: flex;
         align-items: center;
         text-align: center;
         justify-content: center;
-
         p{
             font-family: Roboto;
             font-style: normal;
@@ -298,11 +278,9 @@ const Section1 = styled.div`
             line-height: 16px;
             display: flex;
             align-items: center;
-
             color: #FFFFFF;
         }
     }
-
 `;
 
 
@@ -311,7 +289,6 @@ const Section2 = styled.div`
     height: 221px;
     background: #FFFFFF;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-
     margin-bottom: 8px;
     padding-top: 17px;
     padding-left: 16px;
@@ -333,10 +310,8 @@ const Box1 = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
-
     margin-top: 8px;
     flex-direction: column;
-
     p{
         font-family: Roboto;
         font-style: normal;
@@ -344,7 +319,6 @@ const Box1 = styled.div`
         font-size: 14px;
         line-height: 8px;
         display: flex;
-
         color: #E3E3E3;
         
     }
@@ -356,7 +330,6 @@ const Box2 = styled.div`
     background: #F9F9F9;
     display: flex;
     align-items: center;
-
     margin-top: 4px;
 `;
 
@@ -370,7 +343,6 @@ const Section3 = styled.div`
     height: 313px;
     background: #FFFFFF;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-
     margin-bottom: 8px;
     padding-top: 14px;
     padding-left: 16px;
@@ -381,7 +353,6 @@ const Line = styled.div`
     width: 360px;
     height: 0px;
     border: 0.5px solid rgba(104, 104, 103, 0.15);
-
     margin-top: 4px;
     margin-bottom: 4px;
     margin-left: -16px;
@@ -393,11 +364,9 @@ const Section4 = styled.div`
     height: 214px;
     background: #FFFFFF;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-
     margin-bottom: 8px;
     padding-top: 14px;
     padding-left: 22px;
-
     p{
         font-family: Roboto;
         font-style: normal;
@@ -407,8 +376,6 @@ const Section4 = styled.div`
         display: flex;
         align-items: center;
         color: #666666;
-
         margin-bottom: 20px;
     }
-
 `;
