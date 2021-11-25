@@ -45,7 +45,6 @@ import { Center } from "@chakra-ui/layout";
 
   var Iteminfo = ({item, userObject}) =>{
     console.log(item)
-    console.log(userObject)
    
  
 
@@ -373,7 +372,7 @@ import { Center } from "@chakra-ui/layout";
                     </NoticeImg>
 
                     <div className = "Footer">
-                        {userObject === 1 ? <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> : <IteminfoFooter SubmitOn = {SubmitOn} openModalItem = {openModalItem} openModalAfter = {openModalAfter}/>}
+                        {userObject && userObject === 1 ? <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> : <IteminfoFooter SubmitOn = {SubmitOn} openModalItem = {openModalItem} openModalAfter = {openModalAfter}/>}
 
                         
                     </div>
