@@ -45,8 +45,7 @@ import { Center } from "@chakra-ui/layout";
 
   var Iteminfo = ({item, userObject}) =>{
     console.log(item)
-    console.log(userObject)
-   
+
  
 
 
