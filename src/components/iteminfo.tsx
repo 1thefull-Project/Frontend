@@ -49,7 +49,7 @@ function label(num) {
 var Iteminfo = ({ item, userObject }) => {
     // console.log(item)
     // console.log(userObject)
-
+   
  
 
 
@@ -68,8 +68,26 @@ var Iteminfo = ({ item, userObject }) => {
     }, [])
 
 
-    
-
+    const ChangeProgress = () => {
+        console.log(item.progress)
+         
+        axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + `/progress/3?itemId=1`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setItemData(res.data);
+            }
+        })
+    }
+    const tmpChange = () => {
+        console.log(item.progress)
+         
+        axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + `/progress/2?itemId=1`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setItemData(res.data);
+            }
+        })
+    }
    
 
     /*여기서 상태변화 관리 progress ++도 해줘야함 */
@@ -77,8 +95,14 @@ var Iteminfo = ({ item, userObject }) => {
     const ChangeColor = () => {
         setIsShowingOrder(false);
         setButtonColor(true);
+        ChangeProgress();
         
+        const notiTimer = setTimeout(() => {
+            location.href = '/view/1';
+          }, 1500);
+          return () => clearTimeout(notiTimer);
 
+        
     }
 
     /* 팝업 */
@@ -272,7 +296,7 @@ var Iteminfo = ({ item, userObject }) => {
                         </div>
 
                     </div>
-                    <img src="/LoveySearch/TrustImg.png" alt="" className="TrustImg" />
+                    <img src="/LoveySearch/TrustImg.png" alt="" className="TrustImg" onClick = {tmpChange} />
                 </Profile>
 
                 <Menu>
@@ -435,7 +459,7 @@ var Iteminfo = ({ item, userObject }) => {
                     <div className="Footer">
                         {
                             userObject?
-                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
+                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} Progress = {item.progress} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} Progress = {item.progress}  />
                             : null
                         }
                         
