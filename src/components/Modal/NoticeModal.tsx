@@ -57,6 +57,7 @@ export default NoticeModal
  
  
  const Modal = styled.div`
+ 
     
     z-index : 9;
      justifyContent: center;
@@ -77,7 +78,7 @@ export default NoticeModal
  
      
      .Box{
-       
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
          position: fixed;
          background: rgba(255,255,255,0.95);
          height: 213px;

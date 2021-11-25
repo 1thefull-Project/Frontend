@@ -58,6 +58,7 @@ export default JoinModal
 
 
 const Modal = styled.div`
+
     
 
 justifyContent: center;
@@ -78,6 +79,7 @@ text-align: center;
 
 
 .Box{
+   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
    .CountBox {
       height: 35px;
       width: 223.85235595703125px;

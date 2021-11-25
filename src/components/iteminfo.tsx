@@ -46,8 +46,8 @@ function label(num) {
 
 
 var Iteminfo = ({ item, userObject }) => {
-    console.log(item)
-    console.log(userObject)
+    // console.log(item)
+    // console.log(userObject)
 
  
 
@@ -67,10 +67,16 @@ var Iteminfo = ({ item, userObject }) => {
     }, [])
 
 
+    
+
+   
+
+    /*여기서 상태변화 관리 progress ++도 해줘야함 */
     const [ButtonColor, setButtonColor] = useState(false);
     const ChangeColor = () => {
         setIsShowingOrder(false);
         setButtonColor(true);
+        
 
     }
 
@@ -216,7 +222,7 @@ var Iteminfo = ({ item, userObject }) => {
 
             <Write>
                 <ItemContent>
-                    {item.itemId ? <img src={`/product_img_${item.itemId}.png`} alt={""} onClick={openModal} /> : <img src={`/product_img_3.png`} />}
+                    {item.itemId ? <img src={`/product_img_${item.itemId}.png`} alt={""} /> : <img src={`/product_img_3.png`} />}
                     <TextZone>
                         <label>{label(item.progress!)}</label>
                         <div className="TitleTag">

@@ -6,6 +6,31 @@ interface ItemProps {
     state: string;
     tag: any[];
   }
+
+  function label(num) {
+    if (num === 0) {
+        return "수요조사 진행"
+    }
+    else if (num === 1) {
+        return "수요조사 마감"
+    }
+    else if (num === 2) {
+        return "공구모집 진행"
+    }
+    else if (num === 3) {
+        return "공구모집 마감"
+    }
+    else if (num === 4) {
+        return "주문 진행"
+    }
+    else if (num === 5) {
+        return "배송 시작"
+    }
+    else {
+        return "배송 마감"
+    }
+}
+
  export default function Item({itemId, title, progress, tag}){
      
     return (
@@ -23,7 +48,7 @@ interface ItemProps {
 
                 <State>
                     <Statelevel>
-                        <label>{progress === 0 ? "수요조사 중" : "공구모집중" }</label>
+                        <label className = "progress">{label(progress)}</label>
                     </Statelevel>
                     <Statebar>
                         <img src = "/Progressbar/OnEllipse.png"/>
@@ -54,6 +79,7 @@ const Box = styled.div`
         margin-bottom:0px;
     }
     margin-bottom:20px;
+  
 `;
 
 const Tag = styled.div `
@@ -65,7 +91,7 @@ const Tag = styled.div `
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
-        font-size: 10px;
+        font-size: 8px;
         line-height: 12px;
         color: #7BCFFF;
     }
@@ -97,6 +123,7 @@ const State = styled.div`
     float:left;
     align-items:center;
     
+    
 `;
 const Statelevel = styled.div`
     
@@ -106,7 +133,7 @@ const Statelevel = styled.div`
         font-family: Assistant;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
+        font-size: 5px;
           
     }
         
@@ -115,7 +142,8 @@ const Statelevel = styled.div`
     box-sizing: border-box;
     border-radius: 2px;
     float:left;
-    width: 60px;
+    width: 70px;
+    
     
     
 `
