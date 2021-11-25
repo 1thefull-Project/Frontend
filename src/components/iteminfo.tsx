@@ -43,20 +43,12 @@ import { Center } from "@chakra-ui/layout";
   }
   
 
-  var Iteminfo = ({item}) =>{
-
-    
- 
+  var Iteminfo = ({item, userObject}) =>{
     console.log(item)
-    const [userObject, setUserObject] = useState<any>();
-    useEffect(() => {
-        axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
-            if (res.data) {
-                //console.log(res.data);
-                setUserObject(res.data);
-            }
-        })
-    }, []);
+    console.log(userObject)
+   
+ 
+
 
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
@@ -199,7 +191,6 @@ import { Center } from "@chakra-ui/layout";
                             <Tag>
                                 {"#"+item.tag[0]}
                                 {item.tag[1]? "  #"+item.tag[1] : null}
-                            
                             </Tag>
                         </div>
                         
@@ -383,7 +374,7 @@ import { Center } from "@chakra-ui/layout";
 
                     <div className = "Footer">
                         {userObject === 1 ? <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> : <IteminfoFooter SubmitOn = {SubmitOn} openModalItem = {openModalItem} openModalAfter = {openModalAfter}/>}
-                        
+
                         
                     </div>
                     
