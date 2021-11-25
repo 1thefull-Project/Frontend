@@ -19,6 +19,7 @@ import { ItemDescription, ItemProps } from "semantic-ui-react";
 import { Center } from "@chakra-ui/layout";
 import Image from "next/image";
 import router from "next/router";
+import { ProgressBarNum } from "./ProgressBarNum";
 
 function label(num) {
     if (num === 0) {
@@ -238,6 +239,10 @@ var Iteminfo = ({ item, userObject }) => {
                     <Progressbar>
                         <div className="ProgressLabel">인원 달성도</div>
                         <ProgressBar width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} />
+                    </Progressbar>
+                    <Progressbar>
+                        <div className="ProgressLabel">     </div>
+                        <ProgressBarNum width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} Num = {item.targetNum.currentNum} Target = {item.targetNum.maxNum}/>
                     </Progressbar>
                     <Price>
                         <div className="PriceIndex">예상 가격</div>
@@ -567,7 +572,6 @@ const Progressbar = styled.div`
     vertical-align:middle;
     max-width:360px;
     width:360px;
-    margin-bottom: 33px;
     .ProgressLabel{
         vertical-align:middle;
         width: 100px;
