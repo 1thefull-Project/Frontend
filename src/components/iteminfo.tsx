@@ -8,14 +8,15 @@ import BuyingEnd from "./Modal/BuyingEnd";
 import ReseachEnd from "./Modal/ReseachEnd";
 import BuyingStart from "./Modal/BuyingStart";
 import BuyingStartEdit from "./Modal/BuyingStartEdit";
-import {IoIosInformationCircleOutline} from "react-icons/io";
+import {IoIosInformationCircleOutline, IoMdBatteryCharging} from "react-icons/io";
 import OrderStart from "./Modal/OrderStart";
 import NoticeModal from "./Modal/NoticeModal";
 import { GetServerSideProps } from "next";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import JoinModal from "./Modal/JoinModal";
 import AfterFormSubmit from "./Modal/AfterFormSubmit";
-import { ItemProps } from "semantic-ui-react";
+import { ItemDescription, ItemProps } from "semantic-ui-react";
+import { Center } from "@chakra-ui/layout";
 
   function label(num){
       if(num === 0) {
@@ -47,6 +48,16 @@ import { ItemProps } from "semantic-ui-react";
     
  
     console.log(item)
+    const [userObject, setUserObject] = useState<any>();
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                //console.log(res.data);
+                setUserObject(res.data);
+            }
+        })
+    }, []);
+
     const[ButtonColor, setButtonColor] = useState(false);
         const ChangeColor = () =>{
             setIsShowingOrder(false);
@@ -63,12 +74,7 @@ import { ItemProps } from "semantic-ui-react";
            setIsShowing(false);
        };
        useEffect(() => {
-         if (isShowing) {
-           const notiTimer = setTimeout(() => {
-             setIsShowing(false);
-           }, 3000);
-           return () => clearTimeout(notiTimer);
-         }
+        
        }, [isShowing]);
 
 
@@ -103,12 +109,7 @@ import { ItemProps } from "semantic-ui-react";
             setIsShowingEnd(false);
         };
         useEffect(() => {
-          if (isShowing) {
-            const notiTimer = setTimeout(() => {
-              setIsShowingEnd(false);
-            }, 10000);
-            return () => clearTimeout(notiTimer);
-          }
+         
         }, [isShowingEnd]);
 
         /* 공지사항 팝업 */
@@ -125,12 +126,7 @@ import { ItemProps } from "semantic-ui-react";
 
         };
         useEffect(() => {
-          if (isShowingNotice) {
-            const notiTimer = setTimeout(() => {
-              setIsShowingNotice(false);
-            }, 10000);
-            return () => clearTimeout(notiTimer);
-          }
+       
         }, [isShowingNotice]);
 
 
@@ -146,12 +142,7 @@ import { ItemProps } from "semantic-ui-react";
             setSubmitOn(false); 
         };
         useEffect(() => {
-          if (isShowingItem) {
-            const notiTimer = setTimeout(() => {
-              setIsShowingItem(false);
-            }, 10000);
-            return () => clearTimeout(notiTimer);
-          }
+       
         }, [isShowingItem]);
 
         /* 아이템 주문 팝업 */
@@ -164,40 +155,37 @@ import { ItemProps } from "semantic-ui-react";
             setIsShowingAfter(false); 
         };
         useEffect(() => {
-          if (isShowingAfter) {
-            const notiTimer = setTimeout(() => {
-              setIsShowingAfter(false);
-            }, 10000);
-            return () => clearTimeout(notiTimer);
-          }
+          
         }, [isShowingAfter]);
+        
 
-
-
+        
 
     return(
         <div>
-            <div>
-                {isShowingNotice && <NoticeModal openModalNotice = {openModalNotice} closeModalNotice = {closeModalNotice} writeNotice = {writeNotice}/>}
-            </div>
-            <div>   
-                {isShowing && <ReseachEnd closeModal = {closeModal} openModalEnd = {openModalEnd} openModalOrder = {openModalOrder} />}
-            </div>
+            <div style = {{marginLeft:"auto", marginRight:"auto"}}>
+                <div>
+                    {isShowingNotice && <NoticeModal openModalNotice = {openModalNotice} closeModalNotice = {closeModalNotice} writeNotice = {writeNotice}/>}
+                </div>
+                <div>   
+                    {isShowing && <ReseachEnd closeModal = {closeModal} openModalEnd = {openModalEnd} openModalOrder = {openModalOrder} />}
+                </div>
 
-            <div>   
-                {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} openModalOrder = {openModalOrder} ChangeColor = {ChangeColor} />}
-            </div>
+                <div>   
+                    {isShowingOrder && <OrderStart closeModalOrder = {closeModalOrder} openModalOrder = {openModalOrder} ChangeColor = {ChangeColor} />}
+                </div>
 
-            <div>   
-                {isShowingEnd && <BuyingEnd closeModalEnd = {closeModalEnd}/>}
-            </div>
+                <div>   
+                    {isShowingEnd && <BuyingEnd closeModalEnd = {closeModalEnd}/>}
+                </div>
 
-            <div>
-                {isShowingItem && <JoinModal openModalItem = {openModalItem}  closeModalItem = {closeModalItem}/>}
-            </div>
+                <div>
+                    {isShowingItem && <JoinModal openModalItem = {openModalItem}  closeModalItem = {closeModalItem}/>}
+                </div>
 
-            <div>
-                {isShowingAfter && <AfterFormSubmit closeModalAfter = {closeModalAfter}/>}
+                <div>
+                    {isShowingAfter && <AfterFormSubmit closeModalAfter = {closeModalAfter}/>}
+                </div>
             </div>
             
 
@@ -207,8 +195,12 @@ import { ItemProps } from "semantic-ui-react";
                     <TextZone>
                         <label>{label(item.progress!)}</label>
                         <div className = "TitleTag">
-                            <span>{item.title!}<BiDotsVerticalRounded className = "dot"/> </span>
-                            <Tag>{item.tag!}</Tag>
+                            <span>{item.title!} </span><BiDotsVerticalRounded className = "dot"/>
+                            <Tag>
+                                {"#"+item.tag[0]}
+                                {item.tag[1]? "  #"+item.tag[1] : null}
+                            
+                            </Tag>
                         </div>
                         
                     </TextZone>
@@ -266,13 +258,13 @@ import { ItemProps } from "semantic-ui-react";
                             <img className = "MoreButton" src = "/button/NoticeMoreButton.png" onClick = {openModalNotice}/>
                             </div>
                             <div className = "Noticearea">
-                                <div className = "MainText">* 수요조사 일정</div>
+                                <div className = "MainText">· 수요조사 일정</div>
                                 <div className = "SubText">~ 2021.11.27 </div>
                                 <></>
-                                <div className = "MainText">* 공구모집 일정</div>
+                                <div className = "MainText">· 공구모집 일정</div>
                                 <div className = "SubText"> 2021.11.27 ~ </div>
                                 <></>
-                                <div className = "MainText">* 최소/최대 인원</div>
+                                <div className = "MainText">· 최소/최대 인원</div>
                                 <div className = "SubText"> 최소 1(명) / 최대 8(명)</div>
                             </div>
                             <div className = "SecondNoticearea">
@@ -291,51 +283,54 @@ import { ItemProps } from "semantic-ui-react";
                         <div className = "InfomationArea"> 
                                 <div>안녕하세요 더비님들!</div>
                                 <div>점점 추워지고 있는데 겨울나기☃ 준비 잘 하고 계신가요?</div>
-                                <></>
+                                <></><br/>
                                 <div>1theFull 인 제가</div>
                                 <div>한(1)가지로 여러분들의 겨울을 꽉 채워드리려고(Full)</div>
-                                <div>목도리를 준비했습니다🔥</div>
-                                <></>
+                                <div><b>목도리</b>를 준비했습니다🔥</div>
+                                <></><br/>
                                 <div>바로 비건 패션 브랜드</div>
-                                <div>'제로나우리'의 에코퍼 목도리/워머 입니다!!</div>
+                                <div><b>'제로나우리'의 에코퍼 목도리/워머</b> 입니다!!</div>
 
                              
                                 <img src = "/detailpage/ItemImgMain.png" className = "ItemImgMain"/>
                               
-                                <div>※ 테스트 제품 이미지 입니다.</div>
+                                <div className= "ref">※ 테스트 제품 이미지 입니다.</div>
                                 <></>
                                 <div>‘페이크 퍼’지만</div>
                                 <div>진짜 밍크 못지 않은 따스함과 부드러움은 물론</div>
                                 <div>동물도 살리는 착한 ‘에코퍼’목도리입니다🌱</div>
 
-                                <img src = "/detailpage/ItemImageSecond.png"/>
-                                <div>
-                                    브랜드 ‘제로나우리’는 매년 수익의 일부를 <br/>
+                                <img src = "/detailpage/ItemImageSecond.png" className = "ItemImgSub"/>
+                                <div style = {{marginBottom: '37px'}}>
+                                    <b>브랜드 ‘제로나우리’</b>는 매년 수익의 일부를 <br/>
                                     동물보호 단체에 기부하는 브랜드로<br/>
                                     동물실험을 하지 않으며<br/>
                                     동물의 털을 사용하지 않은 <br/>
                                     친환경적인 에코퍼로 동물 사랑을 지킵니다!<br/>
                                 </div>
 
-                                <div>
+                                <div style = {{marginBottom: '77px'}}>
                                     저만 알고 싶은 브랜드 였는데,<br/>
-                                    비건 제품인 만큼 많은 분들이 가치소비를 하셨으면<br/>
-                                    좋겠다고 생각되어 이렇게 공동구매를 열게 되었습니다!<br/>
+                                    <b>비건 제품인 만큼 많은 분들이 가치소비를 하셨으면<br/>
+                                    좋겠다</b>고 생각되어 이렇게 공동구매를 열게 되었습니다!<br/>
+                                </div><br/>
+                                <div style = {{marginBottom: '10.13px', fontWeight: "Medium"}} className = "ItemSize">
+                                    <div style = {{fontWeight:"bold", marginLeft:"33px", marginBottom:"10px"}}>제품 사이즈</div>
+                                    <div>Size <b>숏</b>: 18cm *   87cm</div>
+                                    <div>Size <b>롱</b>: 18cm * 110cm</div>
+
                                 </div>
+                                
 
-                                <div>제품 사이즈</div>
-                                <div>Size 숏: 18cm *   87cm</div>
-                                <div>Size 롱: 18cm * 110cm</div>
-
-                                <img src = "/detailpage/Itemdetail.png"/>
-                                <div>제품 색상 견본</div>
-                                <div>
+                                <img src = "/detailpage/Itemdetail.png" style = {{marginBottom: '60px'}}/>
+                                <div style = {{fontWeight:"bold", marginBottom: '10px'}}>제품 색상 견본</div>
+                                <div style = {{marginBottom: '10px'}}>
                                     가장 무난하게 사용할 수 있는 색으로 <br/>
-                                    베이지, 블랙, 그레이를 준비했습니다!<br/>
+                                    <b>베이지, 블랙, 그레이</b>를 준비했습니다!<br/>
                                     기타 원하는 색상이 있으시다면 수요조사에 써주시면 됩니다.
                                 </div>
-                                <img src = "/detailpage/Itemdetail2.png"/>
-                                <div>
+                                <img src = "/detailpage/Itemdetail2.png" style = {{marginBottom: '33.5px'}}/>
+                                <div style = {{marginBottom: '30px'}}>
                                     많은 관심 부탁드려요!<br/>
                                     비건에 관심 많은 더비님들 환영합니다👍
                                 </div>
@@ -360,14 +355,14 @@ import { ItemProps } from "semantic-ui-react";
                             <img src = "/componentImg/HoneyIcon.png"/>
                             <label>정보 조회</label>
                             <div className = "InfomationBox">
-                                    * 등록번호<br/>
-                                    828-09-011227<br/>
-                                    * 상호 및 성명<br/>
-                                    (주)제로나우리 | 박현운<br/>
-                                    * 소재지<br/>
-                                    서울특별시 서초구 강남대로 12길 3, B1<br/>
-                                    * 업태 및 종목<br/>
-                                    도,소매업 | 전자상거래(의류)
+                                    · 등록번호<br/>
+                                    <div style = {{marginLeft:"37px", color: "#666666"}}>828-09-011227<br/></div>
+                                    · 상호 및 성명<br/>
+                                    <div style = {{marginLeft:"37px", color: "#666666"}}>(주)제로나우리 | 박현운<br/></div>
+                                    · 소재지<br/>
+                                    <div style = {{marginLeft:"37px", color: "#666666"}}>서울특별시 서초구 강남대로 12길 3, B1<br/></div>
+                                    · 업태 및 종목<br/>
+                                    <div style = {{marginLeft:"37px", color: "#666666"}}>도,소매업 | 전자상거래(의류)</div>
                             </div>
 
                             <div className = "InfomationButton">
@@ -387,8 +382,9 @@ import { ItemProps } from "semantic-ui-react";
                     </NoticeImg>
 
                     <div className = "Footer">
-                        <IteminfoFooter SubmitOn = {SubmitOn} openModalItem = {openModalItem} openModalAfter = {openModalAfter}/>
-                        {/* <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> */}
+                        {userObject === 1 ? <IteminfoFooterwriter openModal = {openModal} ButtonColor = {ButtonColor}  /> : <IteminfoFooter SubmitOn = {SubmitOn} openModalItem = {openModalItem} openModalAfter = {openModalAfter}/>}
+                        
+                        
                     </div>
                     
                 </ContentZone>
@@ -405,7 +401,7 @@ import { ItemProps } from "semantic-ui-react";
 export default Iteminfo
 const Write = styled.div`
   
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     margin-right:auto;
     margin-left:auto;
     justify-content:center;
@@ -426,6 +422,13 @@ const Write = styled.div`
     }
     img{
         
+    }
+    b{
+        color: #7BCFFF;
+    }
+    .ItemSize{
+        text-align:left;
+        margin-left:115px;
     }
 `
 const ItemContent = styled.div`
@@ -464,10 +467,12 @@ const TextZone = styled.div`
         
     }
     span{
-        font-family: Roboto;
+        display:inline-block;
+        width:230px;
+        font-family: 'Roboto';
         font-size: 15px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: bold;
         line-height: 18px;
         letter-spacing: 0em;
         text-align: left;
@@ -493,9 +498,10 @@ const TextZone = styled.div`
         text-align: left;
     }
     .dot{
-        position: absolute;
+        position: block;
         left: 338px;
         top:268+66px;
+        font-size:15px;
     }
         
     }
@@ -696,13 +702,13 @@ const Menu = styled.div`
         height:40px;
         display:flex;
         font-family: Roboto;
-        font-size: 13px;
+   
         font-style: normal;
         font-weight: 500;
         line-height: 15px;
         letter-spacing: 0em;
         text-align: center;
-        color: #666666;
+        
     }
     .DirectButton{
        
@@ -731,14 +737,19 @@ const Notice = styled.div`
 `
 const MenuTitle = styled.div`
     padding-left:16px;
-    margin-bottom:25px;
+    margin-bottom:26.36px;
+    text-align:left;
     img{
         vertical-align: middle;
         width:21.77px;
         height:21.13px;
     }
     label{
-        vertical-align: middle;     
+        font-weight: bold;
+        vertical-align: middle; 
+        font-size:14px;  
+     
+         
         
     }
     .Noticearea{
@@ -749,6 +760,15 @@ const MenuTitle = styled.div`
         width:328px;
         border-radius: 12px;
         border: 1px solid #FFD15B;
+
+        font-family: Roboto;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: left;
+
         .MainText{
             
             margin-bottom:7px;
@@ -785,19 +805,46 @@ const ItemInfomation = styled.div`
     text-align:center;
 
     font-family: Roboto;
-    font-size: 13px;
+   
     font-style: normal;
     font-weight: 500;
     line-height: 15px;
     letter-spacing: 0em;
     text-align: center;
-    color: #686867;
+    
 
 
     .InfomationArea{
         img{
             width:360px;
         }
+        font-family: Roboto;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: center;
+        color:#686867;
+
+        .ItemImgMain{
+            margin-top:31px;
+            
+        }
+        .ref{
+            margin-bottom:30px;
+
+        }
+        .ItemImgSub{
+            margin-top:30px;
+            margin-bottom:30px;
+            width:206px;
+            height:223px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+
     }
     
 `
@@ -807,6 +854,9 @@ const Comment = styled.div`
 const SellerInfomation = styled.div`
     text-align:left;
     .InfomationBox{
+        padding-top:17px;
+        padding-bottom:17px;
+        padding-left:14px;
         margin-top:15px;
         text-align:left;
         width:328px;
