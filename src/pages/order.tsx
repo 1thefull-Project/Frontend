@@ -1,31 +1,60 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import React, { useState, useEffect, useContext } from "react";
 import axios, {AxiosResponse} from 'axios';
-import { myContext } from "../context";
-import { User} from "../types/usertypes"
 import styled from "@emotion/styled";
 import OrderModal from "../components/Modal/OrderModal";
 import OrderModal2 from "../components/Modal/OrderModal2";
-
+/*
 export const getServerSideProps: GetServerSideProps = async () => {
-    const userInfo = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
+    const userObject = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
     return {
-      props: { userInfo: userInfo.data }, 
+      props: { userObject: userObject.data }, 
     }
   }
-
-export default function Order({userInfo}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const userObject = useContext(myContext) as User;
+*/
+export default function Order() {
     
-    console.log(userObject);
-    console.log(userObject.name);
-    console.log(userObject.address);
+    //로그인한 사용자 정보 불러오기
+    const [userObject, setUserObject] = useState<any>();
+
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setUserObject(res.data);
+            }
+        })
+    }, [])
+
 
     const [isShowing, setIsShowing] = useState(false);
     const [isShowing2, setIsShowing2] = useState(false);
-    const openModal = () => {
+
+    async function openModal(){
         setIsShowing(true);
-      };
+        await axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + '/dobbyIn/' + userObject.userId + '?itemId=1', { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+            }
+        })
+
+        axios.post( process.env.NEXT_PUBLIC_ITEM_LIST as string + '/submit', {
+            itemId: 1,
+            color: "베이지",
+            size: "롱(Long) - 110cm",
+            ea: 1,
+            userId: userObject.userId
+        })
+            .then(function () {
+                // response
+                // console.log(res.data.result);
+            }).catch(function (err: any) {
+                // 오류발생시 실행
+                console.log(err);
+            }).then(function () {
+                // 항상 실행
+            });
+    };
     
     //결제하기 버튼을 누르면 결제 중 모달 생성. 3초 후 결제 완료 모달 호출 후 사라짐
     useEffect(() => {
@@ -57,14 +86,16 @@ export default function Order({userInfo}: InferGetServerSidePropsType<typeof get
     const [orderInfo, setOrderInfo] = useState<boolean>(true);
     const toggleOrderInfo = () => setOrderInfo(orderInfo => !orderInfo);
 
-    return(
+    return(            
         <Layout>
+            { userObject?
+            <>
             <p className='headline'>주문서</p>
             {/* 주문자 */}
             <Section>
                 <Box style={{height: '50px'}}>
                     <Horizontal>
-                        <p className='headline'>주문자</p> <p className='blue-text'>{userInfo.name}</p>
+                        <p className='headline'>주문자</p> <p className='blue-text'>{userObject.name}</p>
                     </Horizontal>
                 </Box>
             </Section>
@@ -84,8 +115,8 @@ export default function Order({userInfo}: InferGetServerSidePropsType<typeof get
                 :               //기본 결제수단 불러오기
                     <Box style={{height: '119px'}}>
                         <p className='headline'>배송지</p>
-                        <p className='basic-text'>{userInfo.address}</p>
-                        <p className='basic-text'>{userInfo.phone}</p>
+                        <p className='basic-text'>{userObject.address}</p>
+                        <p className='basic-text'>{userObject.phone}</p>
                     </Box>
                 }
                 
@@ -150,6 +181,9 @@ export default function Order({userInfo}: InferGetServerSidePropsType<typeof get
             </MenuBar>
             <div>{isShowing && <OrderModal/>}</div>
             <div>{isShowing2 && <OrderModal2/>}</div>
+            </>
+            : null
+        }
         </Layout>
     );
 }

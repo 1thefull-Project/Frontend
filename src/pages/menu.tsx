@@ -99,7 +99,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
                 <div className="user">
                     <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
                     <div style={{marginLeft: '19px'}}>
-                        <p className="user-name">공구비</p>
+                        <p className="user-name">로그인 해주세요</p>
                         <div className="user-info">
                             <p>총 거래 수 0</p>
                             <p>팔로워 0</p>
