@@ -252,7 +252,7 @@ var Iteminfo = ({ item, userObject }) => {
                 <Profile>
                     <img src="/detailpage/ProfilePhoto.png" alt="" />
                     <div className="Lovbee">
-                        <div className="LovbeeName">1theFull <div className="MyPageLink">마이 페이지</div></div>
+                        <div className="LovbeeName">러비<div className="MyPageLink">마이 페이지</div></div>
                     </div>
                     <div className="TrustIndex">
                         <div className="TextZone">
@@ -301,7 +301,7 @@ var Iteminfo = ({ item, userObject }) => {
                                     <NoticeCard key = {idx}>
                                         <ProfileBox>
                                             <Image src="/profile_wonderful.png" alt="" width={17} height={17} />
-                                            <UserName>{userObject.name}</UserName>
+                                            <UserName>러비</UserName>
                                         </ProfileBox>
                                         <Content>                     
                                             {item.notice[idx]}
