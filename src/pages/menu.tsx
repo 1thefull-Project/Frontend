@@ -58,13 +58,13 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
             {/*최근 참여한 상품*/}
             <Section2>
                 <Horizontal><p className="headline">최근 참여한 상품</p> <p className="number">1건</p> <p className="more">더보기</p></Horizontal>
-                <MenuItem img={`/menu_product_img_${item.itemInfo[12].itemId}.png`} tag={item.itemInfo[12].tag[0]} name={item.itemInfo[12].title}/>
+                {userObject.userId === 1? <MenuItem img={`/menu_product_img_${item.itemInfo[12].itemId}.png`} tag={item.itemInfo[12].tag[0]} name={item.itemInfo[12].title}/> : <MenuItem img={`/menu_product_img_${item.itemInfo[0].itemId}.png`} tag={item.itemInfo[0].tag[0]} name={item.itemInfo[0].title}/>}
             </Section2>
             <Section2>
-                <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">9건</p><p className="more">더보기</p></Horizontal>
+                <Horizontal> <p className="headline">나의 진행 상품</p><p className="number">{userObject.userId === 1? "9건": "0건"}</p><p className="more">더보기</p></Horizontal>
                 <Item>
-                    <MenuItem img={`/menu_product_img_${item.itemInfo[13].itemId}.png`} tag={item.itemInfo[13].tag[0]} name={item.itemInfo[13].title}/>
-                    <MenuItem img={`/menu_product_img_${item.itemInfo[14].itemId}.png`} tag={item.itemInfo[14].tag[0]} name={item.itemInfo[14].title}/>
+                    {userObject.userId === 1? <MenuItem img={`/menu_product_img_${item.itemInfo[13].itemId}.png`} tag={item.itemInfo[13].tag[0]} name={item.itemInfo[13].title}/> : null}
+                    {userObject.userId === 1?  <MenuItem img={`/menu_product_img_${item.itemInfo[14].itemId}.png`} tag={item.itemInfo[14].tag[0]} name={item.itemInfo[14].title}/>: null}
                 </Item>
             </Section2>
             

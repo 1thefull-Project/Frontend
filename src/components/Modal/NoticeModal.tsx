@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
+import axios from "axios";
 
-var NoticeModal = ({openModalNotice, closeModalNotice, writeNotice}) => {
+var NoticeModal = ({openModalNotice, closeModalNotice, writeNotice, userObject}) => {
+    
+ 
     return(
         <div>
             <Modal>
