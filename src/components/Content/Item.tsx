@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
+/*타입설정 */
 interface ItemProps {
     itemid: number;
     title: string;
     state: string;
     tag: any[];
   }
-
+/* item에서 불러온 progress level에 따라 한글로 변환하는 함수 */
   function label(num) {
     if (num === 0) {
         return "수요조사 진행"
@@ -31,10 +32,12 @@ interface ItemProps {
     }
 }
 
+/* 메인 index에서 아이템 정보를 출력하는 컴포넌트 */
  export default function Item({itemId, title, progress, tag}){
      
     return (
         <Box>
+            {/*  DB 정보를 기반으로 데이터 출력 */}
             <a href = {`/view/${itemId}`}>
                 <img src = {`/product_img_${itemId}.png`} alt = "" className = "ItemImage"/>
                 <Tag>
@@ -63,6 +66,8 @@ interface ItemProps {
     );
   }
 
+
+  //css
 const Box = styled.div`
     display:flex;
     float:left;

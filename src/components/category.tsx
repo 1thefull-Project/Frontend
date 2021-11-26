@@ -16,6 +16,7 @@ export const Category: React.FC<CategoryIcon> = ({img, name}) => {
 }
 
 const Box = styled.div`
+font-weight:bold;
     width: 70px;
     height: 61px;
     margin-bottom: 12px;

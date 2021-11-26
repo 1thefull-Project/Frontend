@@ -7,7 +7,7 @@ import { useProps } from "@chakra-ui/system";
 import { css } from "@emotion/react";
 import Item from "./Content/Item";
 
-
+{/*공구 진행자의 아이템 상세페이지 푸터*/}
 var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColor, Progress}) => {
 
 

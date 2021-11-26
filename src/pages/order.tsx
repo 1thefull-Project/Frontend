@@ -4,14 +4,7 @@ import axios, {AxiosResponse} from 'axios';
 import styled from "@emotion/styled";
 import OrderModal from "../components/Modal/OrderModal";
 import OrderModal2 from "../components/Modal/OrderModal2";
-/*
-export const getServerSideProps: GetServerSideProps = async () => {
-    const userObject = await axios.get(process.env.NEXT_PUBLIC_GET_USER as string);
-    return {
-      props: { userObject: userObject.data }, 
-    }
-  }
-*/
+
 export default function Order() {
     
     //로그인한 사용자 정보 api 불러오기

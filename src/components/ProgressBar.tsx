@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-
+{/*progress바 시각화*/}
 export var ProgressBar = ({ width, percent }) => {
 
     const [value, setValue] = React.useState(0);
