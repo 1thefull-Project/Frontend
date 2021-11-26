@@ -6,17 +6,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ListElement } from '../Content/ListElement'
 
-export const DobbyListModal = ({closeModalAfter}) => {
+ export const DobbyListModal = ({closeModalAfter}) => {
 
     const [dobbyList, setDobbyList] = useState<any>();
     
     useEffect(() => {
-        axios.get(process.env.NEXT_PUBLIC_GET_DOBBYLIST as string + '/1', { withCredentials: true }).then((res: AxiosResponse) => {
+        async function getDobbyList(){
+            await axios.get(process.env.NEXT_PUBLIC_GET_DOBBYLIST as string + '/1', { withCredentials: true }).then((res: AxiosResponse) => {
             if (res.data) {
                 console.log(res.data);
                 setDobbyList(res.data);
             }
         })
+        }
+        getDobbyList()
     }, [])
 
     var settings1 = {

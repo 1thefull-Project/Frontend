@@ -13,9 +13,6 @@ export default function Mypage() {
     const closeModalAfter = () => {
         setIsShowing(false);
     };
-    useEffect(() => {
-
-    }, [setIsShowing]);
 
     return (
         <div>
