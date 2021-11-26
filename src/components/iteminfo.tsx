@@ -20,6 +20,8 @@ import { Center } from "@chakra-ui/layout";
 import Image from "next/image";
 import router from "next/router";
 import DobbyListModal from "../components/Modal/DobbyListModal";
+import { ProgressBarNum } from "./ProgressBarNum";
+
 
 function label(num) {
     if (num === 0) {
@@ -47,9 +49,9 @@ function label(num) {
 
 
 var Iteminfo = ({ item, userObject }) => {
-    console.log(item)
-    console.log(userObject)
-
+    // console.log(item)
+    // console.log(userObject)
+   
  
 
 
@@ -68,11 +70,41 @@ var Iteminfo = ({ item, userObject }) => {
     }, [])
 
 
+    const ChangeProgress = () => {
+        console.log(item.progress)
+         
+        axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + `/progress/3?itemId=1`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setItemData(res.data);
+            }
+        })
+    }
+    const tmpChange = () => {
+        console.log(item.progress)
+         
+        axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + `/progress/2?itemId=1`, { withCredentials: true }).then((res: AxiosResponse) => {
+            if (res.data) {
+                console.log(res.data);
+                setItemData(res.data);
+            }
+        })
+    }
+   
+
+    /*여기서 상태변화 관리 progress ++도 해줘야함 */
     const [ButtonColor, setButtonColor] = useState(false);
     const ChangeColor = () => {
         setIsShowingOrder(false);
         setButtonColor(true);
+        ChangeProgress();
+        
+        const notiTimer = setTimeout(() => {
+            location.href = '/view/1';
+          }, 1500);
+          return () => clearTimeout(notiTimer);
 
+        
     }
 
     /* 팝업 */
@@ -229,7 +261,7 @@ var Iteminfo = ({ item, userObject }) => {
 
             <Write>
                 <ItemContent>
-                    {item.itemId ? <img src={`/product_img_${item.itemId}.png`} alt={""} onClick={openModal} /> : <img src={`/product_img_3.png`} />}
+                    {item.itemId ? <img src={`/product_img_${item.itemId}.png`} alt={""} /> : <img src={`/product_img_3.png`} />}
                     <TextZone>
                         <label>{label(item.progress!)}</label>
                         <div className="TitleTag">
@@ -245,6 +277,10 @@ var Iteminfo = ({ item, userObject }) => {
                     <Progressbar>
                         <div className="ProgressLabel">인원 달성도</div>
                         <ProgressBar width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} />
+                    </Progressbar>
+                    <Progressbar>
+                        <div className="ProgressLabel">     </div>
+                        <ProgressBarNum width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} Num = {item.targetNum.currentNum} Target = {item.targetNum.maxNum}/>
                     </Progressbar>
                     <Price>
                         <div className="PriceIndex">예상 가격</div>
@@ -274,7 +310,7 @@ var Iteminfo = ({ item, userObject }) => {
                         </div>
 
                     </div>
-                    <img src="/LoveySearch/TrustImg.png" alt="" className="TrustImg" />
+                    <img src="/LoveySearch/TrustImg.png" alt="" className="TrustImg" onClick = {tmpChange} />
                 </Profile>
 
                 <Menu>
@@ -437,10 +473,11 @@ var Iteminfo = ({ item, userObject }) => {
                     <div className="Footer">
                         {
                             userObject?
-                                userObject.userId === 1  ? 
-                                <IteminfoFooterwriter openDobbyModal={openDobbyModal} openModal={openModal} ButtonColor={ButtonColor} />
-                                : 
-                                <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
+
+                            userObject.userId === 1  ? 
+                            <IteminfoFooterwriter openDobbyModal={openDobbyModal} ButtonColor={ButtonColor} Progress = {item.progress} /> 
+                            : 
+                            <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} Progress = {item.progress}  />
                             : null
                         }
                         
@@ -577,7 +614,6 @@ const Progressbar = styled.div`
     vertical-align:middle;
     max-width:360px;
     width:360px;
-    margin-bottom: 33px;
     .ProgressLabel{
         vertical-align:middle;
         width: 100px;

@@ -5,9 +5,12 @@ import BuyingEndModal from "./Modal/BuyingEnd";
 import React, { useEffect } from "react";
 import { useProps } from "@chakra-ui/system";
 import { css } from "@emotion/react";
+import Item from "./Content/Item";
 
 
-var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColor}) => {
+var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColorr, Progress}) => {
+
+
     return(
         <ItemFooter>
    
@@ -21,8 +24,10 @@ var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColor}) => {
                     <label>공유</label>
                 </Share>
                 
-                {ButtonColor == true ? <ResultButtonOn  onClick = {openDobbyModal}>참여 더비 리스트</ResultButtonOn>:<ResultButton>참여 더비 리스트</ResultButton>}
-                <EndButton onClick = {openModal} >공동구매 마감</EndButton>
+
+                {Progress === 3 ? <ResultButtonOn  onClick = {openDobbyModal}>참여 더비 리스트</ResultButtonOn>:<ResultButton >참여 더비 리스트</ResultButton>}
+                
+                {Progress === 3 ? <EndButtonOff >상태 변경하기</EndButtonOff>:<EndButton onClick = {openModal} >공동구매 마감</EndButton>}
                 
             </FooterContent>
                 
@@ -147,6 +152,22 @@ const EndButton = styled.button`
     height:38px;
     background: #FFD15B;
     border: 1px solid #FFD15B;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+
+`
+const EndButtonOff = styled.button`
+    width:116px;
+    height:38px;
+    background: #FFD15B;
+    border: 1px solid  #FFD15B;
     color: #FFFFFF;
     border-radius: 5px;
     font-family: Roboto;
