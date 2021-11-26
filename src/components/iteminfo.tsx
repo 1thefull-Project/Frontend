@@ -184,7 +184,7 @@ var Iteminfo = ({ item, userObject }) => {
 
     }, [isShowingAfter]);
 
-    {/*더비리스트 팝업*/}
+    /*더비리스트 팝업*/
     const [isDobbyShowing, setIsDobbyShowing] = useState(false);
 
     function openDobbyModal(){
@@ -220,6 +220,9 @@ var Iteminfo = ({ item, userObject }) => {
 
                 <div>
                     {isShowingAfter && <AfterFormSubmit closeModalAfter={closeModalAfter} />}
+                </div>
+                <div>
+                    {isDobbyShowing && <DobbyListModal closeModalAfter={closeDobbyModalAfter}/>}
                 </div>
             </div>
 
@@ -435,10 +438,7 @@ var Iteminfo = ({ item, userObject }) => {
                         {
                             userObject?
                                 userObject.userId === 1  ? 
-                                <>
                                 <IteminfoFooterwriter openDobbyModal={openDobbyModal} openModal={openModal} ButtonColor={ButtonColor} />
-                                <div>{isShowing && <DobbyListModal closeModalAfter={closeModalAfter}/>}</div>
-                                </>
                                 : 
                                 <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
                             : null
