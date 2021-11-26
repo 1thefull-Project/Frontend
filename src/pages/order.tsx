@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 */
 export default function Order() {
     
-    //로그인한 사용자 정보 불러오기
+    //로그인한 사용자 정보 api 불러오기
     const [userObject, setUserObject] = useState<any>();
 
     useEffect(() => {
@@ -30,6 +30,7 @@ export default function Order() {
     const [isShowing, setIsShowing] = useState(false);
     const [isShowing2, setIsShowing2] = useState(false);
 
+    //공동구매에 참여한 더비 목록 api 불러오기
     async function openModal(){
         setIsShowing(true);
         await axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + '/dobbyIn/' + userObject.userId + '?itemId=1', { withCredentials: true }).then((res: AxiosResponse) => {
@@ -38,6 +39,7 @@ export default function Order() {
             }
         })
 
+        //사용자가 입력한 폼 정보 전송
         axios.post( process.env.NEXT_PUBLIC_ITEM_LIST as string + '/submit', {
             itemId: 1,
             color: "베이지",
@@ -46,13 +48,9 @@ export default function Order() {
             userId: userObject.userId
         })
             .then(function () {
-                // response
-                // console.log(res.data.result);
             }).catch(function (err: any) {
-                // 오류발생시 실행
                 console.log(err);
             }).then(function () {
-                // 항상 실행
             });
     };
     

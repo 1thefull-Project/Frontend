@@ -6,6 +6,7 @@ import axios, {AxiosResponse} from 'axios';
 export default function Alarm(){
     const [userObject, setUserObject] = useState<any>();
     
+    //로그인한 사용자 정보 api 불러오기
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
             if (res.data) {

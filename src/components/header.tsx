@@ -6,16 +6,17 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <Box>
+                {/*메뉴로 이동*/}
                 <Link href ="/menu">
                     <a className="menu" > <Image src="/button/btn_hambugerMenu.png" alt="" width={24} height={24} /> </a>
                 </Link>
+                {/*홈으로 이동*/}
                 <Link href="/">
                     <a className="logo"><Image src="/logo/logo_imgText.png" alt="" width={124} height={35} /></a>
                 </Link>
                 <RightElements>
-                    <Link href="/order">
                         <a className="search"><Image src="/button/btn_search.png" alt="" width={24} height={24} /></a>
-                    </Link>
+                    {/*알림화면 이동*/}
                     <Link href="/alarm">
                         <a><Image src="/button/btn_bell.png" alt="" width={24} height={24} /></a>
                     </Link>

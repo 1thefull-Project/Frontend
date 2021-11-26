@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 import Image from 'next/image';
 
 interface FilterIcon {
-    state: number;  // 비활성화: 0, 활성화: 1
+    state: number;  // 버튼 비활성화: 0, 활성화: 1
     name: string;
 }
 
 export const Filter: React.FC<FilterIcon> = ({state, name}) => {
     return (
+        //버튼 활성화 여부에 따라 박스 이미지와 글씨 색이 변화함
         <Fil>
             <div className="filt-img">
                 <Image src={state===0 ? "/main_filter_deactive.png" : "/main_filter_active.png"} alt="" width={71} height={26}></Image>

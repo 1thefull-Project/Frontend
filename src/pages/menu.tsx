@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MenuItem } from "../components/MenuItem";
 
-//상품 정보 불러오기
+//상품 정보 api 불러오기
 export const getServerSideProps: GetServerSideProps = async () => {
     const item = await axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string);
     return {
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export default function Menu({item}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
-    //로그인한 사용자 정보 불러오기
+    //로그인한 사용자 정보 api 불러오기
     const [userObject, setUserObject] = useState<any>();
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_GET_USER as string, { withCredentials: true }).then((res: AxiosResponse) => {
@@ -27,6 +27,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
         })
     }, [])
     
+    //사용자 정보 유무에 따라 로그인/로그아웃 링크로 변화
     const clickLogin = () => {
         userObject ? location.href = process.env.NEXT_PUBLIC_LOGOUT_GOOGLE as string : location.href = '/login' }
 
