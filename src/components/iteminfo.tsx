@@ -1046,5 +1046,5 @@ const ProfileBox = styled.div`
 
     margin-top : 16px;
     margin-left : 16px;
-    z-index : 0;
+    z-index : -1;
 `;
