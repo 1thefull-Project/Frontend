@@ -7,6 +7,7 @@ var NoticeModal = ({itemId, openModalNotice, closeModalNotice, writeNotice}) => 
 
     const [NoticeContent, setNoticeContent] = useState("");
 
+    //공지사항에 입력한 정보 전송
     function onClickListener() {        
         closeModalNotice;
         axios.post( process.env.NEXT_PUBLIC_ITEM_LIST as string + '/notice', {
@@ -14,17 +15,17 @@ var NoticeModal = ({itemId, openModalNotice, closeModalNotice, writeNotice}) => 
             notice : NoticeContent
         })
             .then(function () {
-                // response
-                // console.log(res.data.result);
+               
             }).catch(function (err: any) {
-                // 오류발생시 실행
+                
                 console.log(err);
             }).then(function () {
-                // 항상 실행
+                
                 router.reload();
             });             
     }
 
+    //공지사항에 작성한 값을 받아옴
     const onNoticeHandler = (event : any) => {
         setNoticeContent(event.currentTarget.value);
     }

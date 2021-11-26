@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+//결제중임을 알리는 팝업
 var OrderModal = () => {
     return(
         <div>

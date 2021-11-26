@@ -11,6 +11,7 @@ interface IAlarmCardProps {
 export const AlarmCard: React.FC<IAlarmCardProps> = ({ content, isLobby, itemId }) => {   
 
   return (
+    //알림을 클릭하면 해당 화면으로 이동
     <Box onClick= {() => location.href = '/view/' + itemId} >
       <div style = {{marginLeft : '16px'}}>
         { isLobby ?

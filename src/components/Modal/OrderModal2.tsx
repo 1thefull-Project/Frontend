@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+//결제가 완료되었음을 알리는 팝업
 var OrderModal2 = () => {
     return(
         <div>

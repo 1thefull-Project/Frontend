@@ -15,7 +15,8 @@ import ItemList from "../components/Content/ItemList";
 import axios, { AxiosResponse } from "axios";
 
 export default function Home() {
- 
+
+  //메인 화면에 보여줄 아이템 배열 api를 받아옴 
     const [items, setItems] = useState([]);
     useEffect(() => {  
         axios.get(process.env.NEXT_PUBLIC_ALL_ITEM as string, { withCredentials: true }).then((res: AxiosResponse) => {
@@ -25,6 +26,7 @@ export default function Home() {
         }) 
       }, [])
 
+    //카테고리 슬라이더 세팅
     var settings1 = {
         dots: false,
         infinite: false,
@@ -34,7 +36,8 @@ export default function Home() {
         cssEase: 'ease',
       };
 
-      var settings2 = {    //필터 슬라이더 세팅
+      //필터 슬라이더 세팅
+      var settings2 = {
         dots: false,
         infinite: false,
         slidesToShow: 4.5,
@@ -60,6 +63,7 @@ export default function Home() {
                 </Slider>
                 <Image src="/category/main_slider.png" alt="" width={88} height={12} />
             </Section1>
+            {/* 필터 슬라이더 */}
             <div>
             <FilterArea>
                     <Slider {...settings2}>
@@ -70,25 +74,26 @@ export default function Home() {
                         <Filter state={0} name="최신순"/>
                     </Slider>
             </FilterArea>
-                <ItemArea>
-                    {items.map((items) => (<Item 
-                                                itemId = {items.itemId} 
-                                                title = {items.title} 
-                                                progress = {items.progress} 
-                                                tag = {items.tag}
-                                                key = {items.itemId}
-                                                />)).slice(0,6)}
-
-                </ItemArea>              
-                <More>더보기<AiOutlineDown/></More>
-                <MovetoStory href ="/#">
-                    <img src = "/componentImg/product_img_story.png"/>
-                </MovetoStory>
+            {/* 카테고리 슬라이더 */}
+            <ItemArea>
+                {items.map((items) => (<Item 
+                    itemId = {items.itemId} 
+                    title = {items.title} 
+                    progress = {items.progress} 
+                    tag = {items.tag}
+                    key = {items.itemId}
+                  />)).slice(0,6)}  
+                </ItemArea>  
+            {/* 더보기 버튼 */}                
+            <More>더보기<AiOutlineDown/></More>
+            {/* TOP 버튼 */}
+            <MovetoStory href ="/#">
+                <img src = "/componentImg/product_img_story.png"/>
+            </MovetoStory>
             </div>  
+            {/* 글쓰기 버튼 */}
             <Fixbutton>
-                <Link href="/write">
-                    <a><img src = "componentImg/btn_create.png"/></a>
-                </Link>
+                <a><img src = "componentImg/btn_create.png"/></a>
              </Fixbutton>
         </Main>
     );
