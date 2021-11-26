@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 700;
+    src: local('NotoSansKR-Bold'), 
+        url('/NotoSansKR/NotoSansKR-Bold.woff2') format('woff2'),
+        url('/NotoSansKR/NotoSansKR-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 400;
+    src: local('NotoSansKR-Regular'), 
+        url('/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2'),
+        url('/NotoSansKR/NotoSansKR-Regular.ttf') format('truetype');
+}

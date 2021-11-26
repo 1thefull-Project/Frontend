@@ -39,7 +39,7 @@ const Modal = styled.div`
      width: 100%;
      height: 50;
  
-     font-family: Roboto;
+     font-family: NotoSansKR;
      font-size: 16px;
      font-style: normal;
      font-weight: 700;
@@ -73,7 +73,7 @@ const Modal = styled.div`
          margin-bottom:24px;
 
         
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -95,7 +95,7 @@ const Modal = styled.div`
          
         text-align:center;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -111,7 +111,7 @@ const Modal = styled.div`
      }
      .SubText{
         
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 10px;
         font-style: normal;
         font-weight: 500;
@@ -129,7 +129,7 @@ const Modal = styled.div`
         border-radius: 17px;
         
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;

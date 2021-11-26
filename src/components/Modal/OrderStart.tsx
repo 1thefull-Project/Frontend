@@ -38,7 +38,7 @@ export default OrderStart
      width: 100%;
      height: 50;
  
-     font-family: Roboto;
+     font-family: NotoSansKR;
      font-size: 16px;
      font-style: normal;
      font-weight: 700;
@@ -71,7 +71,7 @@ export default OrderStart
          margin-top:22px;
          margin-bottom:26.48px;
 
-         font-family: Roboto;
+         font-family: NotoSansKR;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -90,7 +90,7 @@ export default OrderStart
         text-align:centere;
 
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -111,7 +111,7 @@ export default OrderStart
         border-radius: 17px;
         
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;

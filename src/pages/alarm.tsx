@@ -42,7 +42,7 @@ const Section1 = styled.section`
         margin-top: 20px;
     }
     
-    font-family : Roboto;
+    font-family : NotoSansKR;
     font-style : normal;
     font-weight : normal;
     font-size : 11px;
@@ -57,7 +57,7 @@ const Title = styled.div`
     margin-left : 19px;
     margin-bottom : 16px;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;

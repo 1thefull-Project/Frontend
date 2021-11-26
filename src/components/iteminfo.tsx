@@ -498,7 +498,7 @@ var Iteminfo = ({ item, userObject }) => {
 export default Iteminfo
 const Write = styled.div`
   
-    font-family: 'Roboto', sans-serif;
+    font-family: 'NotoSansKR', sans-serif;
     margin-right:auto;
     margin-left:auto;
     justify-content:center;
@@ -550,7 +550,7 @@ const TextZone = styled.div`
         margin-right: 12px;
         text-align: center;
         line-height:16px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 5px;
@@ -566,7 +566,7 @@ const TextZone = styled.div`
     span{
         display:inline-block;
         width:230px;
-        font-family: 'Roboto';
+        font-family: 'NotoSansKR';
         font-size: 15px;
         font-style: normal;
         font-weight: bold;
@@ -577,7 +577,7 @@ const TextZone = styled.div`
     }
     .TitleTag{
         margin-left:12px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 10px;
         font-style: normal;
         font-weight: 500;
@@ -586,7 +586,7 @@ const TextZone = styled.div`
         text-align: left;
     .TitleTag2{
         margin-left:12px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 7px;
         font-style: normal;
         font-weight: 500;
@@ -620,7 +620,7 @@ const Progressbar = styled.div`
         width: 100px;
         margin-right: 7px;
         margin-left:16px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -638,7 +638,7 @@ const Price = styled.div`
     }
     .PriceIndex{
         
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -649,7 +649,7 @@ const Price = styled.div`
     .EachPrice{
         
         color: #686867;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 11px;
         font-style: normal;
         font-weight: 500;
@@ -662,7 +662,7 @@ const Price = styled.div`
         margin-left: 13px;
         
         vertical-align:middle;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 18px;
         font-style: normal;
         font-weight: 500;
@@ -673,7 +673,7 @@ const Price = styled.div`
     .MaxPrice{
         margin-left: 23px;
         vertical-align:middle;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 18px;
         font-style: normal;
         font-weight: 500;
@@ -684,7 +684,7 @@ const Price = styled.div`
     }
     .DeliPrice{
         margin-left:20px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 11px;
         font-style: normal;
         font-weight: 500;
@@ -719,7 +719,7 @@ const Profile = styled.div`
         margin-right:35px;
     }
     .LovbeeName{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -730,7 +730,7 @@ const Profile = styled.div`
     }
     .MyPageLink{
         padding-top:6px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 13px;
         font-style: normal;
         font-weight: 400;
@@ -764,7 +764,7 @@ const Profile = styled.div`
     }
     label{
         margin-top:3px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -797,7 +797,7 @@ const Menu = styled.div`
         text-align:center;
         height:40px;
         display:flex;
-        font-family: Roboto;
+        font-family: NotoSansKR;
    
         font-style: normal;
         font-weight: 500;
@@ -856,7 +856,7 @@ const MenuTitle = styled.div`
         width:328px;
         border-radius: 12px;
         border: 1px solid #FFD15B;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 13px;
         font-style: normal;
         font-weight: 400;
@@ -866,7 +866,7 @@ const MenuTitle = styled.div`
         .MainText{
             
             margin-bottom:7px;
-            font-family: Roboto;
+            font-family: NotoSansKR;
             font-size: 13px;
             font-style: normal;
             font-weight: bold;
@@ -878,7 +878,7 @@ const MenuTitle = styled.div`
         .SubText{
             margin-left:30px;
             margin-bottom:7.87px;
-            font-family: Roboto;
+            font-family: NotoSansKR;
             font-size: 13px;
             font-style: normal;
             font-weight: 400;
@@ -897,7 +897,7 @@ const MenuTitle = styled.div`
 `
 const ItemInfomation = styled.div`
     text-align:center;
-    font-family: Roboto;
+    font-family: NotoSansKR;
    
     font-style: normal;
     font-weight: 500;
@@ -909,7 +909,7 @@ const ItemInfomation = styled.div`
         img{
             width:360px;
         }
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 13px;
         font-style: normal;
         font-weight: 500;
@@ -1000,9 +1000,9 @@ const NoticeCard = styled.div`
     box-sizing: border-box;
     border-radius: 12px;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     margin-bottom:7px;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 13px;
     font-style: normal;
     font-weight: bold;
@@ -1016,7 +1016,7 @@ const UserName = styled.div`
     height : 16px;
     margin-left : 8px;
     
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -1030,7 +1030,7 @@ const Content = styled.div`
     margin-top : 16px;
     margin-left : 39px;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;

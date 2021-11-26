@@ -35,7 +35,7 @@ export default BuyingEnd
      width: 100%;
      height: 50;
  
-     font-family: Roboto;
+     font-family: NotoSansKR;
      font-size: 16px;
      font-style: normal;
      font-weight: 700;
@@ -68,7 +68,7 @@ export default BuyingEnd
          margin-top:22px;
          margin-bottom:26.48px;
 
-         font-family: Roboto;
+         font-family: NotoSansKR;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -87,7 +87,7 @@ export default BuyingEnd
         text-align:centere;
 
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -107,7 +107,7 @@ export default BuyingEnd
         border-radius: 17px;
         
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;

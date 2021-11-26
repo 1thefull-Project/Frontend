@@ -27,11 +27,11 @@ const Layout = styled.div`
     margin-right: 11px;
 
     .tag{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
-        font-size: 10px;
-        line-height: 10px;
+        font-size: 11px;
+        line-height: 15px;
         
         display: flex;
         align-items: center;
@@ -41,11 +41,11 @@ const Layout = styled.div`
     }
 
     .name{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 11px;
-        line-height: 8px;
+        line-height: 17px;
 
         display: flex;
         align-items: center;

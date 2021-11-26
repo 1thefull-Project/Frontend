@@ -170,7 +170,7 @@ const Fixbutton = styled.div `
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto;
+    font-family: NotoSansKR;
   }
 
   * {

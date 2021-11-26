@@ -21,10 +21,10 @@ const Fil = styled.div`
     position: relative;
     .filt-text{
         position: absolute;
-        top: 43%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 400;
         font-size: 10px;
@@ -36,10 +36,10 @@ const Fil = styled.div`
         top: 43%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 400;
-        font-size: 10px;
+        font-size: 11px;
         line-height: 13px;
         color: #686867;
     }

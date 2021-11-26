@@ -44,7 +44,7 @@ export default IteminfoFooterwriter
 const ItemFooter = styled.div`
    
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     margin-right:auto;
     margin-left:auto;
     display:block;
@@ -114,7 +114,7 @@ const ResultButton = styled.button`
     border-radius: 5px;
     margin-right: 8px;
     border: 1px solid #C4C4C4;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 13px;
     font-style: normal;
     font-weight: 900;
@@ -135,7 +135,7 @@ const ResultButtonOn = styled.button`
     border-radius: 5px;
     margin-right: 8px;
     border: 1px solid #FFD15B;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 13px;
     font-style: normal;
     font-weight: 900;
@@ -154,7 +154,7 @@ const EndButton = styled.button`
     border: 1px solid #FFD15B;
     color: #FFFFFF;
     border-radius: 5px;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 14px;
     font-style: normal;
     font-weight: 900;
@@ -170,7 +170,7 @@ const EndButtonOff = styled.button`
     border: 1px solid  #FFD15B;
     color: #FFFFFF;
     border-radius: 5px;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 14px;
     font-style: normal;
     font-weight: 900;

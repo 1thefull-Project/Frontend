@@ -39,7 +39,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
                 <p className="headline">마이공구비</p>
                 <div className="profile-box" style={{border: '1px solid #FFD15B'}}>
                     <div className="user">
-                        <img src={userObject.userId === 1 ? "/profile_wonderful.png" : "/profile_wonderwomen.png"}alt="" width={44} height={44} style={{marginBottom: '13px'}} />
+                        <img src={userObject.userId === 1 ? "/profile_wonderful.png" : "/profile_wonderwomen.png"}alt="" width={44} height={44} />
                         <div style={{marginLeft: '19px'}}>
                             <p className="user-name">{userObject.name}</p>
                             <div className="user-info">
@@ -97,7 +97,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
             <p className="headline">마이공구비</p>
             <div className="profile-box" style={{border: '1px solid #E5E5E5'}}>
                 <div className="user">
-                    <img src="/profile_default.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
+                    <img src="/profile_default.png" alt="" width={44} height={44} />
                     <div style={{marginLeft: '19px'}}>
                         <p className="user-name">로그인 해주세요</p>
                         <div className="user-info">
@@ -172,7 +172,7 @@ const Layout = styled.div`
     padding-top: 21px;
 
     .headline{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
@@ -184,10 +184,11 @@ const Layout = styled.div`
         padding-left: 3px;
         padding-right: 3px;
         margin-right: 144px;
+        margin-bottom: 16px;
     }
 
     .headline2{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
@@ -198,11 +199,11 @@ const Layout = styled.div`
 
         padding-left: 3px;
         padding-right: 3px;
-        margin-right: 181px;
+        margin-right: 171px;
     }
 
     .number{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
@@ -215,7 +216,7 @@ const Layout = styled.div`
     }
 
     .more{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
@@ -250,10 +251,11 @@ const Section1 = styled.div`
         display: flex;
         align-items: center;
         justify-content:space-around;
-    }
+        margin-bottom: 12px;
+    }   
 
     .user-name{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 15px;
@@ -266,7 +268,7 @@ const Section1 = styled.div`
     }
 
     .user-info{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 500;
         font-size: 13px;
@@ -291,7 +293,7 @@ const Section1 = styled.div`
         justify-content: center;
 
         p{
-            font-family: Roboto;
+            font-family: NotoSansKR;
             font-style: normal;
             font-weight: bold;
             font-size: 14px;
@@ -334,15 +336,15 @@ const Box1 = styled.div`
     text-align: center;
     justify-content: center;
 
-    margin-top: 8px;
+    margin-top: 18px;
     flex-direction: column;
 
     p{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
-        line-height: 8px;
+        line-height: 16px;
         display: flex;
 
         color: #E3E3E3;
@@ -399,7 +401,7 @@ const Section4 = styled.div`
     padding-left: 22px;
 
     p{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;

@@ -88,7 +88,7 @@ const Tag = styled.div `
     margin-bottom:3px;
     
     label{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 8px;
@@ -105,7 +105,7 @@ const Tittle = styled.div `
     width:153px;
     label{
         
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;

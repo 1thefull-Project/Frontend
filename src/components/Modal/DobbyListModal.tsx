@@ -155,7 +155,7 @@ const Modal = styled.div`
     border: 1px solid #F1F1F1;
     box-sizing: border-box;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -175,7 +175,7 @@ const Content = styled.div`
     border: 1px solid #F1F1F1;
     box-sizing: border-box;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -202,7 +202,7 @@ const Content = styled.div`
             left: 165px;
             top: 529.5px;
 
-            font-family: Roboto;
+            font-family: NotoSansKR;
             font-style: normal;
             font-weight: bold;
             font-size: 14px;

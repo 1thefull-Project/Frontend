@@ -35,7 +35,7 @@ const Title = styled.div`
     border: 1px solid #F1F1F1;
     box-sizing: border-box;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;

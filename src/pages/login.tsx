@@ -33,24 +33,25 @@ const Section1 = styled.section`
         margin-left:16px;
     }
     p{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
-        line-height: 13px;
+        line-height: 16px;
         text-align: left;   
         display: flex;
         color: #000000;
     }
 `;
 const Heading = styled.h4`
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: Bold;
     font-size: 22px;
     line-height: 29px;
     display: flex;
     color: #686867;
+    margin-bottom: 10px;
 `;
 const LoginButton = styled.button`
     display: flex;
@@ -67,10 +68,10 @@ const LoginButton = styled.button`
     p{
         margin-left: 5px;
         margin-top: 4px;
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
+        font-weight: bold;
+        font-size: 15px;
         line-height: 19px;
         color: rgba(104, 104, 103, 0.82);
     }

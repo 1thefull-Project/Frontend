@@ -167,13 +167,13 @@ export default function Order() {
                     </Horizontal>
                     <Bar style={{marginLeft: '-13px'}}/>
                     <Horizontal style={{width: '254px', marginLeft: '19px'}}>
-                        <p className='headline' style={{marginTop: '12px'}}>총 결제 금액</p>
-                        <p className='headline' style={{color: '#7BCFFF'}}>12,900원</p>
+                        <p className='headline' style={{marginTop: '10px'}}>총 결제 금액</p>
+                        <p className='headline' style={{color: '#7BCFFF', marginTop: '6px'}}>12,900원</p>
                     </Horizontal>
                 </BasicBox>
             </Section>
             <p className='under-text'>구매 및 결제대행서비스 이용약관</p>
-            <p className='under-text'>개인정보 제공안내</p>
+            <p className='under-text' style={{marginBottom: '15px'}}>개인정보 제공안내</p>
 
             {/*결제하기 버튼*/}
             <MenuBar>
@@ -203,7 +203,7 @@ const Layout = styled.div`
     text-align: center;
 
     .headline{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
@@ -211,12 +211,12 @@ const Layout = styled.div`
         display: flex;
         align-items: center;
         
-
         color: #686867;
+        margin-bottom: 16px;
     }
 
     .blue-text{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 13px;
@@ -225,7 +225,7 @@ const Layout = styled.div`
     }
 
     .basic-text{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
@@ -235,7 +235,7 @@ const Layout = styled.div`
     }
 
     .mini-text{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 9px;
@@ -245,18 +245,17 @@ const Layout = styled.div`
     }
 
     .under-text{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
-        line-height: 13px;
+        line-height: 15px;
         display: flex;
         align-items: center;
         text-decoration-line: underline;
         color: #686867;
         
         margin-left: 14px;
-    }
 `;
 
 const Box = styled.div`
@@ -298,7 +297,7 @@ const Section = styled.section`
         background: #FED15E;
         border-radius: 5px;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
@@ -334,7 +333,7 @@ const YellowBox = styled.div`
     text-align: center;
     align-items: center;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -358,6 +357,8 @@ const Bar = styled.div`
     width: 319px;
     height: 0px;
     border: 1px solid #EBEBEB;
+
+    margin-top: 12px;
 `;
 
 const MenuBar = styled.div`
@@ -382,7 +383,7 @@ const MenuBar = styled.div`
 
         cursor : pointer;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 900;
         font-size: 14px;

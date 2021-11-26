@@ -25,7 +25,7 @@ export default OrderModal2;
      width: 100%;
      height: 50;
  
-     font-family: Roboto;
+     font-family: NotoSansKR;
      font-size: 16px;
      font-style: normal;
      font-weight: 700;
@@ -58,7 +58,7 @@ export default OrderModal2;
      .Title{
          margin-top:30px;
 
-         font-family: Roboto;
+         font-family: NotoSansKR;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
