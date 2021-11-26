@@ -3,7 +3,7 @@ import { GrShareOption } from "react-icons/gr";
 import {BsHeart} from "react-icons/bs";
 
 
-
+{/*공구 모집 마감 푸터*/}
 var IteminfoFooter = ({SubmitOn,openModalItem,openModalAfter,Progress}) => {
     return(
         <ItemFooter>

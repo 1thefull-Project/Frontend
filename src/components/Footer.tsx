@@ -3,7 +3,7 @@ import {AiOutlineArrowUp } from "react-icons/ai";
 import styled from "@emotion/styled";
 import logo_square from '../../public/logo/logo_square.png';
 
-
+//푸터 컴포넌트 구성
 export default function Footer() {
     return(
       <Box>

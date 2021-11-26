@@ -22,7 +22,7 @@ import router from "next/router";
 import DobbyListModal from "../components/Modal/DobbyListModal";
 import { ProgressBarNum } from "./ProgressBarNum";
 
-
+// db에서 받아온 progress 단어화
 function label(num) {
     if (num === 0) {
         return "수요조사 진행"
@@ -47,30 +47,24 @@ function label(num) {
     }
 }
 
-
+//아이템 상세페이지 그리는 컴포넌트
 var Iteminfo = ({ item, userObject }) => {
     console.log(item)
     console.log(userObject)
 
-   
- 
-
-
+    //api 호출
     const [ItemData, setItemData] = useState<any>();
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_ITEM_LIST as string + `/${item.itemId}`, { withCredentials: true }).then((res: AxiosResponse) => {
             if (res.data) {
                 console.log(res.data);
                 setItemData(res.data);
-                //console.log('test')
-                //console.log(item);
-                //console.log(userObject);
-                //item.lobbyId === userObject.userId ? console.log(true) : console.log(false);
+
             }
         })
     }, [])
 
-
+    //진행 상태 변경 기능
     const ChangeProgress = () => {
         console.log(item.progress)
          
@@ -81,6 +75,8 @@ var Iteminfo = ({ item, userObject }) => {
             }
         })
     }
+
+    //진행 상태를 되돌리는 기능
     const tmpChange = () => {
         console.log(item.progress)
          
@@ -92,8 +88,7 @@ var Iteminfo = ({ item, userObject }) => {
         })
     }
    
-
-    /*여기서 상태변화 관리 progress ++도 해줘야함 */
+    //정보 갱신을 위한 새로고침
     const [ButtonColor, setButtonColor] = useState(false);
     const ChangeColor = () => {
         setIsShowingOrder(false);
@@ -108,7 +103,7 @@ var Iteminfo = ({ item, userObject }) => {
         
     }
 
-    /* 팝업 */
+    /* 보여주기 모달 */
     const [isShowing, setIsShowing] = useState(false);
     const openModal = () => {
         setIsShowing(true);
@@ -121,7 +116,7 @@ var Iteminfo = ({ item, userObject }) => {
     }, [isShowing]);
 
 
-    /* 주문진행하기 모달 하드코딩 시러 */
+    /* 주문진행하기 모달 */
     const [isShowingOrder, setIsShowingOrder] = useState(false);
     const openModalOrder = () => {
         setIsShowing(false);
@@ -142,7 +137,7 @@ var Iteminfo = ({ item, userObject }) => {
         }
     }, [isShowingOrder]);
 
-    /* 주문진행하기 모달 하드코딩 시러 */
+    /* 주문 마감 모달 */
     const [isShowingEnd, setIsShowingEnd] = useState(false);
     const openModalEnd = () => {
         setIsShowing(false);
@@ -161,22 +156,7 @@ var Iteminfo = ({ item, userObject }) => {
     function openModalNotice(){
         setIsShowing(false);
         setIsShowingNotice(true);
-/*
-        axios.post( process.env.NEXT_PUBLIC_ITEM_LIST as string + '/notice', {
-            itemId : ItemData.itemId,
-            notice : "test"
-        })
-            .then(function () {
-                // response
-                // console.log(res.data.result);
-            }).catch(function (err: any) {
-                // 오류발생시 실행
-                console.log(err);
-            }).then(function () {
-                // 항상 실행
-                router.reload();
-            });    
-            */    
+
     };
     const closeModalNotice = () => {
         setIsShowingNotice(false);
@@ -189,7 +169,7 @@ var Iteminfo = ({ item, userObject }) => {
     }, [isShowingNotice]);
 
 
-    /* 아이템 주문 팝업 */
+    /* 공구조사 팝업 */
     const [SubmitOn, setSubmitOn] = useState(false);
     const [isShowingItem, setIsShowingItem] = useState(false);
     const openModalItem = () => {
@@ -204,7 +184,7 @@ var Iteminfo = ({ item, userObject }) => {
 
     }, [isShowingItem]);
 
-    /* 아이템 주문 팝업 */
+    /*  */
     const [isShowingAfter, setIsShowingAfter] = useState(false);
     const openModalAfter = () => {
         setIsShowingAfter(true);
@@ -231,6 +211,7 @@ var Iteminfo = ({ item, userObject }) => {
 
     return (
         <div>
+            {/* 모달창을 사전에 다 띄우고 조건에 따라 보여지게 출력 */}
             <div style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <div>
                     {isShowingNotice && <NoticeModal itemId={ItemData.itemId} openModalNotice={openModalNotice} closeModalNotice={closeModalNotice} writeNotice={writeNotice} />}
@@ -261,6 +242,7 @@ var Iteminfo = ({ item, userObject }) => {
 
 
             <Write>
+                {/*아이템 정보 출력*/}
                 <ItemContent>
                     {item.itemId ? <img src={`/product_img_${item.itemId}.png`} alt={""} /> : <img src={`/product_img_3.png`} />}
                     <TextZone>
@@ -274,7 +256,8 @@ var Iteminfo = ({ item, userObject }) => {
                         </div>
 
                     </TextZone>
-
+                    
+                    {/* 진행바 표시 */}
                     <Progressbar>
                         <div className="ProgressLabel">인원 달성도</div>
                         <ProgressBar width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} />
@@ -283,6 +266,7 @@ var Iteminfo = ({ item, userObject }) => {
                         <div className="ProgressLabel">     </div>
                         <ProgressBarNum width={246} percent={item.targetNum.currentNum! / item.targetNum.maxNum!} Num = {item.targetNum.currentNum} Target = {item.targetNum.maxNum}/>
                     </Progressbar>
+                    {/*금액표시*/}
                     <Price>
                         <div className="PriceIndex">예상 가격</div>
                         <div className="EstimatePrice">
@@ -299,6 +283,7 @@ var Iteminfo = ({ item, userObject }) => {
                     </Price>
 
                 </ItemContent>
+                {/*프로필 표시*/}
                 <Profile>
                     <img src="/detailpage/ProfilePhoto.png" alt="" />
                     <div className="Lovbee">
@@ -313,7 +298,7 @@ var Iteminfo = ({ item, userObject }) => {
                     </div>
                     <img src="/LoveySearch/TrustImg.png" alt="" className="TrustImg" onClick = {tmpChange} />
                 </Profile>
-
+                {/*메뉴바 출력*/}
                 <Menu>
                     <div className="DircetMove">
                         <div className="DirectButton">공지사항</div>
@@ -322,7 +307,7 @@ var Iteminfo = ({ item, userObject }) => {
                         <div className="DirectButton">정보 조회</div>
                     </div>
                 </Menu>
-
+                {/*아이템 소개글 출력*/}
                 <ContentZone>
                     <Notice>
                         <MenuTitle>
@@ -446,13 +431,13 @@ var Iteminfo = ({ item, userObject }) => {
                             <label>정보 조회</label>
                             <div className="InfomationBox">
                                 · 등록번호<br />
-                                <div style={{ marginLeft: "37px", color: "#666666" }}>828-09-011227<br /></div>
+                                <div style={{ marginLeft: "37px", color: "#666666", marginBottom: "14.87px", marginTop:"7px"}}>828-09-011227<br /></div>
                                 · 상호 및 성명<br />
-                                <div style={{ marginLeft: "37px", color: "#666666" }}>(주)제로나우리 | 박현운<br /></div>
+                                <div style={{ marginLeft: "37px", color: "#666666", marginBottom: "14.87px", marginTop:"7px" }}>(주)제로나우리 | 박현운<br /></div>
                                 · 소재지<br />
-                                <div style={{ marginLeft: "37px", color: "#666666" }}>서울특별시 서초구 강남대로 12길 3, B1<br /></div>
+                                <div style={{ marginLeft: "37px", color: "#666666", marginBottom: "14.87px", marginTop:"7px" }}>서울특별시 서초구 강남대로 12길 3, B1<br /></div>
                                 · 업태 및 종목<br />
-                                <div style={{ marginLeft: "37px", color: "#666666" }}>도,소매업 | 전자상거래(의류)</div>
+                                <div style={{ marginLeft: "37px", color: "#666666",marginTop:"7px" }}>도,소매업 | 전자상거래(의류)</div>
                             </div>
 
                             <div className="InfomationButton">
@@ -470,8 +455,9 @@ var Iteminfo = ({ item, userObject }) => {
                     <NoticeImg>
                         <img src="/componentImg/SellNotice.png" />
                     </NoticeImg>
-
+                    {/*아이템 하단 네비게이션 바 출력*/}            
                     <div className="Footer">
+                        {/*조건에 따라 다르게 출력됨*/}
                         {
                             userObject?
 
@@ -807,7 +793,7 @@ const Menu = styled.div`
         
     }
     .DirectButton{
-       
+        font-size:13px;
         display:block;
         text-align:center;
         padding-top:12px;
@@ -941,10 +927,12 @@ const Comment = styled.div`
 const SellerInfomation = styled.div`
     text-align:left;
     .InfomationBox{
+        font-size:13px;
         padding-top:17px;
         padding-bottom:17px;
         padding-left:14px;
         margin-top:15px;
+        
         text-align:left;
         width:328px;
         border-radius: 12px;
@@ -958,6 +946,8 @@ const SellerInfomation = styled.div`
     }
     
     .SellerView{
+        font-size:14px;
+        font-weight:bold;
         width: 150px;
         margin-left:6px;
         border-radius: 5px;
@@ -966,6 +956,8 @@ const SellerInfomation = styled.div`
         color: #FFBB0D;
     }
     .LoveyView {
+        font-size:14px;
+        font-weight:bold;
         width: 150px;
         margin-left:16px;
         border-radius: 5px;
@@ -974,6 +966,7 @@ const SellerInfomation = styled.div`
         color: #FFFFFF;
     }
     .NumberView{
+        font-weight:bold;
         width:316px;
         margin-left:6px;
         border-radius: 5px;
@@ -999,7 +992,6 @@ const NoticeCard = styled.div`
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 12px;
-
     font-family: NotoSansKR;
     margin-bottom:7px;
     font-family: NotoSansKR;
@@ -1029,7 +1021,6 @@ const UserName = styled.div`
 const Content = styled.div`
     margin-top : 16px;
     margin-left : 39px;
-
     font-family: NotoSansKR;
     font-style: normal;
     font-weight: 500;
@@ -1043,7 +1034,6 @@ const Content = styled.div`
 const ProfileBox = styled.div`
     display : flex;
     flex-direction : row;
-
     margin-top : 16px;
     margin-left : 16px;
     z-index : -1;

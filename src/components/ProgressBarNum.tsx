@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-
+{/*progress바 숫자 표시*/}
 export var ProgressBarNum = ({ width, percent, Num, Target }) => {
 
     const [value, setValue] = React.useState(0);

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from "axios";
 import Iteminfo from '../../components/iteminfo';
 import { GetServerSideProps } from 'next';
-
+{/*서버사이드 랜더링*/}
 export async function getServerSideProps(context) {
   const itemId = context.params.itemId;
   const apiUrl = process.env.NEXT_PUBLIC_ITEM_LIST as String + `/${itemId}`;
