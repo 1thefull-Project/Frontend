@@ -7,7 +7,7 @@ import { useProps } from "@chakra-ui/system";
 import { css } from "@emotion/react";
 
 
-var IteminfoFooterwriter = ({openModal ,ButtonColor}) => {
+var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColor}) => {
     return(
         <ItemFooter>
    
@@ -21,7 +21,7 @@ var IteminfoFooterwriter = ({openModal ,ButtonColor}) => {
                     <label>공유</label>
                 </Share>
                 
-                {ButtonColor == true ? <ResultButtonOn>참여 더비 리스트</ResultButtonOn>:<ResultButton >참여 더비 리스트</ResultButton>}
+                {ButtonColor == true ? <ResultButtonOn>참여 더비 리스트</ResultButtonOn>:<ResultButton onClick = {openDobbyModal}>참여 더비 리스트</ResultButton>}
                 <EndButton onClick = {openModal} >공동구매 마감</EndButton>
                 
             </FooterContent>

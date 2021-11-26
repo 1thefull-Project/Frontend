@@ -19,6 +19,7 @@ import { ItemDescription, ItemProps } from "semantic-ui-react";
 import { Center } from "@chakra-ui/layout";
 import Image from "next/image";
 import router from "next/router";
+import DobbyListModal from "../components/Modal/DobbyListModal";
 
 function label(num) {
     if (num === 0) {
@@ -183,7 +184,16 @@ var Iteminfo = ({ item, userObject }) => {
 
     }, [isShowingAfter]);
 
+    {/*더비리스트 팝업*/}
+    const [isDobbyShowing, setIsDobbyShowing] = useState(false);
 
+    function openDobbyModal(){
+        setIsDobbyShowing(true);
+    };
+
+    const closeDobbyModalAfter = () => {
+        setIsDobbyShowing(false);
+    };
 
 
     return (
@@ -424,7 +434,13 @@ var Iteminfo = ({ item, userObject }) => {
                     <div className="Footer">
                         {
                             userObject?
-                            userObject.userId === 1  ? <IteminfoFooterwriter openModal={openModal} ButtonColor={ButtonColor} /> : <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
+                                userObject.userId === 1  ? 
+                                <>
+                                <IteminfoFooterwriter openDobbyModal={openDobbyModal} openModal={openModal} ButtonColor={ButtonColor} />
+                                <div>{isShowing && <DobbyListModal closeModalAfter={closeModalAfter}/>}</div>
+                                </>
+                                : 
+                                <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} />
                             : null
                         }
                         
