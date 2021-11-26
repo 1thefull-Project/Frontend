@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "node_modules/next/dist/bin/next start -p $PORT"
+    "start": "node_modules/next/dist/bin/next start -p $PORT",
+    "now-build": "next build"
   },
   "keywords": [],
   "author": "xilucks <siun0331@gmail.com>",
