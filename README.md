@@ -30,7 +30,9 @@ Typescript, React, Next.js
   </tbody>
 </table>
 
-###실행방법
+### 실행방법
 npm i 및 npm run dev(yarn dev) 후, http://localhost:3000/ 접속
 
-https://frontend-nine-black.vercel.app/
+혹은
+
+https://frontend-nine-black.vercel.app/ 접속
