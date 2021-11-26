@@ -49,8 +49,9 @@ function label(num) {
 
 
 var Iteminfo = ({ item, userObject }) => {
-    // console.log(item)
-    // console.log(userObject)
+    console.log(item)
+    console.log(userObject)
+
    
  
 
@@ -475,7 +476,7 @@ var Iteminfo = ({ item, userObject }) => {
                             userObject?
 
                             userObject.userId === 1  ? 
-                            <IteminfoFooterwriter openDobbyModal={openDobbyModal} ButtonColor={ButtonColor} Progress = {item.progress} /> 
+                            <IteminfoFooterwriter openDobbyModal={openDobbyModal} openModal={openModal} ButtonColor={ButtonColor} Progress = {item.progress} /> 
                             : 
                             <IteminfoFooter SubmitOn={SubmitOn} openModalItem={openModalItem} openModalAfter={openModalAfter} Progress = {item.progress}  />
                             : null

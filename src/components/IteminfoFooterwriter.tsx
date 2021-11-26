@@ -8,7 +8,7 @@ import { css } from "@emotion/react";
 import Item from "./Content/Item";
 
 
-var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColorr, Progress}) => {
+var IteminfoFooterwriter = ({openDobbyModal, openModal ,ButtonColor, Progress}) => {
 
 
     return(
