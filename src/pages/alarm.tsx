@@ -32,6 +32,7 @@ export default function Alarm(){
     );
 }
 const Section1 = styled.section`
+    font-weight:bold;
     width : 360px;
     margin-right :auto;
     margin-left :auto;

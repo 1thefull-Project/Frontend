@@ -11,7 +11,6 @@ import {AiOutlineDown } from "react-icons/ai";
 import Item from '../components/Content/Item';
 import Link from 'next/link';
 import { arrayBuffer } from "stream/consumers";
-import ItemList from "../components/Content/ItemList";
 import axios, { AxiosResponse } from "axios";
 
 export default function Home() {
