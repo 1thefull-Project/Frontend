@@ -32,7 +32,6 @@ export default function Alarm(){
     );
 }
 const Section1 = styled.section`
-    font-weight:bold;
     width : 360px;
     margin-right :auto;
     margin-left :auto;
@@ -45,8 +44,7 @@ const Section1 = styled.section`
     }
     
     font-family : NotoSansKR;
-    font-style : normal;
-    font-weight : normal;
+    font-weight:bold;
     font-size : 11px;
     color : #000000;
 
@@ -60,7 +58,6 @@ const Title = styled.div`
     margin-bottom : 16px;
 
     font-family: NotoSansKR;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 19px;

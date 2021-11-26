@@ -30,7 +30,8 @@ export const AlarmCard: React.FC<IAlarmCardProps> = ({ content, isLobby, itemId 
 }
 
 const Box = styled.div`
-  
+  font-weight:bold;
+  line-height:20px;
   width: 360px;
   height: 115px;
   background : rgba(255, 247, 230, 0.73);
@@ -45,7 +46,7 @@ const Box = styled.div`
 `;
 
 const Message = styled.div`
-  
+
   min-height: 50px;
   width: 254px;
   height : 50px;
