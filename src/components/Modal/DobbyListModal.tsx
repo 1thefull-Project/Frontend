@@ -47,6 +47,12 @@ import { ListElement } from '../Content/ListElement'
                         <>
                             <Slider {...settings1}>
                                 <div>
+                                    <Title style={{width: '32px'}}>번호</Title>
+                                    {dobbyList.dobbyList.map((data, idx) => (
+                                        <Content key = {idx} style={{width: '32px', background: '#F9F9F9'}}>{idx+1}</Content>
+                                    ))}
+                                </div>
+                                <div>
                                     <Title style={{width: '57px'}}>이름</Title>
                                     {dobbyList.dobbyList.map((data, idx) => (
                                         <Content key = {idx} style={{width: '57px'}}>{data.name}</Content>

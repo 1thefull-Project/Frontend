@@ -1,15 +1,13 @@
 // import App from "next/app";
 import 'semantic-ui-css/semantic.min.css'
 import type { AppProps /*, AppContext */ } from 'next/app'
+import { Global } from "@emotion/react";
+import '../styles/Roboto.css';
+import { reset } from "../styles/reset";
 import Header from '../components/header';
 import Footer from '../components/Footer';
 import '../styles/responsive.css';
-import '../styles/text.css';
-import '../styles/globals.css';
-import '../styles/font.css';
-import styled from '@emotion/styled';
 
-import { useState } from 'react';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <Header />
         <div>
+          <Global styles={reset} />
           <Component {...pageProps} />
         </div>
       <Footer />
