@@ -40,7 +40,7 @@ const Modal = styled.div`
     width: 100%;
     height: 50;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -88,7 +88,7 @@ const Modal = styled.div`
         border: 1px solid #C4C4C4;
         color: #C4C4C4;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
@@ -110,7 +110,7 @@ const Modal = styled.div`
         border: 1px solid #FED15E;
         color: #FFFFFF;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
@@ -135,7 +135,7 @@ const Modal = styled.div`
         border: 1px solid #FFD15B;
         color: #FFD15B;
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;

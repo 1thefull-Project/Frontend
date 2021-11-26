@@ -2,7 +2,7 @@
 import 'semantic-ui-css/semantic.min.css'
 import type { AppProps /*, AppContext */ } from 'next/app'
 import { Global } from "@emotion/react";
-import '../styles/Roboto.css';
+import '../styles/NotoSansKR.css';
 import { reset } from "../styles/reset";
 import Header from '../components/header';
 import Footer from '../components/Footer';

@@ -20,7 +20,7 @@ const Box = styled.div`
     height: 61px;
     margin-bottom: 12px;
     p{
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-style: normal;
         font-weight: 400;
         font-size: 9px;

@@ -61,7 +61,7 @@ const Box = styled.div`
   a {
     
     display:block;
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
@@ -78,7 +78,7 @@ const Box = styled.div`
 
 const Infomation = styled.div`
 
-  font-family: Roboto;
+  font-family: NotoSansKR;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -146,7 +146,7 @@ const MakerButton =styled.div`
     
     vertical-align: middle;
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;

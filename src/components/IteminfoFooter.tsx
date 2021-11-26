@@ -32,7 +32,7 @@ export default IteminfoFooter
 const ItemFooter = styled.div`
    
 
-    font-family: Roboto;
+    font-family: NotoSansKR;
     margin-right:auto;
     margin-left:auto;
     display:block;

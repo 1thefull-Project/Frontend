@@ -69,7 +69,7 @@ left: 128.86px;
 width: 100%;
 height: 50;
 
-font-family: Roboto;
+font-family: NotoSansKR;
 font-size: 16px;
 font-style: normal;
 font-weight: 700;
@@ -120,13 +120,13 @@ text-align: center;
 
       option{
          background-color:#FFFFFF;
-         font-family: Roboto;
+         font-family: NotoSansKR;
 
       }
     }
 
     .Title{
-      font-family: Roboto;
+      font-family: NotoSansKR;
       font-size: 16px;
       font-style: normal;
       font-weight: 700;
@@ -142,7 +142,7 @@ text-align: center;
     .subTitle{
        margin-left:27px;
        margin-bottom:9.13px;
-      font-family: Roboto;
+      font-family: NotoSansKR;
       font-size: 15px;
       font-style: normal;
       font-weight: 700;
@@ -161,7 +161,7 @@ text-align: center;
    margin-bottom:15.68px;
    color: #797979;
 
-   font-family: Roboto;
+   font-family: NotoSansKR;
    font-size: 16px;
    font-style: normal;
    font-weight: 700;

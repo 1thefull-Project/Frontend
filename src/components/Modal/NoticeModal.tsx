@@ -68,7 +68,7 @@ export default NoticeModal
      width: 100%;
      height: 50;
  
-     font-family: Roboto;
+     font-family: NotoSansKR;
      font-size: 16px;
      font-style: normal;
      font-weight: 700;
@@ -102,7 +102,7 @@ export default NoticeModal
          margin-top:19.75px;
          margin-bottom:11.17px;
 
-         font-family: Roboto;
+         font-family: NotoSansKR;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -121,7 +121,7 @@ export default NoticeModal
         text-align:centere;
 
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
@@ -149,7 +149,7 @@ export default NoticeModal
         border-radius: 17px;
         
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
@@ -166,7 +166,7 @@ export default NoticeModal
         border-radius: 17px;
         
 
-        font-family: Roboto;
+        font-family: NotoSansKR;
         font-size: 14px;
         font-style: normal;
         font-weight: 700;

@@ -135,7 +135,7 @@ export const reset = css`
     box-sizing: border-box;
   }
   html {
-    font-family: 'Roboto', 'sans-serif' !important;
+    font-family: 'NotoSansKR', 'sans-serif' !important;
     background-color: #FFFFFF;
   }
   a {
