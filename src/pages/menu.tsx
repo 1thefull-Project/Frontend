@@ -39,7 +39,7 @@ export default function Menu({item}: InferGetServerSidePropsType<typeof getServe
                 <p className="headline">마이공구비</p>
                 <div className="profile-box" style={{border: '1px solid #FFD15B'}}>
                     <div className="user">
-                        <img src="/profile_wonderful.png" alt="" width={44} height={44} style={{marginBottom: '13px'}} />
+                        <img src={userObject.userId === 1 ? "/profile_wonderful.png" : "/profile_wonderwomen.png"}alt="" width={44} height={44} style={{marginBottom: '13px'}} />
                         <div style={{marginLeft: '19px'}}>
                             <p className="user-name">{userObject.name}</p>
                             <div className="user-info">

@@ -22,6 +22,7 @@ export default function Alarm(){
                     { userObject ?
                     <>          
                     <AlarmList data={userObject}/>
+                    <div style={{height: '200px'}}/>
                     </>
                     : null
                     }
